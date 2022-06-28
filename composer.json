@@ -6,11 +6,20 @@
     "authors": [
         {
             "name": "Christian Collis",
-            "email": ""
+            "email": "collisc@my.lanecc.edu"
+        },
+        {
+            "name": "William Todd",
+            "email": "toddw@my.lanecc.edu"
         }
     ],
     "require": {
         "ocdladefense/lib-salesforce-rest-api":"~3.0",
         "ocdladefense/lib-salesforce":"~1.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
     }
 }

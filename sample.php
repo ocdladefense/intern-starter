@@ -3,12 +3,12 @@
 
 use Salesforce\RestApiRequest;
 use Salesforce\OAuthRequest;
-use Salesforce\RestApiRequest;
+use Salesforce\RestApiResponse;
 use Salesforce\OAuth;
 
 // These are really connected applications
 $oauth_config = array(
-	"ocdla-sandbox-2.0" => array(
+	"ocdla-sandbox" => array(
 		"default" => true,
 		"sandbox" => true, // Might be used to determine domain for urls
 		"client_id" => "3MVG9Fy_1ZngbXqO6ZyUdcmUe1ZwB2D7S.yI4FRa1f6ZAi29qwAecOQvkCkiQVbfDAi8LLwzOCzz4CrJxVqrm",
@@ -45,22 +45,23 @@ function loadApi() {
     // If a OAuth flow is set on the route get that flow, and get the
     // access token that is stored in at the index of the flow for the connected app.
     // Refresh token does not work with the username password flow.
-    $config = get_oauth_config($value);
+
+    //$config = get_oauth_config($value);
     $flow = "usernamepassword";
 
     $httpMessage = OAuth::start($config, $flow);
 
-    $oauthResp = $httpMessage->authorize();
+    $Resp = $httpMessage->authorize();
 
-    if(!$oauthResp->isSuccess()) throw new OAuthException($oauthResp->getErrorMessage());
+    if(!$Resp->isSuccess()) throw new OAuthException($Resp->getErrorMessage());
 
 
     // $accessToken = Session::get($config->getName(), $flow, "access_token");
     // $instanceUrl = Session::get($config->getName(), $flow, "instance_url");
-    $instanceUrl = cache_get("instance_url");
-    $accessToken = cache_get("access_token");
+    //$instanceUrl = cache_get("instance_url");
+    //$accessToken = cache_get("access_token");
 
-    return new RestApiRequest($instanceUrl, $accessToken);
+    return new RestApiRequest($Resp->getInstanceUrl(), $Resp->getAccessToken());
 }
 
 

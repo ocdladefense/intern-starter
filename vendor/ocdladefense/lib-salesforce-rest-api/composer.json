@@ -1,0 +1,15 @@
+{
+    "name": "ocdladefense/lib-salesforce-rest-api",
+    "description": "OCDLA plugin accesses.",
+    "type": "library",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "ocdladefense/lib-http": "~3.0",
+        "ocdladefense/lib-salesforce": "~1.0",
+        "ocdladefense/lib-oauth-config":"~2.0"
+    },
+    "autoload": {
+        "classmap":["src/"]
+    }
+}
