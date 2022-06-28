@@ -1,0 +1,16 @@
+{
+    "name": "ocdladefense/intern-starter",
+    "description": "Test repo for connecting to the Salesforce REST API.",
+    "type": "wordpress-theme",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Christian Collis",
+            "email": ""
+        }
+    ],
+    "require": {
+        "ocdladefense/lib-salesforce-rest-api":"~3.0",
+        "ocdladefense/lib-salesforce":"~1.0"
+    }
+}
