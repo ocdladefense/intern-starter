@@ -6,34 +6,6 @@ use Salesforce\OAuthRequest;
 use Salesforce\RestApiResponse;
 use Salesforce\OAuth;
 
-// These are really connected applications
-$oauth_config = array(
-	"ocdla-sandbox" => array(
-		"default" => true,
-		"sandbox" => true, // Might be used to determine domain for urls
-		"client_id" => "3MVG9Fy_1ZngbXqO6ZyUdcmUe1ZwB2D7S.yI4FRa1f6ZAi29qwAecOQvkCkiQVbfDAi8LLwzOCzz4CrJxVqrm",
-		"client_secret" => "BF08B4242E0BB3EA18A13F58E2D176303604A64CCCDD05AAC0F3CE338A145CFA",
-		"auth" => array(
-			"saml" => array(),
-			"oauth" => array(
-				"usernamepassword" => array(
-					"token_url" => "https://test.salesforce.com/services/oauth2/token",
-					"username" => "membernation@ocdla.com.ocdpartial",
-					"password" => "asdi49ir4",
-					"security_token" => "X76nCkoSRNplskzZ5lOLjwcTN",
-					"cache" => "application"
-				),
-				"webserver" => array(
-					"token_url" => "https://ocdpartial-ocdla.cs198.force.com/services/oauth2/token",
-					"auth_url" => "https://ocdpartial-ocdla.cs198.force.com/services/oauth2/authorize",
-					"redirect_url" => "https://appdev.ocdla.org/oauth/api/request",
-					"callback_url" => "https://appdev.ocdla.org/jobs",
-					"cache" => "session"
-				)
-			)
-		)
-	)
-);
 
 
 
