@@ -1,0 +1,2 @@
+# Ignore files with credentials.
+/config.php
