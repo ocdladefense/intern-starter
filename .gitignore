@@ -1,2 +1,7 @@
 # Ignore files with credentials.
 /config.php
+
+/vendor
+
+
+/node_modules
