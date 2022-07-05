@@ -268,16 +268,16 @@
         },
         {
             "name": "ocdladefense/lib-salesforce-rest-api",
-            "version": "v3.9.7",
+            "version": "v3.9.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ocdladefense/lib-salesforce-rest-api.git",
-                "reference": "410ad833864ab4997e3a433ada6aa194635bac1d"
+                "reference": "1843e8ae451cebe6e1403f674134130883ad3634"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ocdladefense/lib-salesforce-rest-api/zipball/410ad833864ab4997e3a433ada6aa194635bac1d",
-                "reference": "410ad833864ab4997e3a433ada6aa194635bac1d",
+                "url": "https://api.github.com/repos/ocdladefense/lib-salesforce-rest-api/zipball/1843e8ae451cebe6e1403f674134130883ad3634",
+                "reference": "1843e8ae451cebe6e1403f674134130883ad3634",
                 "shasum": ""
             },
             "require": {
@@ -295,9 +295,9 @@
             "description": "OCDLA plugin accesses.",
             "support": {
                 "issues": "https://github.com/ocdladefense/lib-salesforce-rest-api/issues",
-                "source": "https://github.com/ocdladefense/lib-salesforce-rest-api/tree/v3.9.7"
+                "source": "https://github.com/ocdladefense/lib-salesforce-rest-api/tree/v3.9.10"
             },
-            "time": "2022-06-28T16:56:28+00:00"
+            "time": "2022-06-29T21:40:55+00:00"
         }
     ],
     "packages-dev": [],
