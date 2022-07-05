@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
-//var_dump($_SERVER['argv']);
+//var_dump($_GET);
 //exit;
 include "vendor/autoload.php";
 //include "sample.php";
@@ -12,7 +12,7 @@ var_dump($result);
 echo "hello world!";*/
 //$chapter = $_SERVER['argv'][1];
 
-$chapter = '813';
+$chapter = $_GET["chapter"];
 $url = getOrsUrl($chapter);
 $resp = send($url);
 $statute = parseResponse($resp);
@@ -20,8 +20,8 @@ $statute = parseResponse($resp);
 
 
 <?php $var = '����������';
-$cool = str_replace('�', 'h', $var);
+$cool = str_replace('�', 'h', $statute);
 echo $cool;
-echo $statute; ?>
+?>
 
 
