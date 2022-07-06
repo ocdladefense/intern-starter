@@ -14,13 +14,24 @@ function doTheThing(e) {
     let chapter = parts[0];
     let section = parts[1];
 
-    fetch("http://127.0.0.1/intern-starter/index.php?chapter="+chapter)
+    e.preventDefault();
+    e.stopPropagation();
+
+
+
+    fetch("index.php?chapter="+chapter)
     .then(function(resp) {
-        return resp.text();
+        return resp.arrayBuffer();
+    })
+    .then(function(buffer) {
+        const decoder = new TextDecoder("iso-8859-1");
+        return decoder.decode(buffer);
     })
     .then(function(html) {
         modal.renderHtml(html);
     });
+
+    return false;
 }
 
 
