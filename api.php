@@ -11,38 +11,6 @@ use Http\HttpRequest;
 
 
 
-function send($endpoint = null)
-{
-
-
-
-    //$this->setUrl("https://www.oregonlegislature.gov/bills_laws/ors/ors813.html");
-
-
-
-
-    $config = array(
-        "returntransfer"         => true,
-        "useragent"             => "Mozilla/5.0",
-        "followlocation"         => true,
-        "ssl_verifyhost"         => false,
-        "ssl_verifypeer"         => false
-    );
-
-    $http = new Http($config);
-
-    $req = new HttpRequest("https://www.oregonlegislature.gov/bills_laws/ors/ors813.html");
-
-    $resp = $http->send($req, true);
-
-
-    print $resp->getBody();
-
-
-    return $resp;
-}
-
-
 
 function loadApi()
 {
