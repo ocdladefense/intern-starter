@@ -22,3 +22,29 @@ function doTheThing(e) {
         modal.renderHtml(html);
     });
 }
+
+
+
+
+
+/*
+fetch("?chapter=313&section=005")
+.then
+.then(function(html)) {
+
+
+
+    let parser = new DOMParser();
+    let doc = parser.parseFromString(html,"text/html");
+
+    doc.querySelector("body");
+
+    // get an array of all section headings:
+    let headings = doc.querySelectorAll("b span");
+
+
+    
+
+
+}
+*/
