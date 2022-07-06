@@ -1,27 +1,22 @@
 <?php
-error_reporting(E_ERROR | E_WARNING | E_PARSE);
-//var_dump($_GET);
-//exit;
+error_reporting(E_ALL & ~E_NOTICE);
+header("Content-Type: text/html; charset=windows-1252");
 include "vendor/autoload.php";
-//include "sample.php";
-include "response.php";
+include "api.php";
+include "ors.php";
 
-/*$Api = loadApi();
-$result = $Api->query("select id,name from contact limit 25");
-var_dump($result);
-echo "hello world!";*/
-//$chapter = $_SERVER['argv'][1];
 
-$chapter = $_GET["chapter"];
+
+
+
+
+list($chapter, $section) = getParams();
+
+
 $url = getOrsUrl($chapter);
+
 $resp = send($url);
 $statute = parseResponse($resp);
-?>
 
 
-<?php $var = '����������';
-$cool = str_replace('�', 'h', $statute);
-echo $cool;
-?>
-
-
+echo $statute;
