@@ -25,20 +25,7 @@ function doTheThing(e) {
     e.preventDefault();
     e.stopPropagation();
 
-
-
-     fetch("index.php?chapter=" + chapter)
-        .then(function (resp) {
-            return resp.arrayBuffer();
-        })
-        .then(function (buffer) {
-            const decoder = new TextDecoder("iso-8859-1");
-            return decoder.decode(buffer);
-        })
-        .then(function (html) {
-            modal.renderHtml(html);
-        });
- 
+    
     fetch("index.php?chapter=" + chapter +"&section=" +section)
         .then(function (resp) {
             return resp.arrayBuffer();
@@ -90,9 +77,10 @@ function doTheThing(e) {
             const modified = serializer.serializeToString(doc);
 
             modal.renderHtml(modified);
-
-
-
+            modal.show();
+            let newHash = chapter +"." + section;
+            window.location.hash = newHash;
+            
 
             //modal.renderHtml(html);
 
