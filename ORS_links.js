@@ -1,10 +1,19 @@
 const currentLinks = document.querySelectorAll(".ors-link");
+const background = document.getElementById("modal-backdrop");
 
 for(let i = 0; i < currentLinks.length; i++)
 {
     currentLinks[i].addEventListener("click", doTheThing);
 }
-
+background.addEventListener("click", function(e)
+{
+    let id = e.target.id;
+    if(id != "modal-backdrop")
+    {
+        return;
+    }
+    modal.hide();
+});
 
 function doTheThing(e) {
     let target = e.target;
@@ -29,6 +38,7 @@ function doTheThing(e) {
     })
     .then(function(html) {
         modal.renderHtml(html);
+        modal.show();
     });
 
     return false;

@@ -29,7 +29,7 @@
 
 #modal {
 	min-height: 300px;
-	width: 600px;
+	width: 800px;
 	background-color: #fff;
 	position: absolute;
 	border-radius: 5px;
@@ -40,6 +40,8 @@
 	margin-left: -300px;
 	margin-top: -150px;
 	padding:5%;
+	height: 400px;
+	overflow: scroll;
 }
 
 
