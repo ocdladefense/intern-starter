@@ -50,10 +50,56 @@ function doTheThing(e) {
 
             //createa nodeList of all the <b> elements in the body
             let headings = doc.querySelectorAll("b");
+            console.log(headings);
+                      
+            var sectionTitles= {};
+            var sectionHeadings ={};
+            
 
-            //test we are getting the right heading, iterates through the nodeList, logs items that conatin the chapter
+            for(i = 0 ; i< headings.length; i++){
+                let boldParent = headings[i];            
+                var trimmed = headings[i].textContent.trim();
+                let strings = trimmed.split("\n");
+                let key = strings[0];
+                let val = strings[1];
+                sectionTitles[key] = val;
+                sectionHeadings[key] = boldParent;
+
+            }
+            for(var prop in sectionTitles){
+                var headingDiv = doc.createElement('div');
+                headingDiv.setAttribute('id', prop);
+
+                let target = sectionHeadings[prop];
+                target.parentNode.insertBefore(headingDiv, target);
+            }
+            console.log(sectionTitles);
+            console.log(sectionHeadings);
+           
+            const serializer = new XMLSerializer();
+
+            const modified = serializer.serializeToString(doc);
+
+            modal.renderHtml(modified);
+
+
+
+
+            //modal.renderHtml(html);
+
+            /* Prints all the contents of <b> elements as text to the console
+            for(let head of headings){                         
+                console.log(head.textContent);
+            }
+            for(i=0; i< headings.length; i++){
+                var headingDiv = doc.createElement('div id='+secObj.key);
+                let boldParent = headings[i];
+                 boldParent.insertBefore()
+                
+            }
+            
+               //test we are getting the right heading, iterates through the nodeList, logs items that conatin the chapter
             for(let i = 0; i<headings.length; i++){
-
             if(headings[i].textContent.indexOf(section)!= -1){
                 console.log(headings[i].textContent);
                 var found = headings[i];
@@ -61,14 +107,23 @@ function doTheThing(e) {
             }
             }
 
-            
-            modal.renderHtml(found);
-            //modal.renderHtml(html);
 
-            /* Prints all the contents of <b> elements as text to the console
-            for(let head of headings){                         
-                console.log(head.textContent);
+            var newArr = [];
+            for(let i = 0; i<headings.length; i++){
+                newArr.push(headings[i].textContent);
             }
+            console.log(newArr);
+
+            var secObj = {};
+
+            for(i=0; i<newArr.length; i++){
+                var trimmed = newArr[i].trim();
+                let strings = trimmed.split("\n");
+                let key =strings[0];
+                let val =strings[1];
+                secObj[key] = val;                           
+            }
+            console.log(secObj);
             */
 
             /*
