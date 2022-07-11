@@ -37,13 +37,15 @@
 	z-index: 999;
 	left: 50%;
 	top: 50%;
-	margin-left: -300px;
+	margin-left: -400px;
 	margin-top: -150px;
-	padding:5%;
 	height: 400px;
 	overflow: scroll;
 }
 
+#modal-content {
+	padding: 30px;
+}
 
 
 
