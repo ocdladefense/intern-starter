@@ -9,7 +9,8 @@ modal.show();
 var modal = {
 
     show: function(){
-        $('body').addClass("has-modal");	
+        $('body').addClass("has-modal");
+        $("body").addClass("loading");
         setTimeout(() => $("#modal").addClass("fullscreen"), 100);
     },
     
@@ -26,8 +27,9 @@ var modal = {
     },
 
     
-    renderHtml: function(html) {
-        document.getElementById('modal-content').innerHTML = html;
+    renderHtml: function(html, targetId) {
+        $("body").removeClass("loading");
+        document.getElementById(targetId || "modal-content").innerHTML = html;
     },
     
     

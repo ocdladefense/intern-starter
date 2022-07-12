@@ -27,16 +27,29 @@
         </h2>
 
         <div class="editableSection mw-collapsible mw-made-collapsible" id="mw-customcollapsible-9">
-            <p>If the client is in the military, different rules will apply. Pursuant to ORS 183.413, a member of the Armed Forces (Army, Navy, Air Force, Marines, Coast Guard and National Guard) may be subject to the protection of the Servicemembers’ Civil Relief Act (SCRA). The SCRA provides certain protections to servicemembers and their dependents, if specific conditions are met. If your client qualifies, he or she may be entitled to have the license suspension matter stayed. You will need to get a copy of the client’s service orders as it pertains to the specific condition.
+            <p>If the client is in the military, different rules will apply. Pursuant to ORS 183.413(a), a member of the Armed Forces (Army, Navy, Air Force, Marines, Coast Guard and National Guard) may be subject to the protection of the Servicemembers’ Civil Relief Act (SCRA). The SCRA provides certain protections to servicemembers and their dependents, if specific conditions are met. If your client qualifies, he or she may be entitled to have the license suspension matter stayed. You will need to get a copy of the client’s service orders as it pertains to the specific condition.
             </p>
         </div>
 
 
         <div id="modal-backdrop">
             <div id="modal">
-                <div id="modal-content">
+                <div id="modal-container">
+                    <div id="modal-title-bar">
+                        some text here...
+                    </div>  
+                    <div id="modal-content" style="vertical-align:top;">
+                        <div id="ors-toc" style="display:inline-block;height:100%;width:25%; vertical-align:top;">
+                            <ul>
+                <li>toc 1</li>
+                <li>toc 2</li>
+</ul>
+                        </div>
+                        <div id="ors-statutes" style="display:inline-block; height:100%; width:70%; vertical-align:top;">
 
-                
+                        </div>
+                    <div>
+                    </div>
                 </div>
                 <div id="loading">
                     <div id="loading-wheel"></div>

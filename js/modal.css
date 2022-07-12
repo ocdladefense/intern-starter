@@ -29,7 +29,7 @@
 
 #modal {
 	min-height: 300px;
-	width: 800px;
+	width: 1200px;
 	background-color: #fff;
 	position: absolute;
 	border-radius: 5px;
@@ -37,14 +37,20 @@
 	z-index: 999;
 	left: 50%;
 	top: 50%;
-	margin-left: -400px;
+	margin-left: -600px;
 	margin-top: -150px;
 	height: 400px;
-	overflow: scroll;
+	overflow-y: scroll;
+	height: 100%;
+}
+
+#modal-container {
+	padding: 30px;
+	position: relative;
 }
 
 #modal-content {
-	padding: 30px;
+	position: relative;
 }
 
 

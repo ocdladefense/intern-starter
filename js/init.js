@@ -52,13 +52,14 @@ function displayOrs(e) {
     let chapter = target.dataset.chapter;
     let section = target.dataset.section;
 
-
+    modal.show();
     // Network call.
     let network = fetchOrs(chapter,section);
 
     network.then(function(html) {
-        modal.renderHtml(html);
-        modal.show();
+        html = parseOrs(html);
+        modal.renderHtml(html,"ors-statutes");
+        
         window.location.hash = (chapter +"." + section);
     });
     
@@ -116,8 +117,8 @@ function fetchOrs(chapter, section) {
             // console.log(sectionHeadings);
            
             const serializer = new XMLSerializer();
-
-            return serializer.serializeToString(doc);
+            const subset = doc.querySelector(".WordSection1");
+            return serializer.serializeToString(subset);
         });
 }
 
