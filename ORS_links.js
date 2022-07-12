@@ -1,9 +1,16 @@
-const currentLinks = document.querySelectorAll(".ors-link");
+//const currentLinks = document.querySelectorAll(".ors-link");
 const background = document.getElementById("modal-backdrop");
 
-for (let i = 0; i < currentLinks.length; i++) {
-    currentLinks[i].addEventListener("click", doTheThing);
-}
+
+window.onload = function(){
+    const paragraphs = document.getElementsByTagName("p");
+    const re = /(\d{3})\.(\d{3})/g;
+
+    applyLinks(paragraphs, re);
+};
+
+document.addEventListener("click", doTheThing);
+
 background.addEventListener("click", function(e)
 {
     let id = e.target.id;
@@ -14,14 +21,55 @@ background.addEventListener("click", function(e)
     modal.hide();
 });
 
-function doTheThing(e) {
-    let target = e.target;
-    let id = target.id;
-    let parts = id.split("-");
-    console.log(parts);
-    let chapter = parts[0];
-    let section = parts[1];
 
+function applyLinks(paragraphs, re)
+{ 
+    for(let i = 0; i < paragraphs.length; i++)
+    {
+        let para = paragraphs[i];
+        let text = para.innerHTML;
+        //let matches = [...text.matchAll(re)];
+        //console.log(matches);
+        let newText = text.replaceAll(re, function(match, p1, p2){
+            let id = p1 + "." + p2;
+            console.log(match); 
+            //return '<a id="'+p1+"-"+p2+'" class="ors-link" href="#">'+p1+"-"+p2+'</a>';
+            return `<a data-chapter="${p1}" data-section="${p2}" class="ors-link" href="#">${id}</a>`;
+        });
+        para.innerHTML = newText;
+        //console.log(newText);
+        
+            
+            //let link = document.createElement("a id="textArray[i]" class="ors-link" href="#"");
+            
+        
+    }
+    
+}
+
+
+
+function doTheThing(e) {
+    
+
+    let target = e.target;
+    if(target.dataset.chapter == null || target.dataset.section == null)
+    {
+        return;
+    }
+    /*
+    let id = target.dataset.id;
+    let parts = id.split("-");
+    if(parts.length < 2)
+    {
+        return;
+    }
+    console.log(parts);
+    */
+    let chapter = target.dataset.chapter;
+    let section = target.dataset.section;
+    console.log(chapter);
+    console.log(section);
     e.preventDefault();
     e.stopPropagation();
 
