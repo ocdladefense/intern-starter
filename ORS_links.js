@@ -88,14 +88,20 @@ function doTheThing(e) {
 
             //tell the parser to look for html
             const doc = parser.parseFromString(html, "text/html");
-
+            window.doc = doc;
+          
             //specify we want the doccument to be whats inside the <body> tags
             doc.querySelector("body");
 
             //createa nodeList of all the <b> elements in the body
             let headings = doc.querySelectorAll("b");
             console.log(headings);
-                      
+
+            //create a nodeList of all the <p> elements in the body
+            let paragraphs = document.querySelectorAll('p');
+            //tocRange = paragraphs.range(12, 10);
+            
+            var tocHeadings = {};        
             var sectionTitles= {};
             var sectionHeadings ={};
             
@@ -108,6 +114,7 @@ function doTheThing(e) {
                 let val = strings[1];
                 sectionTitles[key] = val;
                 sectionHeadings[key] = boldParent;
+              
 
             }
             for(var prop in sectionTitles){
@@ -116,12 +123,14 @@ function doTheThing(e) {
 
                 let target = sectionHeadings[prop];
                 target.parentNode.insertBefore(headingDiv, target);
+                
             }
-            console.log(sectionTitles);
-            console.log(sectionHeadings);
-           
-            const serializer = new XMLSerializer();
+            chapter = parseInt(chapter);
+            section = parseInt(section);
+            //highlight(chapter, section, null, doc);
+            //why does the range not work if called here?
 
+            const serializer = new XMLSerializer();
             const modified = serializer.serializeToString(doc);
 
             modal.renderHtml(modified);
@@ -129,90 +138,74 @@ function doTheThing(e) {
             let newHash = chapter +"." + section;
             window.location.hash = newHash;
             
-
-            //modal.renderHtml(html);
-
-            /* Prints all the contents of <b> elements as text to the console
-            for(let head of headings){                         
-                console.log(head.textContent);
-            }
-            for(i=0; i< headings.length; i++){
-                var headingDiv = doc.createElement('div id='+secObj.key);
-                let boldParent = headings[i];
-                 boldParent.insertBefore()
-                
-            }
             
-               //test we are getting the right heading, iterates through the nodeList, logs items that conatin the chapter
-            for(let i = 0; i<headings.length; i++){
-            if(headings[i].textContent.indexOf(section)!= -1){
-                console.log(headings[i].textContent);
-                var found = headings[i];
-                
-            }
-            }
+            highlight(chapter, section, null);
 
-
-            var newArr = [];
-            for(let i = 0; i<headings.length; i++){
-                newArr.push(headings[i].textContent);
-            }
-            console.log(newArr);
-
-            var secObj = {};
-
-            for(i=0; i<newArr.length; i++){
-                var trimmed = newArr[i].trim();
-                let strings = trimmed.split("\n");
-                let key =strings[0];
-                let val =strings[1];
-                secObj[key] = val;                           
-            }
-            console.log(secObj);
-            */
-
-            /*
-            THESE DONT WORK
-
-            let headings = doc.querySelectorAll("span > b");
-            console.log(headings);
-            let head = doc.querySelector("style['font-size:12.0pt;font-family:\"Times New Roman\",serif'");
-            console.log(head);
-
-            
-            let docBody = doc.querySelector("body");
-            let headings = docBody.querySelectorAll("<b></b>");
-            let heading = docBody.querySelector("<span style=\"font-size:12.0pt;font-family:\"Times New Roman\",serif\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 813.010 Driving under the influence of intoxicants; penalty.</span>")
-            
-
-            for(i = 0; i <headings.length; i++)
-            modal.renderHtml(headings[i]);
-            */
-           
+                  
         });
+        
 
     return false;
 }
 
-
-/*
-fetch("?chapter=313&section=005")
-.then
-.then(function(html)) {
-
-
-
-    let parser = new DOMParser();
-    let doc = parser.parseFromString(html,"text/html");
-
-    doc.querySelector("body");
-
-    // get an array of all section headings:
-    let headings = doc.querySelectorAll("b span");
-
-
+function highlight(chapter, section, endSection = null, doc = null){
+    let range = doc? doc.createRange(): new Range();
+    doc = doc || document;
     
+    endSection = endSection || section + 1;
+    
+    chapter = chapter.toString();
+    section = section.toString();
+    
+    section = padZeros(section);
+    endSection = padZeros(endSection);
+    
+    var start = chapter + '.' + section;
+    var end = chapter + '.' + endSection;
 
+    var firstNode = doc.getElementById(start); 
+    var secondNode = doc.getElementById(end); 
+    range.setStartBefore(firstNode);
+    range.setEndBefore(secondNode);
+
+    console.log(range);
+
+    var newParent = doc.createElement('div');
+    newParent.setAttribute('style', 'background-color:yellow;');
+    range.surroundContents(newParent);
 
 }
+
+function padZeros(section){
+    if(section < 10){
+        section = '00'+section;
+    }
+    if(section < 100){
+        section = '0'+section;
+    }
+
+    return section;
+}
+
+/*
+DOES NOT WORK
+Range {commonAncestorContainer: div.wordsection1, startContainer: p.msonormal, startOffset: 0, endContainer: p.msonormal, endOffset: 0, …}
+collapsed: false
+commonAncestorContainer: div.wordsection1
+endContainer: p.msonormal
+endOffset: 0
+startContainer: p.msonormal
+startOffset: 0
+[[Prototype]]: Range
+*/
+/*
+WORKS
+Range {commonAncestorContainer: div.WordSection1, startContainer: div.WordSection1, startOffset: 384, endContainer: div.WordSection1, endOffset: 436, …}
+collapsed: false
+commonAncestorContainer: div.WordSection1
+endContainer: div.WordSection1
+endOffset: 385
+startContainer: div.WordSection1
+startOffset: 384
+[[Prototype]]: Range
 */
