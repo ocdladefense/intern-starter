@@ -56,10 +56,40 @@ function displayOrs(e) {
     // Network call.
     let network = fetchOrs(chapter,section);
 
-    network.then(function(html) {
+    network.then(function(data) {
+        [sections,elements,html] = data;
+        let volumes = ["Courts, Or. Rules of Civil Procedure",
+        "Business Organizations, Commercial Code",
+        "Landlord-Tenant, Domestic Relations, Probate",
+        "Criminal Procedure, Crimes",
+        "State Government, Government Procedures, Land Use",
+        "Local Government, Pub. Employees, Elections",
+        "Pub. Facilities & Finance",
+        "Revenue & Taxation",
+        "Education & Culture",
+        "Highways, Military",
+        "Juvenile Code, Human Services",
+        "Pub. Health",
+        "Housing, Environment",
+        "Drugs & Alcohol, Fire Protection, Natural Resources",
+        "Water Resources, Agriculture & Food",
+        "Trade Practices, Labor & Employment",
+        "Occupations",
+        "Financial Institutions, Insurance",
+        "Utilities, Vehicle Code, Watercraft, Aviation, Constitutions"];
+
+        let options = volumes.map(function(v,index){ return `<option value="${index+1}">Volume ${index+1} - ${v}</option>`});
+        let optionsHtml = options.join("\n");
+
+        let toc = [];
+        for(var section in sections) {
+            toc.push(`<li><a href="#">${section} - ${sections[section]}</a></li>`);
+        }
+
         html = parseOrs(html);
         modal.renderHtml(html,"ors-statutes");
-        
+        modal.toc(toc.join("\n"));
+        modal.titleBar("Oregon Revised Statutes - <select>"+optionsHtml+"</select>");
         window.location.hash = (chapter +"." + section);
     });
     
@@ -104,7 +134,6 @@ function fetchOrs(chapter, section) {
                 let val = strings[1];
                 sectionTitles[key] = val;
                 sectionHeadings[key] = boldParent;
-
             }
             for(var prop in sectionTitles){
                 var headingDiv = doc.createElement('div');
@@ -118,7 +147,7 @@ function fetchOrs(chapter, section) {
            
             const serializer = new XMLSerializer();
             const subset = doc.querySelector(".WordSection1");
-            return serializer.serializeToString(subset);
+            return [sectionTitles, sectionHeadings, serializer.serializeToString(subset)];
         });
 }
 

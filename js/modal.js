@@ -31,6 +31,14 @@ var modal = {
         $("body").removeClass("loading");
         document.getElementById(targetId || "modal-content").innerHTML = html;
     },
+
+    titleBar: function(html) {
+        document.getElementById("modal-title-bar").innerHTML = html;
+    },
+
+    toc: function(html) {
+        document.getElementById("ors-toc").innerHTML = html;
+    },
     
     
     html: function(html) {

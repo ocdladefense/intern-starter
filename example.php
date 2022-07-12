@@ -32,28 +32,23 @@
         </div>
 
 
-        <div id="modal-backdrop">
-            <div id="modal">
-                <div id="modal-container">
-                    <div id="modal-title-bar">
-                        some text here...
-                    </div>  
-                    <div id="modal-content" style="vertical-align:top;">
-                        <div id="ors-toc" style="display:inline-block;height:100%;width:25%; vertical-align:top;">
-                            <ul>
-                <li>toc 1</li>
-                <li>toc 2</li>
-</ul>
-                        </div>
-                        <div id="ors-statutes" style="display:inline-block; height:100%; width:70%; vertical-align:top;">
+        <div id="modal-backdrop">&nbsp;</div>
+        <div id="modal">
+            <div id="modal-container" style="overflow-y:visible;">
+                <div id="modal-title-bar">
+                    ORS - Oregon Revised Statutes
+                </div>  
+                <div id="modal-content" style="vertical-align:top;">
+                    <div id="ors-toc" style="display:inline-block;width:25%; vertical-align:top;overflow-y:scroll;">
 
-                        </div>
-                    <div>
                     </div>
-                </div>
-                <div id="loading">
-                    <div id="loading-wheel"></div>
-                </div>
+                    <div id="ors-statutes" style="display:inline-block; width:70%; vertical-align:top; overflow-y: scroll;">
+
+                    </div>
+                <div>
+            </div>
+            <div id="loading">
+                <div id="loading-wheel"></div>
             </div>
         </div>
  
