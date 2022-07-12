@@ -83,7 +83,7 @@ function displayOrs(e) {
 
         let toc = [];
         for(var section in sections) {
-            toc.push(`<li><a href="#">${section} - ${sections[section]}</a></li>`);
+            toc.push(`<li><a href="#${section}">${section} - ${sections[section]}</a></li>`);
         }
 
         html = parseOrs(html);
