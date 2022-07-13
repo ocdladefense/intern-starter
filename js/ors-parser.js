@@ -10,11 +10,11 @@ const replacers = [
 
 ];
 let replacer = function(match, p1, p2, offset, string, g) {
-    console.log(arguments);
+    // console.log(arguments);
     let length = arguments.length -3;
     let memorized = Array.prototype.slice.call(arguments, length);
     let groups = memorized.pop();
-    console.log(groups);
+    // console.log(groups);
     let subsection = groups.subsection ? `(${groups.subsection})` : "";
 
     let link = `<a href="#" data-action="show-ors" data-chapter="${groups.chapter}" data-section="${groups.section}" data-subsection="${subsection}">ORS ${groups.chapter}.${groups.section}${subsection}</a>`;
