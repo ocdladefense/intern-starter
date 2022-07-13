@@ -89,7 +89,7 @@ function displayOrs(e) {
         html = parseOrs(html);
         modal.renderHtml(html,"ors-statutes");
         modal.toc(toc.join("\n"));
-        modal.titleBar("Oregon Revised Statutes - <select>"+optionsHtml+"</select>");
+        modal.titleBar("Oregon Revised Statutes - <select>"+optionsHtml+"</select><input type='checkbox' id='theHighlighter' name='highlighting' /><label for='theHighligher'>Highlight</label>");
         window.location.hash = (chapter +"." + section);
     });
     
@@ -129,12 +129,24 @@ function fetchOrs(chapter, section) {
             for(i = 0 ; i< headings.length; i++){
                 let boldParent = headings[i];            
                 var trimmed = headings[i].textContent.trim();
+                if(trimmed.indexOf("Note") === 0) continue;
                 let strings = trimmed.split("\n");
-                let key = strings[0];
-                let val = strings[1];
+                let key, val;
+                console.log(strings);
+                // if array has oonly one element,
+                // then we know this doesn't follow the traditional statute pattern.
+                if(strings.length === 1) {
+                    key = strings[0];
+                    val = boldParent.nextSibling ? boldParent.nextSibling.textContent : "";
+                } else { // otherwise our normal case.
+                    key = strings[0];
+                    val = strings[1];
+                }
                 sectionTitles[key] = val;
                 sectionHeadings[key] = boldParent;
             }
+
+            // Inserts anchors as div tags in the doc.
             for(var prop in sectionTitles){
                 var headingDiv = doc.createElement('div');
                 headingDiv.setAttribute('id', prop);
