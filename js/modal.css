@@ -72,6 +72,17 @@
 
 #modal-content {
 	position: relative;
+	font-family: Helvetica;	
+}
+
+
+
+  
+#modal-content a,
+#modal-content a:link,
+#modal-content a:active,
+#modal-content a:visited {
+	color: #0774b6;
 }
 
 #ors-toc {
