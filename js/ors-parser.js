@@ -60,19 +60,21 @@ function matchAll() {
 
 
 function highlight(chapter, section, endSection = null, doc = null){
-    let range = doc? doc.createRange(): new Range();
+    console.log(chapter);
+    console.log(section);
+    let range = doc ? doc.createRange() : new Range();
     doc = doc || document;
     
-    endSection = endSection || section + 1;
-    
-    chapter = chapter.toString();
-    section = section.toString();
+    endSection = endSection || (section + 1);
     
     section = padZeros(section);
     endSection = padZeros(endSection);
-    
+    console.log(section,endSection);
+
     var start = chapter + '.' + section;
     var end = chapter + '.' + endSection;
+
+    console.log(start,end);
 
     var firstNode = doc.getElementById(start); 
     var secondNode = doc.getElementById(end); 
@@ -90,13 +92,13 @@ function highlight(chapter, section, endSection = null, doc = null){
 
 function padZeros(section){
     if(section < 10){
-        section = '00'+section;
+        return "00"+section;
     }
     if(section < 100){
-        section = '0'+section;
+        return "0"+section;
     }
 
-    return section;
+    return ""+section;
 }
 
 /*

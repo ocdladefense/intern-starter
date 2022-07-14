@@ -52,11 +52,21 @@ function displayOrs(e) {
     let chapter = target.dataset.chapter;
     let section = target.dataset.section;
 
+    let chapterNum = parseInt(chapter);
+    let sectionNum = parseInt(section);
+
+    ors(chapterNum, sectionNum);
+
+    return false;
+}
+
+
+function ors(chapter, section) {
     modal.show();
     // Network call.
     let network = fetchOrs(chapter,section);
 
-    network.then(function(data) {
+    return network.then(function(data) {
         [sections,elements,html] = data;
         let volumes = ["Courts, Or. Rules of Civil Procedure",
         "Business Organizations, Commercial Code",
@@ -82,19 +92,24 @@ function displayOrs(e) {
         let optionsHtml = options.join("\n");
 
         let toc = [];
-        for(var section in sections) {
-            toc.push(`<li><a href="#${section}">${section} - ${sections[section]}</a></li>`);
+        for(var s in sections) {
+            toc.push(`<li><a href="#${s}">${s} - ${sections[s]}</a></li>`);
         }
+
+
+
+        
+        // highlight(chapter, section, null, doc);
+        // Why does the range not work if called here?
 
         html = parseOrs(html);
         modal.renderHtml(html,"ors-statutes");
         modal.toc(toc.join("\n"));
         modal.titleBar("Oregon Revised Statutes - <select>"+optionsHtml+"</select><input type='checkbox' id='theHighlighter' name='highlighting' /><label for='theHighligher'>Highlight</label>");
-        window.location.hash = (chapter +"." + section);
-    });
-    
+        window.location.hash = (padZeros(chapter) + "." + padZeros(section));
 
-    return false;
+        highlight(chapter, section, null);
+    });
 }
 
 
@@ -157,6 +172,11 @@ function fetchOrs(chapter, section) {
             // console.log(sectionTitles);
             // console.log(sectionHeadings);
            
+            // chapter = parseInt(chapter);
+            // section = parseInt(section);
+            // highlight(chapter, section, null, doc);
+            // Why does the range not work if called here?
+
             const serializer = new XMLSerializer();
             const subset = doc.querySelector(".WordSection1");
             return [sectionTitles, sectionHeadings, serializer.serializeToString(subset)];
