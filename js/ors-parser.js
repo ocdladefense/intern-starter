@@ -55,3 +55,69 @@ function matchAll() {
 
     console.log(results);
 }
+
+
+
+
+function highlight(chapter, section, endSection = null, doc = null){
+    let range = doc? doc.createRange(): new Range();
+    doc = doc || document;
+    
+    endSection = endSection || section + 1;
+    
+    chapter = chapter.toString();
+    section = section.toString();
+    
+    section = padZeros(section);
+    endSection = padZeros(endSection);
+    
+    var start = chapter + '.' + section;
+    var end = chapter + '.' + endSection;
+
+    var firstNode = doc.getElementById(start); 
+    var secondNode = doc.getElementById(end); 
+    range.setStartBefore(firstNode);
+    range.setEndBefore(secondNode);
+
+    console.log(range);
+
+    var newParent = doc.createElement('div');
+    newParent.setAttribute('style', 'background-color:yellow;');
+    range.surroundContents(newParent);
+}
+
+
+
+function padZeros(section){
+    if(section < 10){
+        section = '00'+section;
+    }
+    if(section < 100){
+        section = '0'+section;
+    }
+
+    return section;
+}
+
+/*
+DOES NOT WORK
+Range {commonAncestorContainer: div.wordsection1, startContainer: p.msonormal, startOffset: 0, endContainer: p.msonormal, endOffset: 0, …}
+collapsed: false
+commonAncestorContainer: div.wordsection1
+endContainer: p.msonormal
+endOffset: 0
+startContainer: p.msonormal
+startOffset: 0
+[[Prototype]]: Range
+*/
+/*
+WORKS
+Range {commonAncestorContainer: div.WordSection1, startContainer: div.WordSection1, startOffset: 384, endContainer: div.WordSection1, endOffset: 436, …}
+collapsed: false
+commonAncestorContainer: div.WordSection1
+endContainer: div.WordSection1
+endOffset: 385
+startContainer: div.WordSection1
+startOffset: 384
+[[Prototype]]: Range
+*/
