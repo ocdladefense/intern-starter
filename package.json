@@ -1,0 +1,23 @@
+{
+  "name": "intern-starter",
+  "version": "0.1.0",
+  "description": "Starter package for interns.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ocdladefense/intern-starter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ocdladefense/intern-starter/issues"
+  },
+  "homepage": "https://github.com/ocdladefense/intern-starter#readme",
+  "dependencies": {
+    "@ocdladefense/view": "^2.0.0",
+    "@ocdladefense/modal-inline": "latest"
+  }
+}
