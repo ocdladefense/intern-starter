@@ -1,6 +1,6 @@
 //const currentLinks = document.querySelectorAll(".ors-link");
 const background = document.getElementById("modal-backdrop");
-
+const links = document.getElementsByClassName("a");
 
 window.onload = function(){
     const paragraphs = document.getElementsByTagName("p");
@@ -20,6 +20,10 @@ background.addEventListener("click", function(e)
     }
     modal.hide();
 });
+
+//links.addEventListener("mouseover", (event)=> {event.target.modalJr.show()});
+
+
 
 
 function applyLinks(paragraphs, re)
@@ -186,6 +190,13 @@ function padZeros(section){
 
     return section;
 }
+
+function nextSectionId(chapter, section){
+    //work is in scratch pad 
+}
+
+
+
 
 /*
 DOES NOT WORK

@@ -1,0 +1,21 @@
+.absolute{
+    position:absolute;
+    top: 150px;             
+    left: 200px;             
+    width: 600px;
+    height: 400px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: blanchedalmond;
+    display:none;
+}
+.box{
+ display: none;
+    width: 100%;
+}
+
+a:hover + .box,.box:hover{
+    display: block;
+    position: relative;
+    z-index: 100;
+            }
