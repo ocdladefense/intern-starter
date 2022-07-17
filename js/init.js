@@ -1,4 +1,4 @@
-import { InlineModal } from "../node_modules/@ocdladefense/modal-inline/dist/modal.js";
+import { InlineModal } from "~/node_modules/@ocdladefense/modal-inline/dist/modal.js";
 
 
 window.onload = function() {
