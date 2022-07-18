@@ -4,8 +4,8 @@
 error_reporting(E_ALL & ~E_NOTICE);
 header("Content-Type: text/html; charset=windows-1252");
 include "vendor/autoload.php";
-include "api.php";
-include "ors.php";
+include "includes/api.php";
+include "includes/ors.php";
 
 
 

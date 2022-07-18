@@ -1,0 +1,35 @@
+{
+  "name": "intern-starter",
+  "version": "0.1.0",
+  "description": "Starter package for interns.",
+  "main": "index.js",
+  "scripts": {
+    "build": "./node_modules/.bin/babel node-modal-inline/src -d node-modal-inline/dist; ./node_modules/.bin/babel js/init.js --out-file js/init-compiled.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ocdladefense/intern-starter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ocdladefense/intern-starter/issues"
+  },
+  "homepage": "https://github.com/ocdladefense/intern-starter#readme",
+  "dependencies": {
+    "@ocdladefense/modal-inline": "file:node-modal-inline",
+    "@ocdladefense/ors": "file:node-ors",
+    "@ocdladefense/view": "^2.1.1"
+  },
+  "extra": {
+    "1": "https://github.com/entwicklerstube/babel-plugin-root-import"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.6",
+    "@babel/preset-react": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-root-import": "^6.6.0"
+  }
+}
