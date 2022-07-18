@@ -1,0 +1,6 @@
+[submodule "node-ors"]
+	path = node-ors
+	url = https://github.com/ocdladefense/node-ors.git
+[submodule "node-modal-inline"]
+	path = node-modal-inline
+	url = https://github.com/ocdladefense/node-modal-inline.git
