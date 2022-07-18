@@ -1,4 +1,7 @@
 
+import { OrsModal } from "~/@ocdladefense/ors/dist/modal.js";
+import { OrsParser } from "~/@ocdladefense/ors/dist/ors-parser.js";
+
 
 // List for ORS-related requests.
 document.addEventListener("click", displayOrs);

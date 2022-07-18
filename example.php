@@ -5,8 +5,9 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
         <script src="/content/libraries/core/SiteLibraries.js"></script>
-        <link rel="stylesheet" href="js/loading.css" />
-        <link rel="stylesheet" href="js/modal.css" />
+        <link rel="stylesheet" href="node_modules/@ocdladefense/ors/dist/css/loading.css" />
+        <link rel="stylesheet" href="node_modules/@ocdladefense/ors/dist/css/modal.css" />
+        
     </head>
     <body>
 
@@ -56,11 +57,8 @@
     </body>
 
 
-    <script src="js/modal.js">
-        </script> 
-        <script src="js/ors-parser.js">
-        </script> 
-       <script src="js/init.js">
+
+       <script type="module" src="js/init.js">
         </script> 
         
 
