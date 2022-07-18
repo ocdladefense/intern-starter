@@ -58,23 +58,9 @@
 
 
 
-       <script type="module" src="js/init.js">
+       <script type="module" src="js/init-compiled.js">
         </script> 
         
 
-        <!-- <a id="815-001" class="ors-link" href="#"> -->
-        <script>
 
-function convert() {
-    var body = document.querySelector("body");
-    
-    var text = body.innerHTML;
-    var parsed = replaceAll(text);
-    // console.log(parsed);
-
-    body.innerHTML = parsed;
-
-}
-
-</script>
 </html>

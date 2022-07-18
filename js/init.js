@@ -1,6 +1,6 @@
 
-import { OrsModal } from "~/@ocdladefense/ors/dist/modal.js";
-import { OrsParser } from "~/@ocdladefense/ors/dist/ors-parser.js";
+import { OrsModal } from "~/node_modules/@ocdladefense/ors/dist/modal.js";
+import { OrsParser } from "~/node_modules/@ocdladefense/ors/dist/ors-parser.js";
 
 
 // List for ORS-related requests.
@@ -12,6 +12,8 @@ domReady(function() {
 
     convert();
 
+    let modal = new OrsModal();
+
     const background = document.getElementById("modal-backdrop");
 
     background.addEventListener("click", function(e) {
@@ -21,6 +23,8 @@ domReady(function() {
         {
             return;
         }
+
+
         modal.hide();
     });
 
@@ -38,6 +42,16 @@ domReady(function() {
 
 });
 
+
+function convert() {
+    var body = document.querySelector("body");
+    
+    var text = body.innerHTML;
+    var parsed = OrsParser.replaceAll(text);
+    // console.log(parsed);
+
+    body.innerHTML = parsed;
+}
 
 
 
