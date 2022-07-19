@@ -58,7 +58,7 @@
 
 
 
-       <script type="module" src="js/init-compiled.js">
+       <script type="module" src="js/init.js">
         </script> 
         
 
