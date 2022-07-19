@@ -1,6 +1,7 @@
 
 import { OrsModal } from "../node_modules/@ocdladefense/ors/dist/modal.js";
 import { OrsParser } from "../node_modules/@ocdladefense/ors/dist/ors-parser.js";
+import {InlineModal} from "../node_modules/@ocdladefense/modal-inline/dist/modal.js";
 
 
 // List for ORS-related requests.
@@ -11,6 +12,8 @@ document.addEventListener("click", displayOrs);
 domReady(function() {
 
     convert();
+
+    window.modalJr = new InlineModal("modal-jr");
 
     window.modal = new OrsModal();
 
