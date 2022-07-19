@@ -1,6 +1,6 @@
 
-import { OrsModal } from "~/node_modules/@ocdladefense/ors/dist/modal.js";
-import { OrsParser } from "~/node_modules/@ocdladefense/ors/dist/ors-parser.js";
+import { OrsModal } from "../node_modules/@ocdladefense/ors/dist/modal.js";
+import { OrsParser } from "../node_modules/@ocdladefense/ors/dist/ors-parser.js";
 
 
 // List for ORS-related requests.
@@ -12,7 +12,7 @@ domReady(function() {
 
     convert();
 
-    let modal = new OrsModal();
+    window.modal = new OrsModal();
 
     const background = document.getElementById("modal-backdrop");
 
@@ -84,6 +84,7 @@ function ors(chapter, section) {
     let network = fetchOrs(chapter,section);
 
     return network.then(function(data) {
+        let sections,elements,html;
         [sections,elements,html] = data;
         let volumes = ["Courts, Or. Rules of Civil Procedure",
         "Business Organizations, Commercial Code",
@@ -109,7 +110,8 @@ function ors(chapter, section) {
         let optionsHtml = options.join("\n");
 
         let toc = [];
-        for(var s in sections) {
+
+        for(let s in sections) {
             toc.push(`<li><a href="#${s}">${s} - ${sections[s]}</a></li>`);
         }
 
@@ -119,13 +121,13 @@ function ors(chapter, section) {
         // highlight(chapter, section, null, doc);
         // Why does the range not work if called here?
 
-        html = parseOrs(html);
+        html = OrsParser.replaceAll(html);
         modal.renderHtml(html,"ors-statutes");
         modal.toc(toc.join("\n"));
         modal.titleBar("Oregon Revised Statutes - <select>"+optionsHtml+"</select><input type='checkbox' id='theHighlighter' name='highlighting' /><label for='theHighligher'>Highlight</label>");
-        window.location.hash = (padZeros(chapter) + "." + padZeros(section));
+        window.location.hash = (OrsParser.padZeros(chapter) + "." + OrsParser.padZeros(section));
 
-        highlight(chapter, section, null);
+        OrsParser.highlight(chapter, section, null);
     });
 }
 
@@ -158,7 +160,7 @@ function fetchOrs(chapter, section) {
             var sectionHeadings ={};
             
 
-            for(i = 0 ; i< headings.length; i++){
+            for(var i = 0 ; i< headings.length; i++){
                 let boldParent = headings[i];            
                 var trimmed = headings[i].textContent.trim();
                 if(trimmed.indexOf("Note") === 0) continue;
