@@ -1,0 +1,8 @@
+{
+  "name": "@ocdladefense/system-web",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "babel src -d dist"
+  },
+  "type": "module"
+}

@@ -1,5 +1,7 @@
 
 
+export {domReady};
+
 /**
  * domReady dependency for Salesforce Community Apps.
  *
