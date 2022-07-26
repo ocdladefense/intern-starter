@@ -12,6 +12,11 @@
     </head>
     <body>
 
+    <?php 
+    $cool = "cool >:)";
+    print($cool);
+    
+    ?>
 
         <div>This is an except from <a target="_new" href="https://libraryofdefense.ocdla.org/DUII_Notebook:Chapter_3">The DUII Trial Notebook, Chapter 3</a>.</div>
 

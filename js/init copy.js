@@ -3,7 +3,7 @@ import { OrsModal } from "../node_modules/@ocdladefense/ors/dist/modal.js";
 import { OrsParser } from "../node_modules/@ocdladefense/ors/dist/ors-parser.js";
 import {InlineModal} from "../node_modules/@ocdladefense/modal-inline/dist/modal.js";
 import {domReady} from "../node_modules/@ocdladefense/system-web/SiteLibraries.js";
-
+import {OrsChapter} from "../node_modules/@ocdladefense/ors/dist/chapter.js"
 
 // List for ORS-related requests.
 document.addEventListener("click", displayOrs);
@@ -86,7 +86,7 @@ function ors(chapter, section) {
     modal.show();
     // Network call.
     let network = fetchOrs(chapter,section);
-
+    let chapter = new OrsChapter(chapter);
     return network.then(function(data) {
         let sections,elements,html;
         [sections,elements,html] = data;
@@ -118,22 +118,31 @@ function ors(chapter, section) {
         for(let s in sections) {
             toc.push(`<li><a href="#${s}">${s} - ${sections[s]}</a></li>`);
         }
-
-
-
+            /*
+                doc.findAndReplace() <-- links
+                doc.parse(html)
+                doc.getAll(sections)
+                doc.createTOC()
+                doc.injectAnchors()
+                doc.toString()
+                doc.getSection(sectionNum)
+                doc.highlight(sectionNum)
+            */
         
         // highlight(chapter, section, null, doc);
         // Why does the range not work if called here?
 
         
         modal.renderHtml(html,"ors-statutes");
+        modal.renderHtml(doc.toString(),"ors-statutes");
         modal.toc(toc.join("\n"));
         modal.titleBar("Oregon Revised Statutes - <select>"+optionsHtml+"</select><input type='checkbox' id='theHighlighter' name='highlighting' /><label for='theHighligher'>Highlight</label>");
         window.location.hash = section;
 
         var nextSection = getNextSection(section);
-            console.log(nextSection);
-            OrsParser.highlight(chapter,section,nextSection.dataset.section);
+        console.log(nextSection);
+        //good luck :^) goal: do highlighting at level of object
+        OrsParser.highlight(chapter,section,nextSection.dataset.section);
     });
 }
 
