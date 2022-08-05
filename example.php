@@ -11,10 +11,14 @@
         
     </head>
     <body>
-        <?php
-            $hello = "world";
-            print($hello);
-        ?>
+
+
+    <?php 
+    $cool = "cool >:)";
+    print($cool);
+    
+    ?>
+
 
         <div>This is an except from <a target="_new" href="https://libraryofdefense.ocdla.org/DUII_Notebook:Chapter_3">The DUII Trial Notebook, Chapter 3</a>.</div>
 
@@ -62,7 +66,7 @@
 
 
 
-       <script type="module" src="js/init.js">
+       <script type="module" src="js/init-copy.js">
         </script> 
         
 
