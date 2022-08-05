@@ -31,6 +31,23 @@ domReady(function () {
 
     modal.hide();
   });
+  var modalTarget = window.modalJr.getRoot();
+  var links = document.querySelectorAll('a');
+  var mouseOutCb = getMouseLeaveCallback(modalTarget, function () {
+    window.modalJr.hide();
+  });
+  var mouseOverCb = getMouseOverCallback(function (x, y, chapter, section) {
+    fetchOrs(chapter, section).then(function (html) {
+      window.modalJr.renderHtml(html);
+      window.modalJr.show(x, y);
+    });
+  });
+  modalTarget.addEventListener("mouseleave", mouseOutCb);
+
+  for (var i = 0; i < links.length; i++) {
+    links[i].addEventListener("mouseover", mouseOverCb);
+    links[i].addEventListener("mouseleave", mouseOutCb);
+  }
   /*
   const body = document.querySelector("div, p, span"); 
     // Loop through all text nodes of a document; 
@@ -40,6 +57,7 @@ domReady(function () {
       n.
   }
   */
+
 });
 
 function convert() {
@@ -98,6 +116,32 @@ function ors(chapter, section) {
     console.log(nextSection);
     OrsParser.highlight(chapter, section, nextSection.dataset.section);
   });
+}
+
+function getMouseOverCallback(fn) {
+  return function (e) {
+    var target = e.target; //console.log(e);
+
+    var rectangle = target.getBoundingClientRect();
+    console.log(rectangle);
+    var recW = rectangle.width;
+    var recH = rectangle.height; //need to fix this, doesnt work right
+
+    var x = recW + (rectangle.width - e.pageX);
+    var y = e.pageY;
+    console.log(x, y);
+    fn(e.pageX, e.pageY, target.dataset.chapter, target.dataset.section);
+  };
+}
+
+function getMouseLeaveCallback(compareNode, fn) {
+  return function (e) {
+    var relatedTarget = e.relatedTarget;
+
+    if (!compareNode.contains(relatedTarget)) {
+      fn();
+    }
+  };
 }
 
 function fetchOrs(chapter, section) {
