@@ -1,4 +1,3 @@
-
 import { OrsModal } from "../node_modules/@ocdladefense/ors/dist/modal.js";
 import { OrsParser } from "../node_modules/@ocdladefense/ors/dist/ors-parser.js";
 import {InlineModal} from "../node_modules/@ocdladefense/modal-inline/dist/modal.js";
@@ -31,6 +30,24 @@ domReady(function() {
 
         modal.hide();
     });
+    
+    let modalTarget = window.modalJr.getRoot();
+    let links = document.querySelectorAll('a');
+
+        let mouseOutCb = getMouseLeaveCallback(modalTarget, function() { window.modalJr.hide(); });
+        let mouseOverCb = getMouseOverCallback(function(x,y,chapter,section) {
+            fetchOrs(chapter,section).then(function(html){
+                window.modalJr.renderHtml(html);
+                window.modalJr.show(x, y);
+            });
+        });
+
+        modalTarget.addEventListener("mouseleave", mouseOutCb);
+
+        for(var i = 0; i<links.length; i++) {
+            links[i].addEventListener("mouseover", mouseOverCb);
+            links[i].addEventListener("mouseleave", mouseOutCb);
+        }
 
 
     /*
@@ -43,7 +60,6 @@ domReady(function() {
         n.
     }
     */
-
 });
 
 
@@ -135,6 +151,38 @@ function ors(chapter, section) {
     });
 }
 
+function getMouseOverCallback(fn) {
+
+
+    return (function(e) {
+        let target = e.target;
+        //console.log(e);
+
+        let rectangle = target.getBoundingClientRect();
+        console.log(rectangle);
+        let recW = rectangle.width;
+        let recH = rectangle.height;
+
+        //need to fix this, doesnt work right
+        let x = recW + (rectangle.width - e.pageX);
+        let y = e.pageY;
+        console.log(x,y);
+        fn(e.pageX,e.pageY,target.dataset.chapter,target.dataset.section);
+
+    });
+}
+
+
+function getMouseLeaveCallback(compareNode, fn) {
+    
+    return (function(e) {
+        let relatedTarget = e.relatedTarget;
+        
+        if(!compareNode.contains(relatedTarget)){
+            fn();
+        }
+    }); 
+}
 
 
 function fetchOrs(chapter, section) {
