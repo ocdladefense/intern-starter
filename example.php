@@ -64,7 +64,7 @@
 
 
 
-       <script type="module" src="js/init.js">
+       <script type="module" src="js/init-copy.js">
         </script> 
         
 

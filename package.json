@@ -4,7 +4,8 @@
   "description": "Starter package for interns.",
   "main": "index.js",
   "scripts": {
-    "build": "./node_modules/.bin/babel node-modal-inline/src -d node-modal-inline/dist; ./node_modules/.bin/babel node-ors/src -d node-ors/dist; ./node_modules/.bin/babel js/init.js --out-file js/init-compiled.js"
+    "build": "./node_modules/.bin/babel node-modal-inline/src -d node-modal-inline/dist && ./node_modules/.bin/babel node-ors/src -d node-ors/dist && ./node_modules/.bin/babel js/init.js --out-file js/init-compiled.js"
+    
   },
   "repository": {
     "type": "git",
@@ -20,7 +21,8 @@
     "@ocdladefense/modal-inline": "file:node-modal-inline",
     "@ocdladefense/ors": "file:node-ors",
     "@ocdladefense/system-web": "file:node-system-web",
-    "@ocdladefense/view": "^2.1.1"
+    "@ocdladefense/view": "^2.1.1",
+    "npm-watch": "^0.11.0"
   },
   "extra": {
     "1": "https://github.com/entwicklerstube/babel-plugin-root-import"
