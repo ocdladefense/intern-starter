@@ -3,7 +3,7 @@ import { OrsModal } from "../node_modules/@ocdladefense/ors/dist/modal.js";
 import { OrsParser } from "../node_modules/@ocdladefense/ors/dist/ors-parser.js";
 import {InlineModal} from "../node_modules/@ocdladefense/modal-inline/dist/modal.js";
 import {domReady} from "../node_modules/@ocdladefense/system-web/SiteLibraries.js";
-import {OrsChapter} from "../node_modules/@ocdladefense/ors/dist/chapter.js"
+import {OrsChapter} from "../node_modules/@ocdladefense/ors/src/chapter.js"
 
 // List for ORS-related requests.
 document.addEventListener("click", displayOrs);
@@ -84,11 +84,20 @@ function displayOrs(e) {
 
 
 function ors(chapter, section) {
-    modal.show();
-    // Network call.
-    let network = fetchOrs(chapter,section);
-    let chapterDoc = new OrsChapter(chapter);
     
+    // Network call.
+    //let network = fetchOrs(chapter,section);
+    let chapterDoc = new OrsChapter(chapter);
+    chapterDoc.load().then(function (){
+        
+        chapterDoc.injectAnchors();
+        let endSection = chapterDoc.getNextSection(section);
+        chapterDoc.highlight(section, endSection.id);
+
+        let content = chapterDoc.toString();
+        modal.renderHtml(content);
+        modal.show();
+    });
 }
 
 
