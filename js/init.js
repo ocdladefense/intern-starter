@@ -2,11 +2,12 @@ import { OrsModal } from "../node_modules/@ocdladefense/ors/dist/modal.js";
 import { OrsParser } from "../node_modules/@ocdladefense/ors/dist/ors-parser.js";
 import {InlineModal} from "../node_modules/@ocdladefense/modal-inline/dist/modal.js";
 import {domReady} from "../node_modules/@ocdladefense/system-web/SiteLibraries.js";
-
+import {OrsChapter} from "../node_modules/@ocdladefense/ors/src/chapter.js"
 
 // List for ORS-related requests.
 document.addEventListener("click", displayOrs);
 
+window.OrsChapter = OrsChapter;
 
 // Convert the document to be ORS-ready.
 domReady(function() {
@@ -31,13 +32,25 @@ domReady(function() {
         modal.hide();
     });
     
+    const serializer = new XMLSerializer();
+    
     let modalTarget = window.modalJr.getRoot();
     let links = document.querySelectorAll('a');
 
+
+        
         let mouseOutCb = getMouseLeaveCallback(modalTarget, function() { window.modalJr.hide(); });
         let mouseOverCb = getMouseOverCallback(function(x,y,chapter,section) {
-            fetchOrs(chapter,section).then(function(html){
-                window.modalJr.renderHtml(html);
+            let chapterDoc = new OrsChapter(chapter);
+                    chapterDoc.load()
+                    chapterDoc.injectAnchors();
+                    let content = chapterDoc.toString();
+                    let endSection = chapterDoc.getNextSection(section);
+                    let extracted = chapterDoc.extractContents(section);
+                    let extractedHtml = serializer.serializeToString(extracted);
+                
+            fetchOrs(chapter,section).then(function(extractedhtml){     
+                window.modalJr.renderHtml(extractedhtml);
                 window.modalJr.show(x, y);
             });
         });
@@ -99,57 +112,19 @@ function displayOrs(e) {
 
 
 function ors(chapter, section) {
-    modal.show();
+     
     // Network call.
-    let network = fetchOrs(chapter,section);
-
-    return network.then(function(data) {
-        let sections,elements,html;
-        [sections,elements,html] = data;
-        let volumes = ["Courts, Or. Rules of Civil Procedure",
-        "Business Organizations, Commercial Code",
-        "Landlord-Tenant, Domestic Relations, Probate",
-        "Criminal Procedure, Crimes",
-        "State Government, Government Procedures, Land Use",
-        "Local Government, Pub. Employees, Elections",
-        "Pub. Facilities & Finance",
-        "Revenue & Taxation",
-        "Education & Culture",
-        "Highways, Military",
-        "Juvenile Code, Human Services",
-        "Pub. Health",
-        "Housing, Environment",
-        "Drugs & Alcohol, Fire Protection, Natural Resources",
-        "Water Resources, Agriculture & Food",
-        "Trade Practices, Labor & Employment",
-        "Occupations",
-        "Financial Institutions, Insurance",
-        "Utilities, Vehicle Code, Watercraft, Aviation, Constitutions"];
-
-        let options = volumes.map(function(v,index){ return `<option value="${index+1}">Volume ${index+1} - ${v}</option>`});
-        let optionsHtml = options.join("\n");
-
-        let toc = [];
-
-        for(let s in sections) {
-            toc.push(`<li><a href="#${s}">${s} - ${sections[s]}</a></li>`);
-        }
-
-
-
+    //let network = fetchOrs(chapter,section);
+    let chapterDoc = new OrsChapter(chapter);
+    chapterDoc.load().then(function (){
         
-        // highlight(chapter, section, null, doc);
-        // Why does the range not work if called here?
+        chapterDoc.injectAnchors();
+        let endSection = chapterDoc.getNextSection(section);
+        chapterDoc.highlight(section, endSection.id);
 
-        
-        modal.renderHtml(html,"ors-statutes");
-        modal.toc(toc.join("\n"));
-        modal.titleBar("Oregon Revised Statutes - <select>"+optionsHtml+"</select><input type='checkbox' id='theHighlighter' name='highlighting' /><label for='theHighligher'>Highlight</label>");
-        window.location.hash = section;
-
-        var nextSection = getNextSection(section);
-            console.log(nextSection);
-            OrsParser.highlight(chapter,section,nextSection.dataset.section);
+        let content = chapterDoc.toString();
+        modal.renderHtml(content);
+        modal.show();
     });
 }
 

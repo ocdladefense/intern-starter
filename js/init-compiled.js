@@ -1,21 +1,11 @@
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 import { OrsModal } from "../node_modules/@ocdladefense/ors/dist/modal.js";
 import { OrsParser } from "../node_modules/@ocdladefense/ors/dist/ors-parser.js";
 import { InlineModal } from "../node_modules/@ocdladefense/modal-inline/dist/modal.js";
-import { domReady } from "../node_modules/@ocdladefense/system-web/SiteLibraries.js"; // List for ORS-related requests.
+import { domReady } from "../node_modules/@ocdladefense/system-web/SiteLibraries.js";
+import { OrsChapter } from "../node_modules/@ocdladefense/ors/src/chapter.js"; // List for ORS-related requests.
 
-document.addEventListener("click", displayOrs); // Convert the document to be ORS-ready.
+document.addEventListener("click", displayOrs);
+window.OrsChapter = OrsChapter; // Convert the document to be ORS-ready.
 
 domReady(function () {
   convert();
@@ -84,37 +74,16 @@ function displayOrs(e) {
 }
 
 function ors(chapter, section) {
-  modal.show(); // Network call.
-
-  var network = fetchOrs(chapter, section);
-  return network.then(function (data) {
-    var sections, elements, html;
-
-    var _data = _slicedToArray(data, 3);
-
-    sections = _data[0];
-    elements = _data[1];
-    html = _data[2];
-    var volumes = ["Courts, Or. Rules of Civil Procedure", "Business Organizations, Commercial Code", "Landlord-Tenant, Domestic Relations, Probate", "Criminal Procedure, Crimes", "State Government, Government Procedures, Land Use", "Local Government, Pub. Employees, Elections", "Pub. Facilities & Finance", "Revenue & Taxation", "Education & Culture", "Highways, Military", "Juvenile Code, Human Services", "Pub. Health", "Housing, Environment", "Drugs & Alcohol, Fire Protection, Natural Resources", "Water Resources, Agriculture & Food", "Trade Practices, Labor & Employment", "Occupations", "Financial Institutions, Insurance", "Utilities, Vehicle Code, Watercraft, Aviation, Constitutions"];
-    var options = volumes.map(function (v, index) {
-      return "<option value=\"".concat(index + 1, "\">Volume ").concat(index + 1, " - ").concat(v, "</option>");
-    });
-    var optionsHtml = options.join("\n");
-    var toc = [];
-
-    for (var s in sections) {
-      toc.push("<li><a href=\"#".concat(s, "\">").concat(s, " - ").concat(sections[s], "</a></li>"));
-    } // highlight(chapter, section, null, doc);
-    // Why does the range not work if called here?
-
-
-    modal.renderHtml(html, "ors-statutes");
-    modal.toc(toc.join("\n"));
-    modal.titleBar("Oregon Revised Statutes - <select>" + optionsHtml + "</select><input type='checkbox' id='theHighlighter' name='highlighting' /><label for='theHighligher'>Highlight</label>");
-    window.location.hash = section;
-    var nextSection = getNextSection(section);
-    console.log(nextSection);
-    OrsParser.highlight(chapter, section, nextSection.dataset.section);
+  // Network call.
+  //let network = fetchOrs(chapter,section);
+  var chapterDoc = new OrsChapter(chapter);
+  chapterDoc.load().then(function () {
+    chapterDoc.injectAnchors();
+    var endSection = chapterDoc.getNextSection(section);
+    chapterDoc.highlight(section, endSection.id);
+    var content = chapterDoc.toString();
+    modal.renderHtml(content);
+    modal.show();
   });
 }
 
