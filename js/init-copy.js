@@ -92,9 +92,10 @@ function ors(chapter, section) {
         
         chapterDoc.injectAnchors();
         let endSection = chapterDoc.getNextSection(section);
-        chapterDoc.highlight(section, endSection.id);
-
+        //chapterDoc.highlight(section, endSection.id);
+        chapterDoc.extractContents(section);
         let content = chapterDoc.toString();
+
         modal.renderHtml(content);
         modal.show();
     });
