@@ -8,7 +8,7 @@ import {OrsChapter} from "../node_modules/@ocdladefense/ors/src/chapter.js"
 document.addEventListener("click", displayOrs);
 
 window.OrsChapter = OrsChapter;
-
+const cache = {};
 // Convert the document to be ORS-ready.
 domReady(function() {
 
@@ -37,42 +37,45 @@ domReady(function() {
     let modalTarget = window.modalJr.getRoot();
     let links = document.querySelectorAll('a');
 
-
         
-        let mouseOutCb = getMouseLeaveCallback(modalTarget, function() { window.modalJr.hide(); });
-        let mouseOverCb = getMouseOverCallback(function(x,y,chapter,section) {
-            let chapterDoc = new OrsChapter(chapter);
-                    chapterDoc.load()
-                    chapterDoc.injectAnchors();
-                    let content = chapterDoc.toString();
-                    let endSection = chapterDoc.getNextSection(section);
-                    let extracted = chapterDoc.extractContents(section);
-                    let extractedHtml = serializer.serializeToString(extracted);
+    let mouseOutCb = getMouseLeaveCallback(modalTarget, function() { window.modalJr.hide(); });
+    let mouseOverCb = getMouseOverCallback(function(x,y,chapter,section){
+        let chapterDoc = cache[chapter] || new OrsChapter(chapter); 
+        if(cache[chapter] == null)
+        {
+            chapterDoc.load().then(function(){
+                cache[chapter] = chapterDoc;
+                chapterDoc.injectAnchors();
                 
-            fetchOrs(chapter,section).then(function(extractedhtml){     
-                window.modalJr.renderHtml(extractedhtml);
-                window.modalJr.show(x, y);
+                let endSection = chapterDoc.getNextSection(section);
+                let extracted = chapterDoc.clone(section, endSection.id);
+                let extractedHtml = serializer.serializeToString(extracted);
+                window.modalJr.renderHtml(extractedHtml);
+                window.modalJr.show(x,y);
             });
-        });
-
-        modalTarget.addEventListener("mouseleave", mouseOutCb);
-
-        for(var i = 0; i<links.length; i++) {
-            links[i].addEventListener("mouseover", mouseOverCb);
-            links[i].addEventListener("mouseleave", mouseOutCb);
+        }  
+        else
+        {
+            let endSection = chapterDoc.getNextSection(section);
+            let extracted = chapterDoc.clone(section, endSection.id);
+            let extractedHtml = serializer.serializeToString(extracted);
+            window.modalJr.renderHtml(extractedHtml);
+            window.modalJr.show(x,y);
         }
+        /*
+        chapterDoc.load().then(function(){  
+            
+        });
+        */
+    });
 
+    modalTarget.addEventListener("mouseleave", mouseOutCb);
 
-    /*
-    const body = document.querySelector("div, p, span"); 
-
-    // Loop through all text nodes of a document; 
-    // call convert on each one to capture ORS references.
-    for(var n of body.childNodes) {
-        let newText = convert(n.innerText);
-        n.
+    for(var i = 0; i<links.length; i++) {
+        links[i].addEventListener("mouseover", mouseOverCb);
+        links[i].addEventListener("mouseleave", mouseOutCb);
     }
-    */
+
 });
 
 
