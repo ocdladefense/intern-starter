@@ -33,7 +33,12 @@ domReady(function() {
     });
     
     const serializer = new XMLSerializer();
-    
+    const loadingIcon = `<head>
+                             <link rel="stylesheet" href="node_modules/@ocdladefense/modal-inline/dist/loading.css" />
+                         </head>
+                         <div id="loading">
+                             <div id="loading-wheel"></div>
+                         </div>`;
     let modalTarget = window.modalJr.getRoot();
     let links = document.querySelectorAll('a');
 
@@ -43,24 +48,25 @@ domReady(function() {
         let chapterDoc = cache[chapter] || new OrsChapter(chapter); 
         if(cache[chapter] == null)
         {
+            window.modalJr.show(x,y);
+            window.modalJr.renderHtml(loadingIcon);
             chapterDoc.load().then(function(){
                 cache[chapter] = chapterDoc;
                 chapterDoc.injectAnchors();
                 
                 let endSection = chapterDoc.getNextSection(section);
-                let extracted = chapterDoc.clone(section, endSection.id);
-                let extractedHtml = serializer.serializeToString(extracted);
-                window.modalJr.renderHtml(extractedHtml);
-                window.modalJr.show(x,y);
+                let cloned = chapterDoc.clone(section, endSection.id);
+                let clonedHtml = serializer.serializeToString(cloned);
+                window.modalJr.renderHtml(clonedHtml);
             });
         }  
         else
         {
-            let endSection = chapterDoc.getNextSection(section);
-            let extracted = chapterDoc.clone(section, endSection.id);
-            let extractedHtml = serializer.serializeToString(extracted);
-            window.modalJr.renderHtml(extractedHtml);
             window.modalJr.show(x,y);
+            let endSection = chapterDoc.getNextSection(section);
+            let cloned = chapterDoc.clone(section, endSection.id);
+            let clonedHtml = serializer.serializeToString(cloned);
+            window.modalJr.renderHtml(clonedHtml);
         }
         /*
         chapterDoc.load().then(function(){  
