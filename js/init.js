@@ -9,6 +9,7 @@ document.addEventListener("click", displayOrs);
 
 window.OrsChapter = OrsChapter;
 const cache = {};
+let inlineModalFired = false;
 // Convert the document to be ORS-ready.
 domReady(function() {
 
@@ -36,21 +37,29 @@ domReady(function() {
     const loadingIcon = `<head>
                              <link rel="stylesheet" href="node_modules/@ocdladefense/modal-inline/dist/loading.css" />
                          </head>
-                         <div id="loading">
-                             <div id="loading-wheel"></div>
+                         <div id="loading" class="spinner-border" role="status">
+                             <span id="loading-wheel" class="sr-only">Loading...</span>
                          </div>`;
     let modalTarget = window.modalJr.getRoot();
     let links = document.querySelectorAll('a');
 
-        
+    
     let mouseOutCb = getMouseLeaveCallback(modalTarget, function() { window.modalJr.hide(); });
     let mouseOverCb = getMouseOverCallback(function(x,y,chapter,section){
+        console.log("rectangle");
+        if(inlineModalFired == true)
+        {
+            return false;
+        }
+        inlineModalFired = true;
+
         let chapterDoc = cache[chapter] || new OrsChapter(chapter); 
         if(cache[chapter] == null)
         {
             window.modalJr.show(x,y);
-            window.modalJr.renderHtml(loadingIcon);
+            //window.modalJr.renderHtml(loadingIcon);
             chapterDoc.load().then(function(){
+
                 cache[chapter] = chapterDoc;
                 chapterDoc.injectAnchors();
                 
@@ -58,6 +67,7 @@ domReady(function() {
                 let cloned = chapterDoc.clone(section, endSection.id);
                 let clonedHtml = serializer.serializeToString(cloned);
                 window.modalJr.renderHtml(clonedHtml);
+                inlineModalFired = false;
             });
         }  
         else
@@ -67,6 +77,7 @@ domReady(function() {
             let cloned = chapterDoc.clone(section, endSection.id);
             let clonedHtml = serializer.serializeToString(cloned);
             window.modalJr.renderHtml(clonedHtml);
+            inlineModalFired = false;
         }
         /*
         chapterDoc.load().then(function(){  
@@ -74,11 +85,12 @@ domReady(function() {
         });
         */
     });
+    
 
     modalTarget.addEventListener("mouseleave", mouseOutCb);
-
+    const once = {once: true};
     for(var i = 0; i<links.length; i++) {
-        links[i].addEventListener("mouseover", mouseOverCb);
+        links[i].addEventListener("mouseenter", mouseOverCb);
         links[i].addEventListener("mouseleave", mouseOutCb);
     }
 
@@ -145,14 +157,12 @@ function getMouseOverCallback(fn) {
         //console.log(e);
 
         let rectangle = target.getBoundingClientRect();
-        console.log(rectangle);
         let recW = rectangle.width;
         let recH = rectangle.height;
 
         //need to fix this, doesnt work right
         let x = recW + (rectangle.width - e.pageX);
         let y = e.pageY;
-        console.log(x,y);
         fn(e.pageX,e.pageY,target.dataset.chapter,target.dataset.section);
 
     });
@@ -160,10 +170,14 @@ function getMouseOverCallback(fn) {
 
 
 function getMouseLeaveCallback(compareNode, fn) {
-    
     return (function(e) {
         let relatedTarget = e.relatedTarget;
-        
+        let areTheyEqual = compareNode == relatedTarget;
+        console.log("Leave");
+        if(areTheyEqual)
+        {
+            return false;
+        }
         if(!compareNode.contains(relatedTarget)){
             fn();
         }
