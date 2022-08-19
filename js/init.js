@@ -267,10 +267,15 @@ function fetchOrs(chapter, section) {
 window.tocTest = tocTest;
 function tocTest(){
     var chapter = new OrsChapter(813);
-    chapter.load();
-    chapter.toString();
+    chapter.load().then(function () { 
     chapter.injectAnchors();
-    chapter.testToC();
+    let toc = chapter.buildToC();
+    modal.show();
+    modal.toc(toc);
+    modal.renderHtml(chapter.toString(), "ors-statutes");
+
+    window.location.hash = this.section; 
+    });
 }
 
 

@@ -5,7 +5,9 @@ import { domReady } from "../node_modules/@ocdladefense/system-web/SiteLibraries
 import { OrsChapter } from "../node_modules/@ocdladefense/ors/src/chapter.js"; // List for ORS-related requests.
 
 document.addEventListener("click", displayOrs);
-window.OrsChapter = OrsChapter; // Convert the document to be ORS-ready.
+window.OrsChapter = OrsChapter;
+var cache = {};
+var inlineModalFired = false; // Convert the document to be ORS-ready.
 
 domReady(function () {
   convert();
@@ -21,33 +23,59 @@ domReady(function () {
 
     modal.hide();
   });
+  var serializer = new XMLSerializer();
+  var loadingIcon = "<head>\n                             <link rel=\"stylesheet\" href=\"node_modules/@ocdladefense/modal-inline/dist/loading.css\" />\n                         </head>\n                         <div id=\"loading\" class=\"spinner-border\" role=\"status\">\n                             <span id=\"loading-wheel\" class=\"sr-only\">Loading...</span>\n                         </div>";
   var modalTarget = window.modalJr.getRoot();
   var links = document.querySelectorAll('a');
   var mouseOutCb = getMouseLeaveCallback(modalTarget, function () {
     window.modalJr.hide();
   });
   var mouseOverCb = getMouseOverCallback(function (x, y, chapter, section) {
-    fetchOrs(chapter, section).then(function (html) {
-      window.modalJr.renderHtml(html);
+    console.log("rectangle");
+
+    if (inlineModalFired == true) {
+      return false;
+    }
+
+    inlineModalFired = true;
+    var chapterDoc = cache[chapter] || new OrsChapter(chapter);
+
+    if (cache[chapter] == null) {
+      window.modalJr.show(x, y); //window.modalJr.renderHtml(loadingIcon);
+
+      chapterDoc.load().then(function () {
+        cache[chapter] = chapterDoc;
+        chapterDoc.injectAnchors();
+        var endSection = chapterDoc.getNextSection(section);
+        var cloned = chapterDoc.clone(section, endSection.id);
+        var clonedHtml = serializer.serializeToString(cloned);
+        window.modalJr.renderHtml(clonedHtml);
+        inlineModalFired = false;
+      });
+    } else {
       window.modalJr.show(x, y);
+      var endSection = chapterDoc.getNextSection(section);
+      var cloned = chapterDoc.clone(section, endSection.id);
+      var clonedHtml = serializer.serializeToString(cloned);
+      window.modalJr.renderHtml(clonedHtml);
+      inlineModalFired = false;
+    }
+    /*
+    chapterDoc.load().then(function(){  
+        
     });
+    */
+
   });
   modalTarget.addEventListener("mouseleave", mouseOutCb);
+  var once = {
+    once: true
+  };
 
   for (var i = 0; i < links.length; i++) {
-    links[i].addEventListener("mouseover", mouseOverCb);
+    links[i].addEventListener("mouseenter", mouseOverCb);
     links[i].addEventListener("mouseleave", mouseOutCb);
   }
-  /*
-  const body = document.querySelector("div, p, span"); 
-    // Loop through all text nodes of a document; 
-  // call convert on each one to capture ORS references.
-  for(var n of body.childNodes) {
-      let newText = convert(n.innerText);
-      n.
-  }
-  */
-
 });
 
 function convert() {
@@ -92,13 +120,11 @@ function getMouseOverCallback(fn) {
     var target = e.target; //console.log(e);
 
     var rectangle = target.getBoundingClientRect();
-    console.log(rectangle);
     var recW = rectangle.width;
     var recH = rectangle.height; //need to fix this, doesnt work right
 
     var x = recW + (rectangle.width - e.pageX);
     var y = e.pageY;
-    console.log(x, y);
     fn(e.pageX, e.pageY, target.dataset.chapter, target.dataset.section);
   };
 }
@@ -106,6 +132,12 @@ function getMouseOverCallback(fn) {
 function getMouseLeaveCallback(compareNode, fn) {
   return function (e) {
     var relatedTarget = e.relatedTarget;
+    var areTheyEqual = compareNode == relatedTarget;
+    console.log("Leave");
+
+    if (areTheyEqual) {
+      return false;
+    }
 
     if (!compareNode.contains(relatedTarget)) {
       fn();
@@ -182,6 +214,19 @@ function fetchOrs(chapter, section) {
     var serializer = new XMLSerializer();
     var subset = doc.querySelector(".WordSection1");
     return [sectionTitles, sectionHeadings, serializer.serializeToString(subset)];
+  });
+}
+
+window.tocTest = tocTest;
+
+function tocTest() {
+  var chapter = new OrsChapter(813);
+  chapter.load().then(function () {
+    modal.renderHtml(chapter.toString());
+    chapter.injectAnchors();
+    var toc = chapter.buildToC();
+    modal.show();
+    modal.toc(toc);
   });
 }
 
