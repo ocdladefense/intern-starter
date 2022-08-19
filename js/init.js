@@ -250,6 +250,21 @@ function fetchOrs(chapter, section) {
             return [sectionTitles, sectionHeadings, serializer.serializeToString(subset)];
         });
 }
+window.tocTest = tocTest;
+function tocTest(){
+    var chapter = new OrsChapter(813);
+    chapter.load();
+    chapter.toString();
+    chapter.injectAnchors();
+    chapter.testToC();
+}
+
+
+
+
+
+
+
 window.fubar = fubar;
 function fubar(){
     var first = getSection(10);
