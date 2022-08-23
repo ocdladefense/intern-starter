@@ -110,8 +110,12 @@ function ors(chapter, section) {
     var endSection = chapterDoc.getNextSection(section);
     chapterDoc.highlight(section, endSection.id);
     var content = chapterDoc.toString();
-    modal.renderHtml(content);
+    modal.renderHtml(content); //modal.show();
+
+    var toc = chapter.buildToC();
     modal.show();
+    modal.toc(toc);
+    modal.renderHtml(chapter.toString(), "ors-statutes");
   });
 }
 
@@ -159,3 +163,22 @@ function tocTest() {
     window.location.hash = this.section;
   });
 }
+
+
+window.volTest = volTest;
+
+function volTest() {
+  var chapter = new OrsChapter(813);
+  chapter.load().then(function () {
+    chapter.injectAnchors();
+    var toc = chapter.buildToC();
+    var vols = chapter.buildVolumes();
+    modal.show();
+    modal.toc(toc);
+    modal.titleBar(vols);
+    modal.renderHtml(chapter.toString(), "ors-statutes");
+    modal.titleBar(vols);
+    window.location.hash = this.section;
+  });
+}
+
