@@ -144,15 +144,15 @@ function ors(chapter, section) {
         chapterDoc.highlight(section, endSection.id);
 
         let content = chapterDoc.toString();
-        modal.renderHtml(content);
+        //modal.renderHtml(content);
         //modal.show();
 
-        let toc = chapter.buildToC();
-        let vols = chapter.buildVolumes();
+        let toc = chapterDoc.buildToC();
+        let vols = chapterDoc.buildVolumes();
         modal.show();
         modal.toc(toc);
         modal.titleBar(vols);
-        modal.renderHtml(chapter.toString(), "ors-statutes");
+        modal.renderHtml(chapterDoc.toString(), "ors-statutes");
     });
 }
 
@@ -204,7 +204,7 @@ function tocTest(){
     modal.toc(toc);
     modal.renderHtml(chapter.toString(), "ors-statutes");
 
-    window.location.hash = this.section; 
+    window.location.hash = section; 
     });
 }
 
@@ -222,7 +222,7 @@ function volTest(){
         modal.titleBar(vols);
         
     
-        window.location.hash = this.section; 
+        window.location.hash = section; 
         });
     
     
