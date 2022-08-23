@@ -27,7 +27,7 @@
         </h2>
 
         <div class="editableSection mw-collapsible mw-made-collapsible" id="mw-customcollapsible-8">
-            <p>If the need arises to reschedule the hearing date, please note that if the petitioner files the request, the client’s license will be suspended within the time period indicated on the implied consent form. If the officer is unavailable and the hearing is rescheduled, the client’s license suspension is withdrawn until the outcome of the hearing. Reasons for allowing the department to reschedule the hearing are covered in ORS 813.440 and includes the inability of the attorney to appear due to the attorney’s illness, vacation or scheduling conflict arising from other court or administrative hearing appearances.
+            <p>If the need arises to reschedule the hearing date, please note that if the petitioner files the request, the client’s license will be suspended within the time period indicated on the implied consent form. If the officer is unavailable and the hearing is rescheduled, the client’s license ORS 813.440 suspension is withdrawn until the outcome of the hearing. Reasons for allowing the department to reschedule the hearing are covered in ORS 813.440 and includes the inability of the attorney to appear due to the attorney’s illness, vacation or scheduling conflict arising from other court or administrative hearing appearances.
             </p>
         </div>
 

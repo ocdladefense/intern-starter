@@ -57,6 +57,8 @@ domReady(function() {
         if(cache[chapter] == null)
         {
             window.modalJr.show(x,y);
+            console.log(x);
+            console.log(y);
             //window.modalJr.renderHtml(loadingIcon);
             chapterDoc.load().then(function(){
 
@@ -73,6 +75,8 @@ domReady(function() {
         else
         {
             window.modalJr.show(x,y);
+            console.log(x);
+            console.log(y);
             let endSection = chapterDoc.getNextSection(section);
             let cloned = chapterDoc.clone(section, endSection.id);
             let clonedHtml = serializer.serializeToString(cloned);
@@ -162,8 +166,12 @@ function getMouseOverCallback(fn) {
 
         //need to fix this, doesnt work right
         let x = recW + (rectangle.width - e.pageX);
+        if (x > 1575)
+        {
+            x = 1575;
+        }
         let y = e.pageY;
-        fn(e.pageX,e.pageY,target.dataset.chapter,target.dataset.section);
+        fn(e.pageX-1,e.pageY+1,target.dataset.chapter,target.dataset.section);
 
     });
 }
