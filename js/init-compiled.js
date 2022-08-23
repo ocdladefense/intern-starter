@@ -41,7 +41,9 @@ domReady(function () {
     var chapterDoc = cache[chapter] || new OrsChapter(chapter);
 
     if (cache[chapter] == null) {
-      window.modalJr.show(x, y); //window.modalJr.renderHtml(loadingIcon);
+      window.modalJr.show(x, y);
+      console.log(x);
+      console.log(y); //window.modalJr.renderHtml(loadingIcon);
 
       chapterDoc.load().then(function () {
         cache[chapter] = chapterDoc;
@@ -54,6 +56,8 @@ domReady(function () {
       });
     } else {
       window.modalJr.show(x, y);
+      console.log(x);
+      console.log(y);
       var endSection = chapterDoc.getNextSection(section);
       var cloned = chapterDoc.clone(section, endSection.id);
       var clonedHtml = serializer.serializeToString(cloned);
@@ -130,8 +134,13 @@ function getMouseOverCallback(fn) {
     var recH = rectangle.height; //need to fix this, doesnt work right
 
     var x = recW + (rectangle.width - e.pageX);
+
+    if (x > 1575) {
+      x = 1575;
+    }
+
     var y = e.pageY;
-    fn(e.pageX + 1, e.pageY + 1, target.dataset.chapter, target.dataset.section);
+    fn(e.pageX - 1, e.pageY + 1, target.dataset.chapter, target.dataset.section);
   };
 }
 
@@ -166,7 +175,6 @@ function tocTest() {
   });
 }
 
-
 window.volTest = volTest;
 
 function volTest() {
@@ -183,4 +191,3 @@ function volTest() {
     window.location.hash = section;
   });
 }
-
