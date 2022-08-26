@@ -175,7 +175,7 @@ function getMouseOverCallback(fn) {
             x = 1575;
         }
         let y = e.pageY;
-        fn(e.pageX-1,e.pageY+1,target.dataset.chapter,target.dataset.section);
+        fn(e.pageX-50,e.pageY+1,target.dataset.chapter,target.dataset.section);
 
     });
 }
