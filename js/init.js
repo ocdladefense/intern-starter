@@ -126,6 +126,7 @@ function ors(chapter, section) {
      
     // Network call.
     //let network = fetchOrs(chapter,section);
+    /*
     let chapterDoc = new OrsChapter(chapter);
     chapterDoc.load().then(function (){
         
@@ -137,6 +138,16 @@ function ors(chapter, section) {
         //modal.renderHtml(content);
         //modal.show();
 
+        let toc = chapterDoc.buildToC();
+        let vols = chapterDoc.buildVolumes();
+        modal.show();
+        modal.toc(toc);
+        modal.titleBar(vols);
+        modal.renderHtml(chapterDoc.toString(), "ors-statutes");
+    });
+    */
+    let chapterDoc = OrsChapter.getCached(chapter) || new OrsChapter(chapter);
+    chapterDoc.load().then(function() {
         let toc = chapterDoc.buildToC();
         let vols = chapterDoc.buildVolumes();
         modal.show();
