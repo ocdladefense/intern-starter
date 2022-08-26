@@ -53,36 +53,21 @@ domReady(function() {
         }
         inlineModalFired = true;
 
-        let chapterDoc = cache[chapter] || new OrsChapter(chapter); 
-        if(cache[chapter] == null)
-        {
-            window.modalJr.show(x,y);
-            console.log(x);
-            console.log(y);
-            //window.modalJr.renderHtml(loadingIcon);
-            chapterDoc.load().then(function(){
-
-                cache[chapter] = chapterDoc;
-                chapterDoc.injectAnchors();
-                
-                let endSection = chapterDoc.getNextSection(section);
-                let cloned = chapterDoc.clone(section, endSection.id);
-                let clonedHtml = serializer.serializeToString(cloned);
-                window.modalJr.renderHtml(clonedHtml);
-                inlineModalFired = false;
-            });
-        }  
-        else
-        {
-            window.modalJr.show(x,y);
-            console.log(x);
-            console.log(y);
-            let endSection = chapterDoc.getNextSection(section);
-            let cloned = chapterDoc.clone(section, endSection.id);
-            let clonedHtml = serializer.serializeToString(cloned);
-            window.modalJr.renderHtml(clonedHtml);
-            inlineModalFired = false;
-        }
+    let chapterDoc = OrsChapter.getCached(chapter) || new OrsChapter(chapter); 
+       
+    window.modalJr.show(x,y);
+    console.log(x);
+    console.log(y);
+    //window.modalJr.renderHtml(loadingIcon);
+    chapterDoc.load().then(function(){              
+        let endSection = chapterDoc.getNextSection(section);
+        let cloned = chapterDoc.clone(section, endSection.id);
+        let clonedHtml = serializer.serializeToString(cloned);
+        window.modalJr.renderHtml(clonedHtml);
+        inlineModalFired = false;
+    });
+          
+        
         /*
         chapterDoc.load().then(function(){  
             

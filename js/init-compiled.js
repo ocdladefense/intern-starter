@@ -38,38 +38,23 @@ domReady(function () {
     }
 
     inlineModalFired = true;
-    var chapterDoc = cache[chapter] || new OrsChapter(chapter);
+    var chapterDoc = OrsChapter.getCached(chapter) || new OrsChapter(chapter);
+    window.modalJr.show(x, y);
+    console.log(x);
+    console.log(y); //window.modalJr.renderHtml(loadingIcon);
 
-    if (cache[chapter] == null) {
-      window.modalJr.show(x, y);
-      console.log(x);
-      console.log(y); //window.modalJr.renderHtml(loadingIcon);
-
-      chapterDoc.load().then(function () {
-        cache[chapter] = chapterDoc;
-        chapterDoc.injectAnchors();
-        var endSection = chapterDoc.getNextSection(section);
-        var cloned = chapterDoc.clone(section, endSection.id);
-        var clonedHtml = serializer.serializeToString(cloned);
-        window.modalJr.renderHtml(clonedHtml);
-        inlineModalFired = false;
-      });
-    } else {
-      window.modalJr.show(x, y);
-      console.log(x);
-      console.log(y);
+    chapterDoc.load().then(function () {
       var endSection = chapterDoc.getNextSection(section);
       var cloned = chapterDoc.clone(section, endSection.id);
       var clonedHtml = serializer.serializeToString(cloned);
       window.modalJr.renderHtml(clonedHtml);
       inlineModalFired = false;
-    }
+    });
     /*
     chapterDoc.load().then(function(){  
         
     });
     */
-
   });
   modalTarget.addEventListener("mouseleave", mouseOutCb);
   var once = {
