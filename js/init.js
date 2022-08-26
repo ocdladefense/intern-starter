@@ -148,7 +148,7 @@ function ors(chapter, section) {
     */
     let chapterDoc = OrsChapter.getCached(chapter) || new OrsChapter(chapter);
     chapterDoc.load().then(function() {
-        let toc = chapterDoc.buildToC();
+        let toc = chapterDoc.buildToc();
         let vols = chapterDoc.buildVolumes();
         modal.show();
         modal.toc(toc);
