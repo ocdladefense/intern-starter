@@ -1,21 +1,13 @@
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 import { OrsModal } from "../node_modules/@ocdladefense/ors/dist/modal.js";
 import { OrsParser } from "../node_modules/@ocdladefense/ors/dist/ors-parser.js";
 import { InlineModal } from "../node_modules/@ocdladefense/modal-inline/dist/modal.js";
-import { domReady } from "../node_modules/@ocdladefense/system-web/SiteLibraries.js"; // List for ORS-related requests.
+import { domReady } from "../node_modules/@ocdladefense/system-web/SiteLibraries.js";
+import { OrsChapter } from "../node_modules/@ocdladefense/ors/src/chapter.js"; // List for ORS-related requests.
 
-document.addEventListener("click", displayOrs); // Convert the document to be ORS-ready.
+document.addEventListener("click", displayOrs);
+window.OrsChapter = OrsChapter;
+var cache = {};
+var inlineModalFired = false; // Convert the document to be ORS-ready.
 
 domReady(function () {
   convert();
@@ -31,15 +23,48 @@ domReady(function () {
 
     modal.hide();
   });
-  /*
-  const body = document.querySelector("div, p, span"); 
-    // Loop through all text nodes of a document; 
-  // call convert on each one to capture ORS references.
-  for(var n of body.childNodes) {
-      let newText = convert(n.innerText);
-      n.
+  var serializer = new XMLSerializer();
+  var loadingIcon = "<head>\n                             <link rel=\"stylesheet\" href=\"node_modules/@ocdladefense/modal-inline/dist/loading.css\" />\n                         </head>\n                         <div id=\"loading\" class=\"spinner-border\" role=\"status\">\n                             <span id=\"loading-wheel\" class=\"sr-only\">Loading...</span>\n                         </div>";
+  var modalTarget = window.modalJr.getRoot();
+  var links = document.querySelectorAll('a');
+  var mouseOutCb = getMouseLeaveCallback(modalTarget, function () {
+    window.modalJr.hide();
+  });
+  var mouseOverCb = getMouseOverCallback(function (x, y, chapter, section) {
+    console.log("rectangle");
+
+    if (inlineModalFired == true) {
+      return false;
+    }
+
+    inlineModalFired = true;
+    var chapterDoc = OrsChapter.getCached(chapter) || new OrsChapter(chapter);
+    window.modalJr.show(x, y);
+    console.log(x);
+    console.log(y); //window.modalJr.renderHtml(loadingIcon);
+
+    chapterDoc.load().then(function () {
+      var endSection = chapterDoc.getNextSection(section);
+      var cloned = chapterDoc.clone(section, endSection.id);
+      var clonedHtml = serializer.serializeToString(cloned);
+      window.modalJr.renderHtml(clonedHtml);
+      inlineModalFired = false;
+    });
+    /*
+    chapterDoc.load().then(function(){  
+        
+    });
+    */
+  });
+  modalTarget.addEventListener("mouseleave", mouseOutCb);
+  var once = {
+    once: true
+  };
+
+  for (var i = 0; i < links.length; i++) {
+    links[i].addEventListener("mouseenter", mouseOverCb);
+    links[i].addEventListener("mouseleave", mouseOutCb);
   }
-  */
 });
 
 function convert() {
@@ -66,208 +91,88 @@ function displayOrs(e) {
 }
 
 function ors(chapter, section) {
-  modal.show(); // Network call.
+  // Network call.
+  //let network = fetchOrs(chapter,section);
+  var chapterDoc = new OrsChapter(chapter);
+  chapterDoc.load().then(function () {
+    chapterDoc.injectAnchors();
+    var endSection = chapterDoc.getNextSection(section);
+    chapterDoc.highlight(section, endSection.id);
+    var content = chapterDoc.toString(); //modal.renderHtml(content);
+    //modal.show();
 
-  var network = fetchOrs(chapter, section);
-  return network.then(function (data) {
-    var sections, elements, html;
+    var toc = chapterDoc.buildToC();
+    var vols = chapterDoc.buildVolumes();
+    modal.show();
+    modal.toc(toc);
+    modal.titleBar(vols);
+    modal.renderHtml(chapterDoc.toString(), "ors-statutes");
+  });
+}
 
-    var _data = _slicedToArray(data, 3);
+function getMouseOverCallback(fn) {
+  return function (e) {
+    var target = e.target; //console.log(e);
 
-    sections = _data[0];
-    elements = _data[1];
-    html = _data[2];
-    var volumes = ["Courts, Or. Rules of Civil Procedure", "Business Organizations, Commercial Code", "Landlord-Tenant, Domestic Relations, Probate", "Criminal Procedure, Crimes", "State Government, Government Procedures, Land Use", "Local Government, Pub. Employees, Elections", "Pub. Facilities & Finance", "Revenue & Taxation", "Education & Culture", "Highways, Military", "Juvenile Code, Human Services", "Pub. Health", "Housing, Environment", "Drugs & Alcohol, Fire Protection, Natural Resources", "Water Resources, Agriculture & Food", "Trade Practices, Labor & Employment", "Occupations", "Financial Institutions, Insurance", "Utilities, Vehicle Code, Watercraft, Aviation, Constitutions"];
-    var options = volumes.map(function (v, index) {
-      return "<option value=\"".concat(index + 1, "\">Volume ").concat(index + 1, " - ").concat(v, "</option>");
-    });
-    var optionsHtml = options.join("\n");
-    var toc = [];
+    var rectangle = target.getBoundingClientRect();
+    var recW = rectangle.width;
+    var recH = rectangle.height; //need to fix this, doesnt work right
 
-    for (var s in sections) {
-      toc.push("<li><a href=\"#".concat(s, "\">").concat(s, " - ").concat(sections[s], "</a></li>"));
-    } // highlight(chapter, section, null, doc);
-    // Why does the range not work if called here?
+    var x = recW + (rectangle.width - e.pageX);
+
+    if (x > 1575) {
+      x = 1575;
+    }
+
+    var y = e.pageY;
+    fn(e.pageX - 1, e.pageY + 1, target.dataset.chapter, target.dataset.section);
+  };
+}
+
+function getMouseLeaveCallback(compareNode, fn) {
+  return function (e) {
+    var relatedTarget = e.relatedTarget;
+    var areTheyEqual = compareNode == relatedTarget;
+    console.log("Leave");
+
+    if (areTheyEqual) {
+      return false;
+    }
+
+    if (!compareNode.contains(relatedTarget)) {
+      fn();
+    }
+  };
+} //Test building Table of Contents
 
 
-    modal.renderHtml(html, "ors-statutes");
-    modal.toc(toc.join("\n"));
-    modal.titleBar("Oregon Revised Statutes - <select>" + optionsHtml + "</select><input type='checkbox' id='theHighlighter' name='highlighting' /><label for='theHighligher'>Highlight</label>");
+window.tocTest = tocTest;
+
+function tocTest() {
+  var chapter = new OrsChapter(813);
+  chapter.load().then(function () {
+    chapter.injectAnchors();
+    var toc = chapter.buildToC();
+    modal.show();
+    modal.toc(toc);
+    modal.renderHtml(chapter.toString(), "ors-statutes");
     window.location.hash = section;
-    var nextSection = getNextSection(section);
-    console.log(nextSection);
-    OrsParser.highlight(chapter, section, nextSection.dataset.section);
   });
 }
 
-function fetchOrs(chapter, section) {
-  return fetch("index.php?chapter=" + chapter + "&section=" + section).then(function (resp) {
-    return resp.arrayBuffer();
-  }).then(function (buffer) {
-    var decoder = new TextDecoder("iso-8859-1");
-    return decoder.decode(buffer);
-  }).then(function (html) {
-    //initialize the parser
-    var parser = new DOMParser();
-    html = OrsParser.replaceAll(html); //tell the parser to look for html
+window.volTest = volTest;
 
-    var doc = parser.parseFromString(html, "text/html"); //createa nodeList of all the <b> elements in the body
-
-    var headings = doc.querySelectorAll("b"); // console.log(headings);
-
-    window.sectionTitles = {};
-    window.sectionHeadings = {};
-
-    for (var i = 0; i < headings.length; i++) {
-      var boldParent = headings[i];
-      var trimmed = headings[i].textContent.trim();
-      if (trimmed.indexOf("Note") === 0) continue;
-      var strings = trimmed.split("\n");
-
-      var _chapter = void 0,
-          _section = void 0,
-          key = void 0,
-          val = void 0;
-
-      console.log(strings); // if array has oonly one element,
-      // then we know this doesn't follow the traditional statute pattern.
-
-      if (strings.length === 1) {
-        key = strings[0];
-        val = boldParent.nextSibling ? boldParent.nextSibling.textContent : "";
-      } else {
-        // otherwise our normal case.
-        key = strings[0];
-        val = strings[1];
-        var numbers = key.split('.');
-        _chapter = numbers[0];
-        _section = numbers[1];
-      }
-
-      console.log(key);
-      sectionTitles[parseInt(_section)] = val;
-      sectionHeadings[parseInt(_section)] = boldParent;
-    } // Inserts anchors as div tags in the doc.
-
-
-    for (var prop in sectionTitles) {
-      var headingDiv = doc.createElement('div');
-      headingDiv.setAttribute('id', prop);
-      headingDiv.setAttribute('class', 'ocdla-heading');
-      headingDiv.setAttribute('data-chapter', chapter);
-      headingDiv.setAttribute('data-section', prop);
-      var target = sectionHeadings[prop];
-      target.parentNode.insertBefore(headingDiv, target);
-    } // console.log(sectionTitles);
-    // console.log(sectionHeadings);
-    // chapter = parseInt(chapter);
-    // section = parseInt(section);
-    // highlight(chapter, section, null, doc);
-    // Why does the range not work if called here?
-
-
-    var serializer = new XMLSerializer();
-    var subset = doc.querySelector(".WordSection1");
-    return [sectionTitles, sectionHeadings, serializer.serializeToString(subset)];
+function volTest() {
+  var chapter = new OrsChapter(813);
+  chapter.load().then(function () {
+    chapter.injectAnchors();
+    var toc = chapter.buildToC();
+    var vols = chapter.buildVolumes();
+    modal.show();
+    modal.toc(toc);
+    modal.titleBar(vols);
+    modal.renderHtml(chapter.toString(), "ors-statutes");
+    modal.titleBar(vols);
+    window.location.hash = section;
   });
-}
-
-window.fubar = fubar;
-
-function fubar() {
-  var first = getSection(10);
-  var second = getNextSection();
-  console.log(second);
-  var secondThing = parseInt(second.dataset.section);
-  OrsParser.highlight(813, 10, secondThing);
-}
-
-window.getSection = getSection;
-
-function getSection(chapter, section) {
-  var requestedSec = sectionHeadings[section];
-  return requestedSec;
-}
-
-window.getNextSection = getNextSection;
-
-function getNextSection(sectionNum) {
-  var headings = document.querySelectorAll('.ocdla-heading'); //var vals = ocdlaHeadings.values();
-  //console.log(vals[0]);
-
-  var section = document.getElementById(sectionNum);
-
-  for (var i = 0; i < headings.length; i++) {
-    if (headings.item(i) == section) {
-      var nextSection = headings.item(i + 1);
-      return nextSection;
-    }
-  }
-}
-
-function nextSectionId(chapter, section) {
-  var doc = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
-  var html = arguments.length > 3 ? arguments[3] : undefined;
-  var range = doc ? doc.createRange() : new Range();
-  var parser = new DOMParser();
-  doc = parser.parseFromString(html, "text/html"); //createa nodeList of all the <b> elements in the body
-
-  var headings = doc.querySelectorAll("b"); // console.log(headings);
-
-  var sectionTitles = {};
-  var sectionHeadings = {};
-
-  for (var i = 0; i < headings.length; i++) {
-    var boldParent = headings[i];
-    var trimmed = headings[i].textContent.trim();
-    if (trimmed.indexOf("Note") === 0) continue;
-    var strings = trimmed.split("\n");
-    var key = void 0,
-        val = void 0;
-    console.log(strings); // if array has oonly one element,
-    // then we know this doesn't follow the traditional statute pattern.
-
-    if (strings.length === 1) {
-      key = strings[0];
-      val = boldParent.nextSibling ? boldParent.nextSibling.textContent : "";
-    } else {
-      // otherwise our normal case.
-      key = strings[0];
-      val = strings[1];
-    }
-
-    sectionTitles[key] = val;
-    sectionHeadings[key] = boldParent;
-  } // Inserts anchors as div tags in the doc.
-
-
-  for (var prop in sectionTitles) {
-    var headingDiv = doc.createElement('div');
-    headingDiv.setAttribute('id', prop);
-    var target = sectionHeadings[prop];
-    target.parentNode.insertBefore(headingDiv, target);
-  } //we want all the heading divs
-
-
-  var headingDivs = doc.querySelectorAll('div'); //the starting node for our range
-
-  var start = chapter + '.' + section;
-  var firstNode = headingDivs[start];
-  var endNode = headingDivs[firstNode + 1];
-  console.log(headingDivs);
-  range.setStartBefore(firstNode);
-  range.setEndBefore(endNode);
-  console.log(range);
-}
-
-function padZeros(section) {
-  if (section < 10) {
-    section = '00' + section;
-  }
-
-  if (section < 100) {
-    section = '0' + section;
-  }
-
-  return section;
 }
