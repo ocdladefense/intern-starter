@@ -231,16 +231,16 @@
         },
         {
             "name": "ocdladefense/lib-salesforce",
-            "version": "v1.2",
+            "version": "v1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ocdladefense/lib-salesforce-sobject.git",
-                "reference": "b11db6ee338d18c11621230c6e4df089edd63a49"
+                "reference": "6640460550472756ff6e23402190ee932d8f7c10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ocdladefense/lib-salesforce-sobject/zipball/b11db6ee338d18c11621230c6e4df089edd63a49",
-                "reference": "b11db6ee338d18c11621230c6e4df089edd63a49",
+                "url": "https://api.github.com/repos/ocdladefense/lib-salesforce-sobject/zipball/6640460550472756ff6e23402190ee932d8f7c10",
+                "reference": "6640460550472756ff6e23402190ee932d8f7c10",
                 "shasum": ""
             },
             "type": "library",
@@ -262,22 +262,22 @@
             "description": "PHP wrapper classes for SObjects functions.",
             "support": {
                 "issues": "https://github.com/ocdladefense/lib-salesforce-sobject/issues",
-                "source": "https://github.com/ocdladefense/lib-salesforce-sobject/tree/v1.2"
+                "source": "https://github.com/ocdladefense/lib-salesforce-sobject/tree/v1.3"
             },
-            "time": "2022-06-15T00:51:45+00:00"
+            "time": "2022-08-25T19:06:35+00:00"
         },
         {
             "name": "ocdladefense/lib-salesforce-rest-api",
-            "version": "v3.9.10",
+            "version": "v3.9.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ocdladefense/lib-salesforce-rest-api.git",
-                "reference": "1843e8ae451cebe6e1403f674134130883ad3634"
+                "reference": "643228472642ef06b3c93d32054b47ecc2a822e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ocdladefense/lib-salesforce-rest-api/zipball/1843e8ae451cebe6e1403f674134130883ad3634",
-                "reference": "1843e8ae451cebe6e1403f674134130883ad3634",
+                "url": "https://api.github.com/repos/ocdladefense/lib-salesforce-rest-api/zipball/643228472642ef06b3c93d32054b47ecc2a822e5",
+                "reference": "643228472642ef06b3c93d32054b47ecc2a822e5",
                 "shasum": ""
             },
             "require": {
@@ -295,9 +295,9 @@
             "description": "OCDLA plugin accesses.",
             "support": {
                 "issues": "https://github.com/ocdladefense/lib-salesforce-rest-api/issues",
-                "source": "https://github.com/ocdladefense/lib-salesforce-rest-api/tree/v3.9.10"
+                "source": "https://github.com/ocdladefense/lib-salesforce-rest-api/tree/v3.9.11"
             },
-            "time": "2022-06-29T21:40:55+00:00"
+            "time": "2022-08-24T19:57:30+00:00"
         }
     ],
     "packages-dev": [],
@@ -308,5 +308,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.1.0"
 }
