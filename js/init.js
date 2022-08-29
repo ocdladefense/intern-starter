@@ -7,16 +7,21 @@ import {OrsChapter} from "../node_modules/@ocdladefense/ors/src/chapter.js"
 // List for ORS-related requests.
 document.addEventListener("click", displayOrs);
 
+// For testing in the console.
 window.OrsChapter = OrsChapter;
-const cache = {};
+
 let inlineModalFired = false;
+
+
 // Convert the document to be ORS-ready.
 domReady(function() {
 
     convert();
 
+    // Inline modal initialization.
     window.modalJr = new InlineModal("modal-jr");
 
+    // Full-screen modal.
     window.modal = new OrsModal();
 
     const background = document.getElementById("modal-backdrop");
@@ -34,50 +39,51 @@ domReady(function() {
     });
     
     const serializer = new XMLSerializer();
-    const loadingIcon = `<head>
-                             <link rel="stylesheet" href="node_modules/@ocdladefense/modal-inline/dist/loading.css" />
-                         </head>
-                         <div id="loading" class="spinner-border" role="status">
-                             <span id="loading-wheel" class="sr-only">Loading...</span>
-                         </div>`;
+
     let modalTarget = window.modalJr.getRoot();
-    let links = document.querySelectorAll('a');
+    
 
     
     let mouseOutCb = getMouseLeaveCallback(modalTarget, function() { window.modalJr.hide(); });
     let mouseOverCb = getMouseOverCallback(function(x,y,chapter,section){
-        console.log("rectangle");
+        console.log("X coord is ",x);
+        console.log("Y coord is ",y);
+        console.log("Chapter is: ",chapter);
+        console.log("Section is: ",section);
+
+        // If the modal is already being setup then
+        // don't re-initialize.
         if(inlineModalFired == true)
         {
             return false;
         }
         inlineModalFired = true;
 
-    let chapterDoc = OrsChapter.getCached(chapter) || new OrsChapter(chapter); 
-       
-    window.modalJr.show(x,y);
-    console.log(x);
-    console.log(y);
-    //window.modalJr.renderHtml(loadingIcon);
-    chapterDoc.load().then(function(){              
-        let endSection = chapterDoc.getNextSection(section);
-        let cloned = chapterDoc.clone(section, endSection.id);
-        let clonedHtml = serializer.serializeToString(cloned);
-        window.modalJr.renderHtml(clonedHtml);
-        inlineModalFired = false;
-    });
+
+        window.modalJr.show(x,y);
+
+
+        let chapterDoc = OrsChapter.getCached(chapter) || new OrsChapter(chapter); 
+        
+        
+
+        
+        chapterDoc.load().then(function(){              
+            let endSection = chapterDoc.getNextSection(section);
+            let cloned = chapterDoc.clone(section, endSection.id);
+            let clonedHtml = serializer.serializeToString(cloned);
+            window.modalJr.renderHtml(clonedHtml);
+            inlineModalFired = false;
+        });
           
         
-        /*
-        chapterDoc.load().then(function(){  
-            
-        });
-        */
     });
     
 
     modalTarget.addEventListener("mouseleave", mouseOutCb);
-    const once = {once: true};
+
+    let links = document.querySelectorAll("a[data-action]");
+
     for(var i = 0; i<links.length; i++) {
         links[i].addEventListener("mouseenter", mouseOverCb);
         links[i].addEventListener("mouseleave", mouseOutCb);
