@@ -5,7 +5,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
         </script>
 
-        
+        <link rel="stylesheet" href="css/example.css" />
         <link rel="stylesheet" href="node_modules/@ocdladefense/ors/dist/css/loading.css" />
         <link rel="stylesheet" href="node_modules/@ocdladefense/ors/dist/css/modal.css" />
         <link rel="stylesheet" href="node_modules/@ocdladefense/modal-inline/dist/modal.css" />
@@ -16,7 +16,7 @@
 
         <div class="ors-example">
 
-            <div class="synopsis">This is an except from <a target="_new" href="https://libraryofdefense.ocdla.org/DUII_Notebook:Chapter_3">The DUII Trial Notebook, Chapter 3</a>.</div>
+            <div class="synopsis">The following is an except from <a target="_new" href="https://libraryofdefense.ocdla.org/DUII_Notebook:Chapter_3">The DUII Trial Notebook, Chapter 3</a>.</div>
 
             <h3>
                 <b>Section D - Rescheduling</b>
@@ -41,7 +41,7 @@
 
         <div class="ors-example">
 
-            <div class="synopsis">This is an except from <a target="_new" href="https://libraryofdefense.ocdla.org/Search_and_Seizure:Chapter_1B_Search">Search and Seizure: Chapter 1B - Search</a>.</div>
+            <div class="synopsis">The following is an except from <a target="_new" href="https://libraryofdefense.ocdla.org/Search_and_Seizure:Chapter_1B_Search">Search and Seizure: Chapter 1B - Search</a>.</div>
 
         
             <h3>Section F - Invasions of Privacy Interests by Listening</h3>
