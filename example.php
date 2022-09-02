@@ -45,7 +45,7 @@
         <div id="modal">
             <div id="modal-container" style="overflow-y:visible;">
                 <div id="modal-title-bar">
-                    ORS - Oregon Revised Statutes <button id="close-modal" type="button">X</button>
+                    ORS - Oregon Revised Statutes <button id="close-modal" type="button" style="float: right">X</button>
                     <div id="modal-title-bar-content"></div>
                 </div>  
                 <div id="modal-content" style="vertical-align:top;">

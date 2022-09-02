@@ -1,0 +1,768 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<ors>
+    <volume id="1" title="Courts, Or. Rules of Civil Procedure">
+        <title id="1" title="Courts of record; court officers; juries">
+            <chapter id="1">Courts and Judicial Officers Generally</chapter>
+            <chapter id="2">Supreme Court</chapter>
+            <chapter id="3">Circuit Courts Generally</chapter>
+            <chapter id="5">County Courts (Judicial Functions)</chapter>
+            <chapter id="7">Records and Files of Courts</chapter>
+            <chapter id="8">Court Officers and District Attorneys</chapter>
+            <chapter id="9">Attorneys</chapter>
+            <chapter id="10">Juries</chapter>
+        </title>
+        <title id="2" title="Procedure in civil proceedings">
+            <chapter id="12">Limitations of Actions and Suits</chapter>
+            <chapter id="14">Jurisdiction</chapter>
+            <chapter id="15">Choice of Laws</chapter>
+            <chapter id="17">Compromise</chapter>
+            <chapter id="18">Judgements</chapter>
+            <chapter id="19">Appeals</chapter>
+            <chapter id="20">Attorney Fees</chapter>
+            <chapter id="21">State Court Fees</chapter>
+            <chapter id="22">Bonds and Other Security Deposits</chapter>
+            <chapter id="24">Enforcement and Recognition of Foreign Judgments</chapter>
+            <chapter id="25">Support Enforcement</chapter>
+        </title>
+        <title id="3" title="Remedies and special actions and proceedings">
+            <chapter id="28">Declatory Judgements</chapter>
+            <chapter id="30">Actions and Suits in Particular Cases</chapter>
+            <chapter id="31">Tort Actions</chapter>
+            <chapter id="33">Special Proceedings and Procedures</chapter>
+            <chapter id="34">Writs</chapter>
+            <chapter id="35">Eminent Domain</chapter>
+            <chapter id="36">Mediation and Arbitration</chapter>
+            <chapter id="37">Recievership</chapter>
+        </title>
+        <title id="4" title="Evidence and witnesses">
+            <chapter id="40">Evidence Code</chapter>
+            <chapter id="41">Evidence Generally</chapter>
+            <chapter id="42">Execution, Formalities and Interpretations of Writings</chapter>
+            <chapter id="43">Public Writings</chapter>
+            <chapter id="44">Witnesses</chapter>
+            <chapter id="45">Testimony Generally</chapter>
+        </title>
+        <title id="5" title="Small claims department of circuit court">
+            <chapter id="46">Small Claims Department of Circuit Court</chapter>
+        </title>
+        <title id="6" title="Justice courts">
+            <chapter id="51">Justice Courts</chapter>
+            <chapter id="52">Civil Actions</chapter>
+            <chapter id="53">Appeals in Civil Actions</chapter>
+            <chapter id="54">Juries</chapter>
+            <chapter id="55">Small Claims</chapter>
+        </title>
+    </volume>
+
+    <volume id="2" title="Business Organizations, Commercial Code">
+        <title id="7" title="Corporations and partnerships">
+            <chapter id="56">Duties of Secretary of State</chapter>
+            <chapter id="58">Professional Corporations</chapter>
+            <chapter id="59">Securities Regulation</chapter>
+            <chapter id="60">Private Corporations</chapter>
+            <chapter id="62">Cooperatives</chapter>
+            <chapter id="63">Limited Liability Companies</chapter>
+            <chapter id="65">Nonprofit Corporations</chapter>
+            <chapter id="67">Partnerships</chapter>
+            <chapter id="70">Limited Partnerships</chapter>
+        </title>
+        <title id="8" title="Commercial transactions">
+            <chapter id="71">General Provisions for Uniform Commercial Code</chapter>
+            <chapter id="72">Sales</chapter>
+            <chapter id="72A">Leases</chapter>
+            <chapter id="73">Negotiable Instruments</chapter>
+            <chapter id="74">Bank Deposits and Collections</chapter>
+            <chapter id="74A">Funds Transfers</chapter>
+            <chapter id="75">Letters of Credit</chapter>
+            <chapter id="77">Warehouse Recipts Bills of Landing and Other</chapter>
+            <chapter id="78">Investment Securities</chapter>
+            <chapter id="79">Secured Transactions</chapter>
+            <chapter id="80">Assignment</chapter>
+            <chapter id="81">Tender and Receipts</chapter>
+            <chapter id="82">Interest</chapter>
+            <chapter id="83">Retail Installment Contracts</chapter>
+            <chapter id="84">Electronic Transactions</chapter>
+        </title>
+        <title id="9" title="Mortgages and liens">
+            <chapter id="86">Mortgages</chapter>
+            <chapter id="86A">Mortgage Lending</chapter>
+            <chapter id="87">Statutory Liens</chapter>
+            <chapter id="88">Foreclosure of Mortgages and Other Liens</chapter>
+        </title>
+    </volume>
+
+    <volume id="3" title="Landlord-Tenant, Domestic Relations, Probate">
+        <title id="10" title="Property rights and transactions">
+            <chapter id="90">Residential Landlord and Tenant</chapter>
+            <chapter id="91">Tenancy</chapter>
+            <chapter id="92">Subdivisions and Partitions</chapter>
+            <chapter id="93">Conveyancing and Recording</chapter>
+            <chapter id="94">Real Property Development</chapter>
+            <chapter id="95">Fradulent Transfers and Conveyances</chapter>
+            <chapter id="96">Line and Partition Fences</chapter>
+            <chapter id="97">Rights and Duties Relating to Cemeteries, Human Bodies and Anatomical Gifts</chapter>
+            <chapter id="98">Lost, Unclaimed or Abandoned Property</chapter>
+            <chapter id="99">Property Removed by High Water</chapter>
+            <chapter id="100">Condominiums</chapter>
+            <chapter id="101">Continuing Care Retirement Communities</chapter>
+            <chapter id="105">Property Rights</chapter>
+        </title>
+        <title id="11" title="Domestic relations">
+            <chapter id="106">Marriage</chapter>
+            <chapter id="107">Marital Dissolution, Annulment and Separation</chapter>
+            <chapter id="108">Spousal Relationships</chapter>
+            <chapter id="109">Parent and Child Rights and Relationships</chapter>
+            <chapter id="110">Uniform Interstate Family Support Act</chapter>
+        </title>
+        <title id="12" title="Probate law">
+            <chapter id="111">General Provisions</chapter>
+            <chapter id="112">Intestate Succesion and Wills</chapter>
+            <chapter id="113">Initiation of Estate Proceedings</chapter>
+            <chapter id="114">Administration of Estates Generally</chapter>
+            <chapter id="115">Claims</chapter>
+            <chapter id="116">Accounting, Distribution and Closing</chapter>
+            <chapter id="117">Estates of Absentees</chapter>
+            <chapter id="118">Estate Tax</chapter>
+            <chapter id="119">Revised Uniform Fiduciary Access to Digital Assets Act</chapter>
+        </title>
+        <title id="13" title="Protective proceedings">
+            <chapter id="124">Abuse Prevention and Reporting</chapter>
+            <chapter id="125">Protective Proceedings</chapter>
+            <chapter id="126">Property Held for the Benefit of Minors</chapter>
+            <chapter id="127">Powers of Attorney</chapter>
+            <chapter id="128">Trusts</chapter>
+            <chapter id="129">Uniform Principal and Income Act</chapter>
+            <chapter id="130">Uniform Trust Code</chapter>
+        </title>
+    </volume>
+
+    <volume id="4" title="Criminal Procedure, Crimes">
+        <title id="14" title="Prodecure in criminal matters generally">
+            <chapter id="131">Preliminary Provisions</chapter>
+            <chapter id="131A">Civil Forfeiture</chapter>
+            <chapter id="132">Grand Jusry, Indictments and Other Accusatory Instruments</chapter>
+            <chapter id="133">Arrest and Related Procedures</chapter>
+            <chapter id="135">Arraignment and Pretrial Provisions</chapter>
+            <chapter id="136">Criminal Trials</chapter>
+            <chapter id="137">Judgment and Execution</chapter>
+            <chapter id="138">Appeals</chapter>
+            <chapter id="142">Stolen Property</chapter>
+            <chapter id="144">Parole</chapter>
+            <chapter id="146">Investigations of Deaths, Injuries and Missing Persons</chapter>
+            <chapter id="147">Victims of Crime and Acts of Mass Destruction</chapter>
+            <chapter id="151">Public Defenders</chapter>
+            <chapter id="153">Violations and Fines</chapter>
+        </title>
+        <title id="15" title="Procedure in criminal actions in justice courts">
+            <chapter id="156">Proceedings and Judgment in Criminal Actions</chapter>
+            <chapter id="157">Appeals in Criminal Actions</chapter>
+        </title>
+        <title id="16" title="Crimes and punishments">
+            <chapter id="161">General Provisions</chapter>
+            <chapter id="162">Offenses Against the State and Public Justice</chapter>
+            <chapter id="163">Offenses Against Persons</chapter>
+            <chapter id="163A">Sex Offender Reporting and Classification</chapter>
+            <chapter id="164">Offenses Against Property</chapter>
+            <chapter id="165">Offenses Involving Fraud or Deception</chapter>
+            <chapter id="166">Offenses Against Public Order</chapter>
+            <chapter id="167">Offenses Against General Welfare and Animals</chapter>
+            <chapter id="169">Local and Regional Correctional Facilities</chapter>
+        </title>
+    </volume>
+
+    <volume id="5" title="State Government, Government Procedures, Land Use">
+        <title id="17" title="State legislative department and laws">
+            <chapter id="171">State Legislature</chapter>
+            <chapter id="172">Commission on Uniform Laws</chapter>
+            <chapter id="173">Legislative Service Agencies</chapter>
+            <chapter id="174">Construction of Statutes</chapter>
+        </title>
+        <title id="18" title="Executive branch">
+            <chapter id="176">Governor</chapter>
+            <chapter id="177">Secretary of State</chapter>
+            <chapter id="178">State Treasurer</chapter>
+            <chapter id="179">Administration of State Institutions</chapter>
+            <chapter id="180">Attorney General</chapter>
+            <chapter id="181A">State Police</chapter>
+            <chapter id="182">State Administrative Agencies</chapter>
+            <chapter id="183">Administrative Prcedures Act</chapter>
+            <chapter id="184">Administrative Services and Transportation Departments</chapter>
+            <chapter id="185">Oregon Disabilities Commission</chapter>
+        </title>
+        <title id="19" title="Miscellaneous matters related to government and public affairs">
+            <chapter id="186">State Emblems</chapter>
+            <chapter id="187">Holidays</chapter>
+            <chapter id="188">Congressional Legislative Districts</chapter>
+            <chapter id="190">Cooperation of Government Units</chapter>
+            <chapter id="191">United States' Surveys</chapter>
+            <chapter id="192">Records</chapter>
+            <chapter id="193">Legal Notices</chapter>
+            <chapter id="194">Uniform Law on Notarial Acts</chapter>
+            <chapter id="195">Local Government Planning Coordination</chapter>
+            <chapter id="196">Colombia River Gorge</chapter>
+            <chapter id="197">Comprehensive Land Use Planning</chapter>
+            <chapter id="197A">Comprehensive Land Use Planning II</chapter>
+            <chapter id="198">Special Districts Generally</chapter>
+            <chapter id="199">Local Government Boundary Commissions</chapter>
+            <chapter id="200">Disadvantaged Business Enterprises</chapter>
+        </title>
+    </volume>
+
+    <volume id="6" title="Local Government, Public Employees, Elections">
+        <title id="20" title="Counties and county officers">
+            <chapter id="201">Boundaties of Counties</chapter>
+            <chapter id="202">Establishment of New Counties</chapter>
+            <chapter id="203">County Governing Bodies</chapter>
+            <chapter id="204">County Officers</chapter>
+            <chapter id="205">County Clerks</chapter>
+            <chapter id="206">Sheriffs</chapter>
+            <chapter id="208">County Treasurers</chapter>
+            <chapter id="209">County Surveyors</chapter>
+            <chapter id="210">County Accountants</chapter>
+            <chapter id="215">County Planning</chapter>
+        </title>
+        <title id="21" title="Cities">
+            <chapter id="221">Organization and Government of Cities</chapter>
+            <chapter id="222">City Boundary Changes</chapter>
+            <chapter id="223">Local Improvements and Works Generally</chapter>
+            <chapter id="224">City Sewers and Sanitation</chapter>
+            <chapter id="225">Municipal Utilities</chapter>
+            <chapter id="226">City Parks, Memorials and Cemeteries</chapter>
+            <chapter id="227">City Planning and Zoning</chapter>
+        </title>
+        <title id="22" title="Public officers and employees">
+            <chapter id="236">Eligibility</chapter>
+            <chapter id="237">Public Employee Retirement Generally</chapter>
+            <chapter id="238">Public Employees Retirement System</chapter>
+            <chapter id="238A">Oregon Public Services Retirement Plan</chapter>
+            <chapter id="240">State Personnel Relations</chapter>
+            <chapter id="241">Civil Service for County Employees</chapter>
+            <chapter id="242">Civil Service for City or School District Employees and Firefighters</chapter>
+            <chapter id="243">Public Employee Rights and Benefits</chapter>
+            <chapter id="244">Government Ethics</chapter>
+        </title>
+        <title id="23" title="Elections">
+            <chapter id="246">Administration of Election Laws</chapter>
+            <chapter id="247">Qualification and Registration of Electors</chapter>
+            <chapter id="248">Political Parties</chapter>
+            <chapter id="249">Candidates</chapter>
+            <chapter id="250">Initiative and Referendum</chapter>
+            <chapter id="251">Voters' Pamphlet</chapter>
+            <chapter id="253">Absent Electors</chapter>
+            <chapter id="254">Conduct of Elections</chapter>
+            <chapter id="255">Special District Elections</chapter>
+            <chapter id="258">Election Contests</chapter>
+            <chapter id="259">Campaign Finance</chapter>
+            <chapter id="260">Campaign Finance Regulation</chapter>
+        </title>
+    </volume>
+
+    <volume id="7" title="Public Facilities and Finance">
+        <title id="24" title="Public organizations for community service">
+            <chapter id="261">People's Utility Districts</chapter>
+            <chapter id="262">Joint Operating Agencies for Electric Power</chapter>
+            <chapter id="263">Convention Facilities</chapter>
+            <chapter id="264">Domestic WaterSupply Districts</chapter>
+            <chapter id="265">Cemetery Maintenance Districts</chapter>
+            <chapter id="266">Park and Recreation Districts</chapter>
+            <chapter id="267">Mass Transit Districts</chapter>
+            <chapter id="268">Metropolitan Service Districts</chapter>
+        </title>
+        <title id="25" title="Public lands">
+            <chapter id="270">State Real Property</chapter>
+            <chapter id="271">Use and Disposition of Public Lands Generally</chapter>
+            <chapter id="272">Federal Lands</chapter>
+            <chapter id="273">State Lands Generally</chapter>
+            <chapter id="274">Submersible and Submerged Lands</chapter>
+            <chapter id="275">County Lands</chapter>
+        </title>
+        <title id="26" title="Public facilities, contracting and insurance">
+            <chapter id="276">Public Facilities</chapter>
+            <chapter id="276A">Information Technology</chapter>
+            <chapter id="278">Isurance For Public Bodies</chapter>
+            <chapter id="279">Public Contracting - Miscellaneous Provisions</chapter>
+            <chapter id="279A">Public Contracting - General Provisions</chapter>
+            <chapter id="279B">Public Contracting - Public Procurements</chapter>
+            <chapter id="279C">Public Contracting - Public Improvements and Related Contracts</chapter>
+            <chapter id="280">Financing of Local Public Projects and Improvements</chapter>
+            <chapter id="282">Public Printing</chapter>
+            <chapter id="283">Interagency Services</chapter>
+        </title>
+        <title id="26A" title="Economic development">
+            <chapter id="284">Organizations for Economic Development</chapter>
+            <chapter id="285A">Economic Development I</chapter>
+            <chapter id="285B">Economic Development II</chapter>
+            <chapter id="285C">Economic Development III</chapter>
+        </title>
+        <title id="27" title="Public borrowing">
+            <chapter id="286A">State Borrowing</chapter>
+            <chapter id="287A">Local Government Borrowing</chapter>
+            <chapter id="289">Oregon Facilities Financing</chapter>
+        </title>
+        <title id="28" title="Public financial administration">
+            <chapter id="291">State Financial</chapter>
+            <chapter id="292">Salaries and Expenses of State Officers and Employees</chapter>
+            <chapter id="293">Administration of Public Funds</chapter>
+            <chapter id="294">County and Municipal Financial Administration</chapter>
+            <chapter id="295">Depositories of Public Funds and Securities</chapter>
+            <chapter id="297">Audits of Public Funds and Financial Records</chapter>
+        </title>
+    </volume>
+
+    <volume id="8" title="Revenue and Taxation">
+        <title id="29" title="Revenue and taxation">
+            <chapter id="305">Administration of Revenue and Tax Laws</chapter>
+            <chapter id="306">Property Taxation Generally</chapter>
+            <chapter id="307">Propert Taxation Generally</chapter>
+            <chapter id="308">Assessment of Property Taxation</chapter>
+            <chapter id="308A">Land Special Assessments</chapter>
+            <chapter id="309">Board of Property Tax Appeals</chapter>
+            <chapter id="310">Propert Tax RAtes and Amounts</chapter>
+            <chapter id="311">Collection of Property Taxes</chapter>
+            <chapter id="312">Forclosure of Property Tax Liens</chapter>
+            <chapter id="314">Taxes Imposed Upon or Measured by Net Income</chapter>
+            <chapter id="315">Personal and Corporate Income or Excise Tax Credits</chapter>
+            <chapter id="316">Personal Income Tax</chapter>
+            <chapter id="317">Corporation Excise Tax</chapter>
+            <chapter id="317A">Corporate Activity Tax</chapter>
+            <chapter id="318">Corporation Income Tax</chapter>
+            <chapter id="319">Motor Vehicle and Aircraft Fuel Taxes</chapter>
+            <chapter id="320">Miscellaneous Taxes</chapter>
+            <chapter id="321">Timber and Forestland Taxation</chapter>
+            <chapter id="323">Cigarettes and Tobacco Products</chapter>
+            <chapter id="324">Oil and Gas Tax</chapter>
+        </title>
+    </volume>
+
+    <volume id="9" title="Education and Culture">
+        <title id="30" title="Education and culture">
+            <chapter id="326">State Administration of Education</chapter>
+            <chapter id="327">State Financing of Elementary and Secondary Education</chapter>
+            <chapter id="328">Local Financing of Education</chapter>
+            <chapter id="329">Oregon Educational Act for the 21st Century</chapter>
+            <chapter id="329A">Child Care</chapter>
+            <chapter id="330">Boundary Changes</chapter>
+            <chapter id="332">Local Administration of Education</chapter>
+            <chapter id="334">Education Service Districts</chapter>
+            <chapter id="335">High Schools</chapter>
+            <chapter id="336">Conduct of Schools Generally</chapter>
+            <chapter id="337">Books and Instructional Materials</chapter>
+            <chapter id="338">Public Charter Schools</chapter>
+            <chapter id="339">School Attendance</chapter>
+            <chapter id="340">College Credit Earned in High School</chapter>
+            <chapter id="341">Community Colleges</chapter>
+            <chapter id="342">Teachers and Other School Peronnel</chapter>
+            <chapter id="343">Special Education and Other Specialized Education Services</chapter>
+            <chapter id="344">CAreer and Technical Education</chapter>
+            <chapter id="345">Career Schools</chapter>
+            <chapter id="346">Programs for Persons Who Are Blind or Deaf</chapter>
+            <chapter id="348">Student Aid</chapter>
+            <chapter id="350">Statewide Coordination of Higher Education</chapter>
+            <chapter id="352">Public Universities</chapter>
+            <chapter id="353">Oregon Health and Science University</chapter>
+            <chapter id="345">Education Television and Radio</chapter>
+            <chapter id="357">Libraries</chapter>
+            <chapter id="358">Oregon Historical and Heritage Agencies, Programs and Tax Provisions</chapter>
+            <chapter id="359">Art and Culture</chapter>
+        </title>
+    </volume>
+
+    <volume id="10" title="Highways, Military">
+        <title id="31" title="Highways, roads, bridges and ferries">
+            <chapter id="366">State Highways and State Highway Fund</chapter>
+            <chapter id="367">Transportation Financing</chapter>
+            <chapter id="368">Country Roads</chapter>
+            <chapter id="369">Ways of Public Easement</chapter>
+            <chapter id="370">County Road Bonding Act</chapter>
+            <chapter id="371">Road Districts and Road Assesment Plans</chapter>
+            <chapter id="372">Highway Lighting Districts</chapter>
+            <chapter id="373">Roads and Highways Through Cities</chapter>
+            <chapter id="374">Control of Access to Public Highways</chapter>
+            <chapter id="376">Ways of Necessity</chapter>
+            <chapter id="377">Highway Beautification</chapter>
+            <chapter id="381">Interstate Bridges</chapter>
+            <chapter id="382">Intrastate Bridges</chapter>
+            <chapter id="383">Tollways</chapter>
+            <chapter id="384">Ferries</chapter>
+            <chapter id="390">Scenic Waterways</chapter>
+            <chapter id="391">Mass Transportation</chapter>
+        </title>
+        <title id="32" title="Military affairs">
+            <chapter id="396">Militia Generally</chapter>
+            <chapter id="398">Military Justice</chapter>
+            <chapter id="399">Organized Militia</chapter>
+            <chapter id="401">Emergency Management and Services</chapter>
+            <chapter id="402">Emergency Mutual Assistance Agreements</chapter>
+            <chapter id="403">Emergency Telecommunications System</chapter>
+            <chapter id="404">Search and Rescue</chapter>
+        </title>
+        <title id="33" title="Privileges and benefits of veterans and service personnel">
+            <chapter id="406">Department of Veterans' Affairs</chapter>
+            <chapter id="407">Veterans Loans</chapter>
+            <chapter id="408">Miscellaneous Benefits for Veterans and Service Personnel</chapter>
+        </title>
+    </volume>
+
+    <volume id="11" title="Juvenile Code, Human Services">
+        <title id="34" title="Human services">
+            <chapter id="409">Department of Human Services</chapter>
+            <chapter id="410">Senior and Disability Services</chapter>
+            <chapter id="411">Public Assistance and Medical Assistance</chapter>
+            <chapter id="412">Temporary Assistance for Needy Families</chapter>
+            <chapter id="413">Oregon Health Authority</chapter>
+            <chapter id="414">Medical Assistance</chapter>
+            <chapter id="415">Financial Regulation of Coordinated Care Organizations</chapter>
+            <chapter id="416">Recovery and Reimbursement of Aid</chapter>
+            <chapter id="417">Interstate Compacts on Juveniles and Children</chapter>
+            <chapter id="418">Child Welfare Services</chapter>
+            <chapter id="419A">Juvenile Code: General Provisions and Definitions</chapter>
+            <chapter id="419B">Juvenile Code: Dependency</chapter>
+            <chapter id="419C">Juvenile Code: Delinquency</chapter>
+            <chapter id="420">Youth Correction Facilities</chapter>
+            <chapter id="420A">Oregon Youth Authority</chapter>
+            <chapter id="421">Department of Corrections Institutions</chapter>
+            <chapter id="423">Corrections and Crime Control Administration and Programs</chapter>
+        </title>
+        <title id="35" title="Mental health and developmental disabilities">
+            <chapter id="426">Persons With Mental Illness</chapter>
+            <chapter id="427">Persons With Intellectual or Developmental Disabilities</chapter>
+            <chapter id="428">Nonresident Persons With Mental Illness or Intellectual Disabilities</chapter>
+            <chapter id="430">Mental Health</chapter>
+        </title>
+    </volume>
+
+    <volume id="12" title="Public Health">
+        <title id="36" title="Public health and safety">
+            <chapter id="431">State and Local Administration and Enforcement of Publuc Health Laws</chapter>
+            <chapter id="431A">Public Health Programs and Activities</chapter>
+            <chapter id="432">Vital Statistics</chapter>
+            <chapter id="433">Disease and Condition Control</chapter>
+            <chapter id="435">Birth Control</chapter>
+            <chapter id="436">Sterillization</chapter>
+            <chapter id="438">Laboratories</chapter>
+            <chapter id="440">Health Districts</chapter>
+            <chapter id="441">Health Care Facilities</chapter>
+            <chapter id="442">Health Planning</chapter>
+            <chapter id="443">Residential Care</chapter>
+            <chapter id="444">Special Medical Services for Children</chapter>
+            <chapter id="445">Indigent Persons Injured in Motor Vehicle Accidents</chapter>
+            <chapter id="446">Manufactured Dwellings and Structures</chapter>
+            <chapter id="447">Plumbing</chapter>
+            <chapter id="448">Pool Facilities</chapter>
+            <chapter id="450">Sanitary Districts and Authorities</chapter>
+            <chapter id="451">County Service Facilities</chapter>
+            <chapter id="452">Vector Control</chapter>
+            <chapter id="453">Hazardous Substances</chapter>
+            <chapter id="454">Sewage Treatment and DIsposal Systems</chapter>
+        </title>
+    </volume>
+
+    <volume id="13" title="Housing, Enviroment">
+        <title id="36A" title="Housing; lottery and games; environment">
+            <chapter id="455">Building Code</chapter>
+            <chapter id="456">Housing</chapter>
+            <chapter id="457">Urban Renewal</chapter>
+            <chapter id="458">Housing and COmmuniy Service Programs</chapter>
+            <chapter id="459">Solid Waste Management</chapter>
+            <chapter id="459A">Reuse and Recycling</chapter>
+            <chapter id="460">Elevators</chapter>
+            <chapter id="461">Oregon State Lottery</chapter>
+            <chapter id="462">Racing</chapter>
+            <chapter id="463">Unarmed Combat Sports and Entertainment Wrestling</chapter>
+            <chapter id="464">Games</chapter>
+            <chapter id="465">Hazardous Waste and Hazardous Materials I</chapter>
+            <chapter id="466">Hazardous Waste and Hazardous Materials II</chapter>
+            <chapter id="467">Noise Control</chapter>
+            <chapter id="468">Enviromental Quality Generally</chapter>
+            <chapter id="468A">Air Quality</chapter>
+            <chapter id="468B">Water Quality</chapter>
+            <chapter id="469">Energy</chapter>
+            <chapter id="469A">renewable Portfolia Standards</chapter>
+            <chapter id="469B">Energy Incentives</chapter>
+            <chapter id="470">Small Scale Local Energy Projects</chapter>
+        </title>
+    </volume>
+
+    <volume id="14" title="Drugs and Alcohol, Fire Protection, Natural Resources">
+        <title id="37" title="Alcoholic liquors">
+            <chapter id="471">Alcoholic Liquors Generally</chapter>
+            <chapter id="473">Wine, Cider and Malt Beverage Privilege Tax</chapter>
+            <chapter id="474">Trade Practices Relating to Malt Beverages</chapter>
+            <chapter id="475">Controlled Substances</chapter>
+            <chapter id="475B">Cannabis Regulation</chapter>
+        </title>
+        <title id="38" title="Protection from fire">
+            <chapter id="476">State Fire Marshal</chapter>
+            <chapter id="477">Fire Protection of Forests and Vegetation</chapter>
+            <chapter id="478">Rural Fire Protection Districts</chapter>
+            <chapter id="479">Protection of Building From Fire</chapter>
+            <chapter id="480">Explosives</chapter>
+        </title>
+        <title id="39" title="Chapters 489 and 490 [reserved for expansion]">
+        </title>
+        <title id="40" title="Chapter 495 [reserved for expansion]">
+        </title>
+        <title id="41" title="Wildlife">
+            <chapter id="496">Application, Administration and Enforcement of Wildlife Laws</chapter>
+            <chapter id="497">Licenses, Tags and Permits</chapter>
+            <chapter id="498">Hunting, Angling and Trapping Regulations</chapter>
+            <chapter id="501">Refuges and Closures</chapter>
+        </title>
+        <title id="42" title="Commercial fishing and fisheries">
+            <chapter id="506">Application, Administration and Enforcement of Commercial Fishing Laws</chapter>
+            <chapter id="507">Compacts with Other States</chapter>
+            <chapter id="508">Licenses and Permits</chapter>
+            <chapter id="509">General Protective Regulations</chapter>
+            <chapter id="511">Local and Special Regulations</chapter>
+            <chapter id="513">Packing Fish and Manufacture of Fish Products</chapter>
+        </title>
+        <title id="43" title="Mineral resources">
+            <chapter id="516">Department of Geology and Mineral Industries</chapter>
+            <chapter id="517">Mining and Mining Claims</chapter>
+            <chapter id="520">Conservation of Gas and Oil</chapter>
+            <chapter id="522">Geothermal Resources</chapter>
+            <chapter id="523">Geothermal Heating Districts</chapter>
+        </title>
+        <title id="44" title="Forestry and forst products">
+            <chapter id="526">Forestry Administration</chapter>
+            <chapter id="527">Pest Control</chapter>
+            <chapter id="530">State Forests</chapter>
+            <chapter id="532">Branding of Forest Prducts and Booming Equipment</chapter>
+        </title>
+    </volume>
+
+    <volume id="15" title="Water Resources, Agriculture and Food">
+        <title id="45" title="Water resources; irrigation, drainage, flood control, reclamation">
+            <chapter id="536">Water Resources Administration</chapter>
+            <chapter id="537">Appropriation of Water Generally</chapter>
+            <chapter id="538">Withdrawl of Certain Waters From Appropriation</chapter>
+            <chapter id="539">Determination of Water Rights Initiated Before February 24, 1909</chapter>
+            <chapter id="540">Distribution and Storage of Water</chapter>
+            <chapter id="541">Water Distributors</chapter>
+            <chapter id="542">Water Resource Surveys and Projects</chapter>
+            <chapter id="543">Hydrelectric Projects</chapter>
+            <chapter id="543A">Reauthorizing and Decommissioning Hydroelectric Projects</chapter>
+            <chapter id="545">Irrigation Districts</chapter>
+            <chapter id="547">Drainage Districts</chapter>
+            <chapter id="548">Provisions Applicable Both to Drainage Districts and to Irrigation</chapter>
+            <chapter id="549">Drainage and Flood Control Generally</chapter>
+            <chapter id="550">Urban Flood Safety and Water Quality District</chapter>
+            <chapter id="551">Diking Districts</chapter>
+            <chapter id="552">Water Improvement Districts</chapter>
+            <chapter id="553">Water Control Districts</chapter>
+            <chapter id="554">Corporations for Irrigation, Drainage, Water Supply or Flood Control</chapter>
+            <chapter id="555">Reclamation Projects</chapter>
+            <chapter id="558">Weather Modification</chapter>
+        </title>
+        <title id="46" title="Agriculture">
+            <chapter id="561">State Department of Agriculture</chapter>
+            <chapter id="564">Wildflowers</chapter>
+            <chapter id="565">Fairs and Exhibits</chapter>
+            <chapter id="566">Extension and Field Work</chapter>
+            <chapter id="567">Experiment Stations</chapter>
+            <chapter id="568">Soil and Water Conservation</chapter>
+            <chapter id="569">Weed Control</chapter>
+            <chapter id="570">Plant Pest Control</chapter>
+            <chapter id="571">Nursery Stock</chapter>
+        </title>
+        <title id="47" title="Agricultural marketing and warehousing">
+            <chapter id="576">Agricultural Marketing Generally</chapter>
+            <chapter id="577">Oregon Beef Council</chapter>
+            <chapter id="578">Oregon Wheat Commission</chapter>
+            <chapter id="586">Warehouses</chapter>
+            <chapter id="587">Storage of Grain as Basis of Farm Credit</chapter>
+        </title>
+        <title id="48" title="Animals">
+            <chapter id="596">Disease Control Generally</chapter>
+            <chapter id="599">Livestock Auction Markets</chapter>
+            <chapter id="600">Swine</chapter>
+            <chapter id="601">Dead Animals</chapter>
+            <chapter id="602">Bees</chapter>
+            <chapter id="603">Meat Sellers and Slaughterers</chapter>
+            <chapter id="604">Brands and Marks</chapter>
+            <chapter id="607">Livestock Districts</chapter>
+            <chapter id="608">Fences to Prevent Damage by or to Animals</chapter>
+            <chapter id="609">Dogs</chapter>
+            <chapter id="610">Predatory Animals</chapter>
+        </title>
+        <title id="49" title="Food and other commodities: purity, sanitation, grades, standards, labels, weights and measures">
+            <chapter id="616">Genreal and Miscellaneous Provisions</chapter>
+            <chapter id="618">Weights and Measures</chapter>
+            <chapter id="619">Labeling and Inspection of Meat and Meat Food Products</chapter>
+            <chapter id="621">Milk</chapter>
+            <chapter id="622">Shellfish</chapter>
+            <chapter id="624">Food Service Facilities</chapter>
+            <chapter id="625">Bakeries and Bakery Products</chapter>
+            <chapter id="628">Refrigerated Locker Plants</chapter>
+            <chapter id="632">Production, Grading and Labeling Standards for Agricultural and Horticultural Products</chapter>
+            <chapter id="633">Grades, Stadards and Labels for Feeds, Soil Enhancers and Seeds</chapter>
+            <chapter id="634">Pesticide Control</chapter>
+            <chapter id="635">Nonalcoholic Beverages</chapter>
+        </title>
+    </volume>
+
+    <volume id="16" title="Trade Practices, Labor and Employment">
+        <title id="50" title="Trade regulations and practices">
+            <chapter id="645">Commodity Transactions</chapter>
+            <chapter id="646">trade Practices and Antitrust Regulation</chapter>
+            <chapter id="646A">Trade Regulation</chapter>
+            <chapter id="647">Trademarks and Service Marks</chapter>
+            <chapter id="648">Assumed Business Names</chapter>
+            <chapter id="649">Insignia and Names of Organizations</chapter>
+            <chapter id="650">Franchise Transactions</chapter>
+        </title>
+        <title id="51" title="Labor and employment">
+            <chapter id="651">Bureau of Labor and Industries</chapter>
+            <chapter id="652">Hours</chapter>
+            <chapter id="653">Minimum Wages</chapter>
+            <chapter id="654">Occupational Safety and Health</chapter>
+            <chapter id="655">Injured Trainees and Adults in Custody</chapter>
+            <chapter id="656">Workers' Compensation</chapter>
+            <chapter id="657">Unemployment Insurance</chapter>
+            <chapter id="657B">Family and Medical Leave Insurance</chapter>
+            <chapter id="658">Employment Agencies</chapter>
+            <chapter id="659">Miscellaneous Prohibitions Relating to Employment and Discrimination</chapter>
+            <chapter id="659A">Unlowful Discrimination in Employment, Public Accommodations and Real Property Transactions</chapter>
+            <chapter id="660">Apprenticeship and Training</chapter>
+            <chapter id="661">Organized Labor</chapter>
+            <chapter id="662">Labor Disputes</chapter>
+            <chapter id="663">Labor Relations Generally</chapter>
+        </title>
+    </volume>
+
+    <volume id="17" title="Occupations">
+        <title id="52" title="Occupations and professions">
+            <chapter id="670">Occupations and Professions Generally</chapter>
+            <chapter id="671">Architects</chapter>
+            <chapter id="672">Professional Engineers</chapter>
+            <chapter id="673">Accountants</chapter>
+            <chapter id="674">Real Estate Appraisers and Appraisal</chapter>
+            <chapter id="675">Psychologists</chapter>
+            <chapter id="676">Heal Professions Generally</chapter>
+            <chapter id="677">Regulation of Medicine, Podiatry and Acupuncture</chapter>
+            <chapter id="678">Nurses</chapter>
+            <chapter id="679">Dentists</chapter>
+            <chapter id="680">Dental Hygenists</chapter>
+            <chapter id="681">Hearing, Speech, Music Therapy and Art Therapy Professionals</chapter>
+            <chapter id="682">Regulation of Ambulance Services and Emergency Medial Services Providers</chapter>
+            <chapter id="683">Optometrists</chapter>
+            <chapter id="684">Chiropractors</chapter>
+            <chapter id="685">Naturopathic Physicians</chapter>
+            <chapter id="686">Veterinarians</chapter>
+            <chapter id="687">Massage Therapists</chapter>
+            <chapter id="688">Therapeutic and Technical Services: Physical Therapists</chapter>
+            <chapter id="689">Pharmacists</chapter>
+            <chapter id="690">Cosmetic Professionals</chapter>
+            <chapter id="691">Dietitians</chapter>
+            <chapter id="692">Funeral Service Practitioners</chapter>
+            <chapter id="693">Plumbers</chapter>
+            <chapter id="694">Hearing Aid Specialists</chapter>
+            <chapter id="695">Watch Dealers</chapter>
+            <chapter id="696">Real Estate and Escrow Activities</chapter>
+            <chapter id="697">Collection Agencies</chapter>
+            <chapter id="698">Auctions</chapter>
+            <chapter id="699">Innkeepers and Hotelkeepers</chapter>
+            <chapter id="700">Enviromental Health Specialists</chapter>
+            <chapter id="701">Construction Contractors and Contracts</chapter>
+            <chapter id="702">Student Athlete Agents</chapter>
+            <chapter id="703">Truth Verfication and Deception Detection</chapter>
+            <chapter id="704">Outfitters and Guides</chapter>
+        </title>
+    </volume>
+
+    <volume id="18" title="Financial Institutions, Insurace">
+        <title id="52A" title="Insurance and finance administration">
+            <chapter id="705">Departmetn of Consumer and Business Services</chapter>
+        </title>
+        <title id="53" title="Financial institutions">
+            <chapter id="706">Administration and Enforcement of Banking Laws Generally</chapter>
+            <chapter id="707">Organization to Conduct Banking Business</chapter>
+            <chapter id="708A">Regulation of Institutions Generally</chapter>
+            <chapter id="709">Regulation of trust Business</chapter>
+            <chapter id="711">Merger</chapter>
+            <chapter id="713">Out-of-State Banks and Extranational Institutions</chapter>
+            <chapter id="714">Branch Banking</chapter>
+            <chapter id="715">Bank Holding Companies</chapter>
+            <chapter id="716">Savings Banks</chapter>
+            <chapter id="717">Money Tranmission</chapter>
+        </title>
+        <title id="54" title="Credit unions, lending institutions and pawnbrokers">
+            <chapter id="723">Credit Unions</chapter>
+            <chapter id="725">Consumer Finance</chapter>
+            <chapter id="725A">Title and Payday Loans</chapter>
+            <chapter id="726">Pawnbrokers</chapter>
+        </title>
+        <title id="55" title="Chapters 728 to 730">
+        </title>
+        <title id="56" title="Insurance">
+            <chapter id="731">Administration and General Provisions</chapter>
+            <chapter id="732">Oranization and Corporate Procedures of Domestic Insurers</chapter>
+            <chapter id="733">Accounting and Investments</chapter>
+            <chapter id="734">Rehabilitation, Liquidation and Conservation of Insurers</chapter>
+            <chapter id="735">Alternative Insurance</chapter>
+            <chapter id="737">rates and Rating Organizations</chapter>
+            <chapter id="741">Health Insurance Exchange</chapter>
+            <chapter id="742">Insurance Policies Generally</chapter>
+            <chapter id="743">Health and Life Insurance</chapter>
+            <chapter id="743A">Heath Insurance: Reimbursement of Claims</chapter>
+            <chapter id="743B">Health Benefit Plans: Individual and Group</chapter>
+            <chapter id="744">Insurance Producers</chapter>
+            <chapter id="746">Trade Practices</chapter>
+            <chapter id="748">Fraternal Benefit Societies</chapter>
+            <chapter id="750">Health Care Service Contractors</chapter>
+            <chapter id="752">Professional Liability Funds</chapter>
+        </title>
+    </volume>
+
+    <volume id="19" title="Utilities, Vehicle Code, Watercraft, Aviation, Constitutions">
+        <title id="57" title="Utility regulation">
+            <chapter id="756">Public Utility Commission</chapter>
+            <chapter id="757">Utility Regulation Generally</chapter>
+            <chapter id="758">Utility Rights of Way and Territory Allocation</chapter>
+            <chapter id="759">Telecommunications Utility Regulation</chapter>
+            <chapter id="772">Rights of Way for Public Uses</chapter>
+            <chapter id="774">Citizens' Utility Board</chapter>
+        </title>
+        <title id="58" title="Shipping and navigation">
+            <chapter id="776">Maritime Pilots and Pilotage</chapter>
+            <chapter id="777">Ports Generally</chapter>
+            <chapter id="778">Port of Portland</chapter>
+            <chapter id="780">Improvement and User of Navigable of Streams</chapter>
+            <chapter id="783">Liabilities and Offenses Connected With Shipping and Navigation</chapter>
+        </title>
+        <title id="59" title="Oregon vehicle code">
+            <chapter id="801">general Provisions and Definitions for Oregon Vehicle Code</chapter>
+            <chapter id="802">Administrative Provisions</chapter>
+            <chapter id="803">Vehicle Title and Registration</chapter>
+            <chapter id="805">Special Responsibility Law</chapter>
+            <chapter id="806">Financial Responsibility Law</chapter>
+            <chapter id="807">Driving Privileges and Identification Cards</chapter>
+            <chapter id="810">Road Authorities</chapter>
+            <chapter id="811">Rules of the Road for Drivers</chapter>
+            <chapter id="813">Driving Under the Influence of Intoxicants</chapter>
+            <chapter id="814">Pedestrians</chapter>
+            <chapter id="815">Vehicle Equipment Generally</chapter>
+            <chapter id="816">Vehicle Equipment: Lights</chapter>
+            <chapter id="818">Vehicle Limits</chapter>
+            <chapter id="819">Destroyed, Totaled, Abandoned, Low-Value and Stolen Vehicles</chapter>
+            <chapter id="820">Special Provisions for Certian Vehicles</chapter>
+            <chapter id="821">Off-Road Vehicles</chapter>
+            <chapter id="822">Regulation of Vehicle Related Businesses</chapter>
+            <chapter id="823">Carrier Regulation Generally</chapter>
+            <chapter id="824">Railroads</chapter>
+            <chapter id="825">Motor Carriers</chapter>
+        </title>
+        <title id="60" title="Chapters 827 to 829">
+            <chapter id="826">Registration of Commercial Vehicles</chapter>
+        </title>
+        <title id="61" title="Small watercraft">
+            <chapter id="830">Small Watercraft</chapter>
+        </title>
+        <title id="62" title="Aviation">
+            <chapter id="835">Aviation Administration</chapter>
+            <chapter id="836">Airports and Landing Fields</chapter>
+            <chapter id="837">Aircraft Operation</chapter>
+            <chapter id="838">Airport Districts</chapter>
+        </title>
+    </volume>
+</ors>
