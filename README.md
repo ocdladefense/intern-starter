@@ -8,7 +8,7 @@ Demonstrate PHP, HTTP request/response, and JavaScript competency.  Uses PHP and
 * <code>lib-http</code> - PHP wrapper for HTTP requests and responses.
 
 ## Installation
-Intern-starter should be installed in a working sub-directory of an Apache2 web server.  Alternatively, it can be installed in the <code>modules/</code> directory of a PHP application server (although this repo will need a working module.php or module.json file to export routes and callbacks).
+Intern-starter should be installed in a working sub-directory of an Apache2 web server.  Alternatively, it can be installed in the <code>modules/</code> directory of a PHP application server (although this repo will need a working <code>module.php</code> or <code>module.json</code> file to export routes and callbacks).
 
 ```php
 git clone [this-repository-url]
