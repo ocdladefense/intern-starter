@@ -1,10 +1,14 @@
 # Intern-starter
 Demonstrate PHP, HTTP request/response, and JavaScript competency.  Uses PHP and JavaScript package management facilities via Composer and NPM.
 
+## What does it do?
+See the [example link](https://appdev.ocdla.org/intern-starter/example.php).  The project automatically converts inline references to Oregon Revised Statutes (ORS) to HTML links.  The links then provide inline and full-screen modal features containing the text of the referenced legal statutes.
+
 ## Dependencies
 * Apache >= 2.4
 * PHP > 7.3
 * Composer (PHP package manager)
+** For installation on Windows see [the documentation](https://getcomposer.org/doc/00-intro.md#installation-windows).
 * <code>lib-http</code> - PHP wrapper for HTTP requests and responses.
 
 ## Installation
