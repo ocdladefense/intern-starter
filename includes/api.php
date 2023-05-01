@@ -1,10 +1,13 @@
 <?php
-
-
-use Salesforce\RestApiRequest;
-use Salesforce\OAuthRequest;
-use Salesforce\RestApiResponse;
-use Salesforce\OAuth;
+/**
+ * NOTE: This file is for example purposes only.
+ * It is not used by the ORS parser program.
+ */
+use SalesForce\RestApiRequest;
+use SalesForce\RestApiResponse;
+use SalesForce\OAuthRequest;
+use Salesforce\OAuthException;
+use SalesForce\OAuth;
 use Http\Http;
 use Http\HttpRequest;
 

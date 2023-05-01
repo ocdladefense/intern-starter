@@ -1,18 +1,13 @@
 <?php
-
-use SalesForce\RestApiRequest;
-use SalesForce\RestApiResponse;
-use SalesForce\OAuthRequest;
-use Salesforce\OAuthException;
-use SalesForce\OAuth;
 use Http\Http;
 use Http\HttpRequest;
+use Http\HttpResponse;
 
 
 
 
 
-function getOrsUrl($chapter, $section = null, $vol = null){
+function getOrsUrl($chapter, $section = null, $vol = null) {
     $baseUrl = "https://www.oregonlegislature.gov/bills_laws/ors/ors%s.html";
 
     if($chapter < 1 || $chapter > 838){
@@ -84,12 +79,5 @@ function getParams() {
 
 
 
-/*$Api = loadApi();
-$result = $Api->query("select id,name from contact limit 25");
-var_dump($result);
-echo "hello world!";*/
-
-
-// PHP_SAPI
 
 
