@@ -4,3 +4,6 @@
 [submodule "node-modal-inline"]
 	path = node-modal-inline
 	url = https://github.com/ocdladefense/node-modal-inline.git
+[submodule "dev_modules/node-web"]
+	path = dev_modules/node-web
+	url = https://github.com/ocdladefense/node-web.git
