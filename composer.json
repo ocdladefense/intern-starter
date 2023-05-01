@@ -11,11 +11,14 @@
         {
             "name": "William Todd",
             "email": "toddw@my.lanecc.edu"
+        },
+        {
+            "name": "José Bernal",
+            "email": "jbernal.web.dev@gmail.com"
         }
     ],
     "require": {
-        "ocdladefense/lib-salesforce-rest-api":"~3.0",
-        "ocdladefense/lib-salesforce":"~1.0"
+        "ocdladefense/lib-http":"~3.0"
     },
     "config": {
         "allow-plugins": {
