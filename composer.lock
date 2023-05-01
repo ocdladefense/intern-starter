@@ -4,171 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b2b06bcee309f5f6c310681dec493571",
+    "content-hash": "e594ceb99329ef1c2a1da7be49c0bb82",
     "packages": [
         {
-            "name": "composer/installers",
-            "version": "v1.12.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/composer/installers.git",
-                "reference": "d20a64ed3c94748397ff5973488761b22f6d3f19"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/d20a64ed3c94748397ff5973488761b22f6d3f19",
-                "reference": "d20a64ed3c94748397ff5973488761b22f6d3f19",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "^1.0 || ^2.0"
-            },
-            "replace": {
-                "roundcube/plugin-installer": "*",
-                "shama/baton": "*"
-            },
-            "require-dev": {
-                "composer/composer": "1.6.* || ^2.0",
-                "composer/semver": "^1 || ^3",
-                "phpstan/phpstan": "^0.12.55",
-                "phpstan/phpstan-phpunit": "^0.12.16",
-                "symfony/phpunit-bridge": "^4.2 || ^5",
-                "symfony/process": "^2.3"
-            },
-            "type": "composer-plugin",
-            "extra": {
-                "class": "Composer\\Installers\\Plugin",
-                "branch-alias": {
-                    "dev-main": "1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Composer\\Installers\\": "src/Composer/Installers"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Kyle Robinson Young",
-                    "email": "kyle@dontkry.com",
-                    "homepage": "https://github.com/shama"
-                }
-            ],
-            "description": "A multi-framework Composer library installer",
-            "homepage": "https://composer.github.io/installers/",
-            "keywords": [
-                "Craft",
-                "Dolibarr",
-                "Eliasis",
-                "Hurad",
-                "ImageCMS",
-                "Kanboard",
-                "Lan Management System",
-                "MODX Evo",
-                "MantisBT",
-                "Mautic",
-                "Maya",
-                "OXID",
-                "Plentymarkets",
-                "Porto",
-                "RadPHP",
-                "SMF",
-                "Starbug",
-                "Thelia",
-                "Whmcs",
-                "WolfCMS",
-                "agl",
-                "aimeos",
-                "annotatecms",
-                "attogram",
-                "bitrix",
-                "cakephp",
-                "chef",
-                "cockpit",
-                "codeigniter",
-                "concrete5",
-                "croogo",
-                "dokuwiki",
-                "drupal",
-                "eZ Platform",
-                "elgg",
-                "expressionengine",
-                "fuelphp",
-                "grav",
-                "installer",
-                "itop",
-                "joomla",
-                "known",
-                "kohana",
-                "laravel",
-                "lavalite",
-                "lithium",
-                "magento",
-                "majima",
-                "mako",
-                "mediawiki",
-                "miaoxing",
-                "modulework",
-                "modx",
-                "moodle",
-                "osclass",
-                "pantheon",
-                "phpbb",
-                "piwik",
-                "ppi",
-                "processwire",
-                "puppet",
-                "pxcms",
-                "reindex",
-                "roundcube",
-                "shopware",
-                "silverstripe",
-                "sydes",
-                "sylius",
-                "symfony",
-                "tastyigniter",
-                "typo3",
-                "wordpress",
-                "yawik",
-                "zend",
-                "zikula"
-            ],
-            "support": {
-                "issues": "https://github.com/composer/installers/issues",
-                "source": "https://github.com/composer/installers/tree/v1.12.0"
-            },
-            "funding": [
-                {
-                    "url": "https://packagist.com",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/composer",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2021-09-13T08:19:44+00:00"
-        },
-        {
             "name": "ocdladefense/lib-http",
-            "version": "v3.6.7",
+            "version": "v3.6.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ocdladefense/lib-http.git",
-                "reference": "373d5ecabca007d2e96a12130f27d118f6c9406b"
+                "reference": "e20d8ec814a09ae4b07eb068a49300e981a7d0ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ocdladefense/lib-http/zipball/373d5ecabca007d2e96a12130f27d118f6c9406b",
-                "reference": "373d5ecabca007d2e96a12130f27d118f6c9406b",
+                "url": "https://api.github.com/repos/ocdladefense/lib-http/zipball/e20d8ec814a09ae4b07eb068a49300e981a7d0ac",
+                "reference": "e20d8ec814a09ae4b07eb068a49300e981a7d0ac",
                 "shasum": ""
             },
             "type": "library",
@@ -194,110 +43,9 @@
             "description": "PHP wrapper classes for curl functions.",
             "support": {
                 "issues": "https://github.com/ocdladefense/lib-http/issues",
-                "source": "https://github.com/ocdladefense/lib-http/tree/v3.6.7"
+                "source": "https://github.com/ocdladefense/lib-http/tree/v3.6.8"
             },
-            "time": "2022-06-12T19:50:37+00:00"
-        },
-        {
-            "name": "ocdladefense/lib-oauth-config",
-            "version": "v2.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ocdladefense/lib-oauth-config.git",
-                "reference": "0156d8208ae2a48ae238cd6c71b2b40bde7ef89b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ocdladefense/lib-oauth-config/zipball/0156d8208ae2a48ae238cd6c71b2b40bde7ef89b",
-                "reference": "0156d8208ae2a48ae238cd6c71b2b40bde7ef89b",
-                "shasum": ""
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "description": "Classes to enable parsing of oauth schemas.",
-            "support": {
-                "issues": "https://github.com/ocdladefense/lib-oauth-config/issues",
-                "source": "https://github.com/ocdladefense/lib-oauth-config/tree/v2.1.1"
-            },
-            "time": "2021-04-20T21:19:09+00:00"
-        },
-        {
-            "name": "ocdladefense/lib-salesforce",
-            "version": "v1.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ocdladefense/lib-salesforce-sobject.git",
-                "reference": "6640460550472756ff6e23402190ee932d8f7c10"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ocdladefense/lib-salesforce-sobject/zipball/6640460550472756ff6e23402190ee932d8f7c10",
-                "reference": "6640460550472756ff6e23402190ee932d8f7c10",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jose Bernal",
-                    "email": "jbernal.web.dev@gmail.com"
-                }
-            ],
-            "description": "PHP wrapper classes for SObjects functions.",
-            "support": {
-                "issues": "https://github.com/ocdladefense/lib-salesforce-sobject/issues",
-                "source": "https://github.com/ocdladefense/lib-salesforce-sobject/tree/v1.3"
-            },
-            "time": "2022-08-25T19:06:35+00:00"
-        },
-        {
-            "name": "ocdladefense/lib-salesforce-rest-api",
-            "version": "v3.9.11",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ocdladefense/lib-salesforce-rest-api.git",
-                "reference": "643228472642ef06b3c93d32054b47ecc2a822e5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ocdladefense/lib-salesforce-rest-api/zipball/643228472642ef06b3c93d32054b47ecc2a822e5",
-                "reference": "643228472642ef06b3c93d32054b47ecc2a822e5",
-                "shasum": ""
-            },
-            "require": {
-                "ocdladefense/lib-http": "~3.0",
-                "ocdladefense/lib-oauth-config": "~2.0",
-                "ocdladefense/lib-salesforce": "~1.0"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "description": "OCDLA plugin accesses.",
-            "support": {
-                "issues": "https://github.com/ocdladefense/lib-salesforce-rest-api/issues",
-                "source": "https://github.com/ocdladefense/lib-salesforce-rest-api/tree/v3.9.11"
-            },
-            "time": "2022-08-24T19:57:30+00:00"
+            "time": "2022-10-03T22:06:01+00:00"
         }
     ],
     "packages-dev": [],
@@ -308,5 +56,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.3.0"
 }
