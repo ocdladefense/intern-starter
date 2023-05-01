@@ -17,9 +17,9 @@
   },
   "homepage": "https://github.com/ocdladefense/intern-starter#readme",
   "dependencies": {
-    "@ocdladefense/modal-inline": "file:node-modal-inline",
-    "@ocdladefense/ors": "file:node-ors",
-    "@ocdladefense/web": "file:node-web",
+    "@ocdladefense/modal-inline": "file:dev_modules/node-modal-inline",
+    "@ocdladefense/ors": "file:dev_modules/node-ors",
+    "@ocdladefense/web": "file:dev_modules/node-web",
     "@ocdladefense/view": "^2.1.1",
     "npm-watch": "^0.11.0"
   },
