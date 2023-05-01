@@ -1,7 +1,7 @@
 import { OrsModal } from "../node_modules/@ocdladefense/ors/dist/modal.js";
 import { OrsParser } from "../node_modules/@ocdladefense/ors/dist/ors-parser.js";
 import { InlineModal } from "../node_modules/@ocdladefense/modal-inline/dist/modal.js";
-import { domReady } from "../node_modules/@ocdladefense/web/src/web.js";
+import domReady from "../node_modules/@ocdladefense/web/src/web.js";
 import { OrsChapter } from "../node_modules/@ocdladefense/ors/src/chapter.js"
 
 // List for ORS-related requests.
