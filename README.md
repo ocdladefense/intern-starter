@@ -14,7 +14,7 @@ See the [example link](https://appdev.ocdla.org/intern-starter/example.php).  Th
 ## Installation
 Intern-starter should be installed in a working sub-directory of an Apache2 web server.  Alternatively, it can be installed in the <code>modules/</code> directory of a PHP application server (although this repo will need a working <code>module.php</code> or <code>module.json</code> file to export routes and callbacks).
 
-```php
+```bash
 git clone [this-repository-url]
 cd [this-repository-folder]
 composer update
