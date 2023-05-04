@@ -12,8 +12,6 @@
     "babel-loader": "^8.2.2",
     "babel-plugin-root-import": "^6.6.0"
   },
-  "dependencies": {
-    "@ocdladefense/view": "~2.0.0"
-  },
+  "dependencies": {},
   "type": "module"
 }
