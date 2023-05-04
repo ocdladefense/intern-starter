@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+        </script>
+
+        <link rel="stylesheet" href="css/example.css" />
+        <link rel="stylesheet" href="node_modules/@ocdladefense/ors/dist/css/loading.css" />
+        <link rel="stylesheet" href="node_modules/@ocdladefense/ors/dist/css/modal.css" />
+        <link rel="stylesheet" href="node_modules/@ocdladefense/modal-inline/dist/modal.css" />
+
+        <script type="application/javascript" src="node_modules/@ocdladefense/node-reading-context/reading-context.js"></script>
+        <script type="application/javascript" src="node_modules/@ocdladefense/node-autocomplete/autocomplete.js"></script>
+        
+        <style type="text/css">
+            
+
+            #result {
+                border: 1px dotted #ccc;
+                padding: 3px;
+              }
+              #result ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+              }
+              #result ul li {
+                padding: 5px 0;
+              }
+              #result ul li:hover {
+                background: #eee;
+              }
+        </style>
+        
+    </head>
+    <body>
+    
+        <form autocomplete="off">
+            <input type="text" name="q" id="q" onkeyup="suggest(this);" />
+            <div id="result"></div>
+        </form>
+        <script>
+
+            const terms = ['apple', 'apple watch', 'apple macbook', 'apple macbook pro', 'iphone', 'iphone 12'];
+
+            const completion = new AutoComplete(terms);
+
+            function match(term) {
+                let matches = completion.match(term);
+                console.log(matches);
+            }
+
+            function suggest(e) {
+                // let target = e.target;
+                let readingContext = getTextNodeAndParent(e);
+                let token = readingContext.nearBy.word;
+                console.log(token);
+                showResults(token);
+            }
+
+            function render(val) {
+                console.log(val);
+                res = document.getElementById("result");
+                res.innerHTML = '';
+                let list = '';
+                let terms = autocompleteMatch(val);
+                console.log(terms);
+                for (i=0; i<terms.length; i++) {
+                list += '<li>' + terms[i] + '</li>';
+                }
+                res.innerHTML = '<ul>' + list + '</ul>';
+            }
+
+
+
+
+        </script>
+    </body>
+</html>
