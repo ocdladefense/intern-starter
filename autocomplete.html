@@ -10,16 +10,16 @@
         <link rel="stylesheet" href="node_modules/@ocdladefense/ors/dist/css/modal.css" />
         <link rel="stylesheet" href="node_modules/@ocdladefense/modal-inline/dist/modal.css" />
 
-        <script type="application/javascript" src="node_modules/@ocdladefense/node-reading-context/reading-context.js"></script>
-        <script type="application/javascript" src="node_modules/@ocdladefense/node-autocomplete/autocomplete.js"></script>
-        
+
         <style type="text/css">
             
 
             #result {
                 border: 1px dotted #ccc;
                 padding: 3px;
-              }
+                background-color: #d0caca;
+                cursor: pointer;
+            }
               #result ul {
                 list-style-type: none;
                 padding: 0;
@@ -28,48 +28,86 @@
               #result ul li {
                 padding: 5px 0;
               }
+
               #result ul li:hover {
-                background: #eee;
+                background-color:#c7c3c3;
               }
+
         </style>
         
     </head>
     <body>
     
         <form autocomplete="off">
-            <input type="text" name="q" id="q" onkeyup="suggest(this);" />
+            <input type="text" name="q" id="q" />
             <div id="result"></div>
         </form>
-        <script>
+        <script type="module">
 
-            const terms = ['apple', 'apple watch', 'apple macbook', 'apple macbook pro', 'iphone', 'iphone 12'];
+            // https://medium.com/streak-developer-blog/the-complexities-of-implementing-inline-autocomplete-for-content-editables-e358c0ed504b
+            import ReadingContext from "./node_modules/@ocdladefense/reading-context/reading-context.js";
+            import SearchClient from "./node_modules/@ocdladefense/search-client/search-client.js";
+            import "./node_modules/@ocdladefense/html/html.js";
 
-            const completion = new AutoComplete(terms);
 
-            function match(term) {
-                let matches = completion.match(term);
-                console.log(matches);
-            }
 
+
+            let html = "foobar".wrap("mark");
+            console.log(html);
+
+            document.getElementById("q").addEventListener("keyup",suggest);
+
+
+            let re = /[\s\t\n\.]+/gmis;
+
+            let foo = "The big German Sheapherd guarded the chickens against the lazy brown fox.";
+
+            let parts = foo.split(re);
+
+            console.log(parts);
+
+            const terms = ['apple', 'cheese', "cantaloupe", 'apple watch', 'apple macbook', 'apple macbook pro', 'iphone', 'iphone 12'];
+
+            const client = new SearchClient(terms);
+
+  
+            const story = "This is a story about a friend named bb baggins.";
+            document.body.appendChild(document.createTextNode(story));
+            // document.writeln(story);
+            const reader = new ReadingContext(story);
+            let word = reader.getWordAt(10);
+            console.log(word);
+
+            window.reader = reader;
+
+
+            // Show suggestion based on user input.
             function suggest(e) {
-                // let target = e.target;
-                let readingContext = getTextNodeAndParent(e);
-                let token = readingContext.nearBy.word;
-                console.log(token);
-                showResults(token);
+                let target = e.target;
+                let suggestions = client.suggest(target.value);
+                render(suggestions);
             }
 
-            function render(val) {
-                console.log(val);
-                res = document.getElementById("result");
+
+            // Log suggestions for the current-cursor word.
+            function currentWord(node) {
+                
+                let reader = ReadingContext.fromNode(node);
+                let word = reader.getWordAt(node.selectionStart);
+                
+                console.log(word);
+                
+                let suggestions = client.suggest(word);
+                console.log(suggestions);
+            }
+
+
+            // Render terms in list format.
+            function render(terms) {
+                let res = document.getElementById("result");
                 res.innerHTML = '';
-                let list = '';
-                let terms = autocompleteMatch(val);
-                console.log(terms);
-                for (i=0; i<terms.length; i++) {
-                list += '<li>' + terms[i] + '</li>';
-                }
-                res.innerHTML = '<ul>' + list + '</ul>';
+                terms = terms.map(function(term) { return term.html("li"); });
+                res.innerHTML = terms.join("\n").html("ul");
             }
 
 
