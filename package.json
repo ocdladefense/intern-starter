@@ -17,10 +17,12 @@
   },
   "homepage": "https://github.com/ocdladefense/intern-starter#readme",
   "dependencies": {
+    "@ocdladefense/html": "file:dev_modules/node-html",
     "@ocdladefense/modal-inline": "file:dev_modules/node-modal-inline",
     "@ocdladefense/ors": "file:dev_modules/node-ors",
     "@ocdladefense/web": "file:dev_modules/node-web",
     "@ocdladefense/autocomplete": "file:dev_modules/node-autocomplete",
+    "@ocdladefense/search-client": "file:dev_modules/node-search-client",
     "@ocdladefense/reading-context": "file:dev_modules/node-reading-context",
     "@ocdladefense/view": "^2.1.1",
     "npm-watch": "^0.11.0"
