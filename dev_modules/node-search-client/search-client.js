@@ -4,15 +4,16 @@
 
 const SearchClient = (function() {
     function autocompleteMatch(input) {
-        if (input == '') {
-        return [];
-        }
-        var reg = new RegExp(input)
-        return search_terms.filter(function(term) {
+
+        let theFilter = function(term) {
             if (term.match(reg)) {
-            return term;
+                return term;
             }
-        });
+        };
+
+        let reg = new RegExp(input);
+
+        return '' == input ? [] : this.list.filter(theFilter);
     }
 
 
