@@ -32,6 +32,32 @@
               #result ul li:hover {
                 background-color:#c7c3c3;
               }
+            form {
+                margin: 25px;
+                font-size: 1.4em;
+            }
+
+            .form-item {
+                margin-top:14px;
+                margin-bottom:14px;
+            }
+              input#q {
+              width: 25%;
+              
+              font-size: inherit;
+              padding: 13px;
+              border: 1px solid #ddd;
+              border-radius: 3px;
+          }
+
+          label {
+            display: block;
+            font-size: 12pt;
+            font-weight: bold;
+            color: #3a3a3a;
+            padding: 3px;
+            padding-left: 5px;
+        }
 
         </style>
         
@@ -39,76 +65,60 @@
     <body>
     
         <form autocomplete="off">
-            <input type="text" name="q" id="q" />
+            <div class="form-item">
+                <label for="q">Search term</label>
+                <input type="text" name="q" id="q" />
+            </div>
+
+            <div class="form-item">
+                <label for="q">First Name</label>
+                <input type="text" name="q" id="q" placeholder="First Name" />
+            </div>
+
+            <div class="form-item">
+                <label for="q">Last Name</label>
+                <input type="text" name="q" id="q" placeholder="Last Name" />
+            </div>
+
+            <div class="form-item">
+                <label for="q">Age</label>
+                <input type="text" name="q" id="q" placeholder="Age" />
+            </div>
+
+            <div class="form-item">
+                <label for="q">Major</label>
+                <input type="text" name="q" id="q" placeholder="Major" />
+            </div>
             <div id="result"></div>
         </form>
+
+
+
         <script type="module">
 
             // https://medium.com/streak-developer-blog/the-complexities-of-implementing-inline-autocomplete-for-content-editables-e358c0ed504b
             import ReadingContext from "./node_modules/@ocdladefense/reading-context/reading-context.js";
             import SearchClient from "./node_modules/@ocdladefense/search-client/search-client.js";
+            import Autocomplete from "./node_modules/@ocdladefense/webc-autocomplete/autocomplete.js";
             import "./node_modules/@ocdladefense/html/html.js";
 
 
+              
+            // customElements.define("word-count", WordCount, { extends: "p" });
+            customElements.define("webc-autocomplete", Autocomplete);
 
 
-            let html = "foobar".wrap("mark");
-            console.log(html);
 
-            document.getElementById("q").addEventListener("keyup",suggest);
-
-
-            let re = /[\s\t\n\.]+/gmis;
-
-            let foo = "The big German Sheapherd guarded the chickens against the lazy brown fox.";
-
-            let parts = foo.split(re);
-
-            console.log(parts);
 
             const terms = ['apple', 'cheese', "cantaloupe", 'apple watch', 'apple macbook', 'apple macbook pro', 'iphone', 'iphone 12'];
 
             const client = new SearchClient(terms);
 
+            let searchField = document.createElement("webc-autocomplete");
+            searchField.source(client);
+
+            document.body.append(searchField);
   
-            const story = "This is a story about a friend named bb baggins.";
-            document.body.appendChild(document.createTextNode(story));
-            // document.writeln(story);
-            const reader = new ReadingContext(story);
-            let word = reader.getWordAt(10);
-            console.log(word);
-
-            window.reader = reader;
-
-
-            // Show suggestion based on user input.
-            function suggest(e) {
-                let target = e.target;
-                let suggestions = client.suggest(target.value);
-                render(suggestions);
-            }
-
-
-            // Log suggestions for the current-cursor word.
-            function currentWord(node) {
-                
-                let reader = ReadingContext.fromNode(node);
-                let word = reader.getWordAt(node.selectionStart);
-                
-                console.log(word);
-                
-                let suggestions = client.suggest(word);
-                console.log(suggestions);
-            }
-
-
-            // Render terms in list format.
-            function render(terms) {
-                let res = document.getElementById("result");
-                res.innerHTML = '';
-                terms = terms.map(function(term) { return term.html("li"); });
-                res.innerHTML = terms.join("\n").html("ul");
-            }
 
 
 
