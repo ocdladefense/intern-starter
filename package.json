@@ -24,6 +24,7 @@
     "@ocdladefense/autocomplete": "file:dev_modules/node-autocomplete",
     "@ocdladefense/search-client": "file:dev_modules/node-search-client",
     "@ocdladefense/reading-context": "file:dev_modules/node-reading-context",
+    "@ocdladefense/webc-autocomplete": "file:dev_modules/webc-autocomplete",
     "@ocdladefense/view": "^2.1.1",
     "npm-watch": "^0.11.0"
   },
