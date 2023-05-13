@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="css/example.css" />
         <link rel="stylesheet" href="node_modules/@ocdladefense/ors/dist/css/loading.css" />
         <link rel="stylesheet" href="node_modules/@ocdladefense/ors/dist/css/modal.css" />
-        <link rel="stylesheet" href="node_modules/@ocdladefense/modal-inline/dist/modal.css" />
+        <link rel="stylesheet" href="node_modules/@ocdladefense/modal/dist/modal.css" />
         
     </head>
     <body>
