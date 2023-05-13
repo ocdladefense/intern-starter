@@ -1,8 +1,9 @@
-import { OrsModal } from "../node_modules/@ocdladefense/ors/dist/modal.js";
 import { OrsParser } from "../node_modules/@ocdladefense/ors/dist/ors-parser.js";
-import { InlineModal } from "../node_modules/@ocdladefense/modal-inline/dist/modal.js";
+import { OrsChapter } from "../node_modules/@ocdladefense/ors/src/chapter.js";
+import { Modal } from "../node_modules/@ocdladefense/modal/dist/modal.js";
+import { InlineModal } from "../node_modules/@ocdladefense/modal/dist/inline-modal.js";
 import domReady from "../node_modules/@ocdladefense/web/src/web.js";
-import { OrsChapter } from "../node_modules/@ocdladefense/ors/src/chapter.js"
+
 
 // List for ORS-related requests.
 document.addEventListener("click", displayOrs);
@@ -22,7 +23,7 @@ domReady(function () {
     window.modalJr = new InlineModal("modal-jr");
 
     // Full-screen modal.
-    window.modal = new OrsModal();
+    window.modal = new Modal();
 
     const background = document.getElementById("modal-backdrop");
 
