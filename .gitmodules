@@ -2,7 +2,7 @@
 	path = dev_modules/node-ors
 	url = https://github.com/ocdladefense/node-ors.git
 [submodule "node-modal-inline"]
-	path = dev_modules/node-modal-inline
+	path = dev_modules/node-modal
 	url = https://github.com/ocdladefense/node-modal-inline.git
 [submodule "dev_modules/node-web"]
 	path = dev_modules/node-web
