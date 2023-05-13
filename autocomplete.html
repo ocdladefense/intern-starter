@@ -12,84 +12,38 @@
 
 
         <style type="text/css">
-            
-
-            #result {
-                border: 1px dotted #ccc;
-                padding: 3px;
-                background-color: #d0caca;
-                cursor: pointer;
-            }
-              #result ul {
-                list-style-type: none;
-                padding: 0;
-                margin: 0;
-              }
-              #result ul li {
-                padding: 5px 0;
-              }
-
-              #result ul li:hover {
-                background-color:#c7c3c3;
-              }
-            form {
-                margin: 25px;
-                font-size: 1.4em;
-            }
-
-            .form-item {
-                margin-top:14px;
-                margin-bottom:14px;
-            }
-              input#q {
-              width: 25%;
-              
-              font-size: inherit;
-              padding: 13px;
-              border: 1px solid #ddd;
-              border-radius: 3px;
-          }
-
-          label {
-            display: block;
-            font-size: 12pt;
-            font-weight: bold;
-            color: #3a3a3a;
-            padding: 3px;
-            padding-left: 5px;
-        }
-
+            @import "css/form.css";
         </style>
         
     </head>
-    <body>
+    <body tab-index="-1">
     
-        <form autocomplete="off">
+        <form autocomplete="off" tab-index="-1">
             <div class="form-item">
                 <label for="q">Search term</label>
-                <input type="text" name="q" id="q" />
+                <!-- <input type="text" name="q" id="q" /> -->
+                <webc-autocomplete id="query" /> 
             </div>
 
             <div class="form-item">
-                <label for="q">First Name</label>
-                <input type="text" name="q" id="q" placeholder="First Name" />
+                <label>First Name</label>
+                <input type="text" placeholder="First Name" />
             </div>
 
             <div class="form-item">
-                <label for="q">Last Name</label>
-                <input type="text" name="q" id="q" placeholder="Last Name" />
+                <label>Last Name</label>
+                <input type="text" placeholder="Last Name" />
             </div>
 
             <div class="form-item">
-                <label for="q">Age</label>
-                <input type="text" name="q" id="q" placeholder="Age" />
+                <label>Age</label>
+                <input type="text" placeholder="Age" />
             </div>
 
             <div class="form-item">
-                <label for="q">Major</label>
-                <input type="text" name="q" id="q" placeholder="Major" />
+                <label>Major</label>
+                <input type="text" placeholder="Major" />
             </div>
-            <div id="result"></div>
         </form>
 
 
@@ -114,14 +68,47 @@
 
             const client = new SearchClient(terms);
 
-            let searchField = document.createElement("webc-autocomplete");
-            searchField.source(client);
+            // let searchField = document.createElement("webc-autocomplete");
+            // searchField.source(client);
+            let autoComplete = document.getElementById("query");
+            autoComplete.source(client);
+            autoComplete.addEventListener("search",function(e) {
+                // Gets the search terms committed as part of the search.
+                // e.detail.terms
+            });
+            autoComplete.addEventListener("beforedisplayresults",function(e) {
 
-            document.body.append(searchField);
+            });
+            // document.body.append(searchField);
   
+            document.body.addEventListener("click",function(e) {
+                console.log("Body event listener.");
+                autoComplete.hide();
+            });
+
+            currentWord(node) {
+    
+                let reader = ReadingContext.fromNode(node);
+                let word = reader.getWordAt(node.selectionStart);
+                
+                console.log(word);
+                
+                let suggestions = this.src.suggest(word);
+                console.log(suggestions);
+            }
 
 
+                /* 
+            const story = "This is a story about a friend named bb baggins.";
+            document.body.appendChild(document.createTextNode(story));
+            // document.writeln(story);
+            const reader = new ReadingContext(story);
+            let word = reader.getWordAt(10);
+            console.log(word);
 
+            window.reader = reader;
+
+            */
 
         </script>
     </body>
