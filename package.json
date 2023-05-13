@@ -18,7 +18,7 @@
   "homepage": "https://github.com/ocdladefense/intern-starter#readme",
   "dependencies": {
     "@ocdladefense/html": "file:dev_modules/node-html",
-    "@ocdladefense/modal-inline": "file:dev_modules/node-modal-inline",
+    "@ocdladefense/modal": "file:dev_modules/node-modal",
     "@ocdladefense/ors": "file:dev_modules/node-ors",
     "@ocdladefense/web": "file:dev_modules/node-web",
     "@ocdladefense/autocomplete": "file:dev_modules/node-autocomplete",
