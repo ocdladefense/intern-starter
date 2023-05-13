@@ -1,9 +1,15 @@
 
 
-import ReadingContext from "../reading-context/reading-context.js";
+// import ReadingContext from "../reading-context/reading-context.js";
+
+// Add handy HTML extensions to the String prototype.
 import "../html/html.js";
 
-// Create a class for the element
+
+export default Autocomplete;
+
+
+// Controller for the Autocomplete Web Component.
 class Autocomplete extends HTMLElement {
     constructor() {
         // Always call super first in constructor
@@ -141,11 +147,3 @@ class Autocomplete extends HTMLElement {
 
 }
 
-
-
-
-
-
-
-
-export default Autocomplete;
