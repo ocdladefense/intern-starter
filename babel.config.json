@@ -10,6 +10,9 @@
             "rootPathSuffix": "./",
             "rootPathPrefix": "~/"
           }
-        ]
+        ],
+        ["inline-dotenv",{
+          "path": ".env"
+        }]
       ]
 }

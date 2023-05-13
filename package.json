@@ -4,7 +4,7 @@
   "description": "Starter package for interns.",
   "main": "index.js",
   "scripts": {
-    "build": "./node_modules/.bin/babel node_modules/@ocdladefense/modal/src -d node_modules/@ocdladefense/modal/dist && ./node_modules/.bin/babel node_modules/@ocdladefense/src -d node_modules/@ocdladefense/dist"
+    "build": "./node_modules/.bin/babel node_modules/@ocdladefense/modal/src -d node_modules/@ocdladefense/modal/dist && ./node_modules/.bin/babel node_modules/@ocdladefense/ors/src -d node_modules/@ocdladefense/ors/dist"
   },
   "repository": {
     "type": "git",
@@ -20,11 +20,12 @@
     "@ocdladefense/html": "file:dev_modules/node-html",
     "@ocdladefense/modal": "file:dev_modules/node-modal",
     "@ocdladefense/ors": "file:dev_modules/node-ors",
-    "@ocdladefense/web": "file:dev_modules/node-web",
-    "@ocdladefense/search-client": "file:dev_modules/node-search-client",
     "@ocdladefense/reading-context": "file:dev_modules/node-reading-context",
-    "@ocdladefense/webc-autocomplete": "file:dev_modules/webc-autocomplete",
+    "@ocdladefense/search-client": "file:dev_modules/node-search-client",
     "@ocdladefense/view": "^2.1.1",
+    "@ocdladefense/web": "file:dev_modules/node-web",
+    "@ocdladefense/webc-autocomplete": "file:dev_modules/webc-autocomplete",
+    "babel-plugin-inline-dotenv": "^1.7.0",
     "npm-watch": "^0.11.0"
   },
   "extra": {
