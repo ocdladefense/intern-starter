@@ -6,8 +6,6 @@
 import "../html/html.js";
 
 
-export default Autocomplete;
-
 
 // Controller for the Autocomplete Web Component.
 class Autocomplete extends HTMLElement {
@@ -29,7 +27,7 @@ class Autocomplete extends HTMLElement {
         const input = document.createElement("input");
         input.setAttribute("id","q");
         input.setAttribute("type","text");
-        input.setAttribute("style","width:100%;");
+        input.setAttribute("placeholder","search");
         this.input = input;
         // Append it to the shadow root
         // shadow.appendChild(text);
@@ -45,6 +43,9 @@ class Autocomplete extends HTMLElement {
         label, li, input {
             font-family: Arial, sans-serif;
         }
+        input {
+            width: 100%;
+        }
         #results {
             border: 1px dotted #ccc;
             padding: 0px;
@@ -54,7 +55,7 @@ class Autocomplete extends HTMLElement {
             color: rgba(50,50,50,0.8);
             position:absolute;
             min-width:600px;
-            width:100%;
+            width:25%;
             z-index:1;  
         }
           #results ul {
@@ -90,6 +91,8 @@ class Autocomplete extends HTMLElement {
     mousedown(e) {
         this.keyup(e);
     }
+
+    
     click(e) {
         let target = e.target;
         if("LI" == target.nodeName) {
@@ -147,3 +150,5 @@ class Autocomplete extends HTMLElement {
 
 }
 
+
+export default Autocomplete;
