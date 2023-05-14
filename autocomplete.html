@@ -86,7 +86,7 @@
                 autoComplete.hide();
             });
 
-            currentWord(node) {
+            function currentWord(node) {
     
                 let reader = ReadingContext.fromNode(node);
                 let word = reader.getWordAt(node.selectionStart);
