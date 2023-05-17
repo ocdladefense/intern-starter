@@ -47,18 +47,20 @@
 
             .toc .label {
                 font-weight: 700;
+                padding:4px;
+                padding-left:8px;
             }
 
             .toc {
                 display: inline-block;
-                width: 24%;
+                width: 20%;
                 font-size: 1.1em;
                 font-family: sans-serif;
                 position: sticky;
                 top: 111px;
                 background-color: var(--paper-color);
                 padding-top: 61px;
-                padding: 24px;
+                padding: 16px;
                 max-height: 600px;
                 overflow-y: scroll;
             }
@@ -101,8 +103,35 @@
 
             #chapter-search {
                 display: inline-block;
-                position: relative;
-                left: 28%;
+            }
+
+            #chapter-search .form-item,
+            div#user-area {
+                display: inline-block;
+                font-family:Arial;
+            }
+
+            .toolbar-section {
+                width:44%;
+                display: inline-block;
+            }
+
+            .toolbar-left {
+                text-align:left;
+            }
+
+            .toolbar-right {
+                text-align:right;
+            }
+
+            svg#user-widget {
+                display:inline-block;
+                vertical-align:middle;
+            }
+
+            .synopsis {
+                margin-left: -5%;
+                background-color: rgb(210 165 80 / 29%);
             }
         </style>
 
@@ -120,14 +149,34 @@
 
         <div class="toolbar">
     
-            <img class="logo" src="https://appdev.ocdla.org/content/images/logo.png" />
+            <div class="toolbar-section toolbar-left">
+                <img class="logo" src="https://appdev.ocdla.org/content/images/logo.png" />
+            </div>
+            <div class="toolbar-section toolbar-right">
 
-            <form id="chapter-search" autocomplete="off" tab-index="-1">
-                <div class="form-item">
-                    <label for="query" style="display:none;">Search term</label>
-                    <webc-autocomplete id="query" />
-                </div>
-            </form>
+                <form id="chapter-search" autocomplete="off" tab-index="-1">
+                    <div class="form-item">
+                        <label for="query" style="display:none;">Search term</label>
+                        <webc-autocomplete id="query" />
+                    </div>
+                </form>
+
+                <div id="user-area">
+
+                    <a class="login" href="/logout">logout</a>
+                    
+                    <a id="user-icon" href="https://ocdla--ocdpartial.sandbox.my.site.com/AccountManager" title="Hello ">
+                        <svg id="user-widget" width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <g>
+                                <circle cx="50" cy="50" r="50" style="fill: rgba(210, 165, 80);"></circle>
+                                <text x="50%" y="50%" font-size="3.0em" fill="#ffffff" text-anchor="middle" stroke="#ffffff" stroke-width="0px" dy=".3em">SA</text>
+                            </g>
+                        </svg>
+                    </a>
+
+                </div><!-- end user-area -->
+
+            </div>
         </div>
 
         <div class="toc">
