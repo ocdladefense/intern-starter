@@ -11,20 +11,56 @@
         <link rel="stylesheet" href="node_modules/@ocdladefense/modal/dist/modal.css" />
         
         <style type="text/css">
-            .toc a {
+            :root {
+                --desktop-shading: rgba(60,64,67,.2);
+                --text-lighter: rgba(0,0,0,0.55);
+                --paper-color: #FAF9F6;
+                --nav-font-size: 13px;
+                --nav-item-border-grey: rgba(73, 72, 72, 0.081);
+                --primary-text-color: rgb(32,33,36,0.8);
+            }
+            /* https://htmlcolorcodes.com/colors/ */
+            body {
+                background-color: var(--desktop-shading);
+            }
+
+            .nav-item {
+                border-top: 1px solid var(--nav-item-border-grey);
+                padding-top: 4px;
+                margin-top:14px;
+            }
+
+            .logo {
+                width:125px;
+                vertical-align: middle;
+            }
+
+            .toc a,
+            .toc .label {
                 padding: 8px;
                 display: block;
                 text-decoration: none;
-                color: rgba(0,0,0,0.75);
+                color: var(--text-lighter);
+                font-size: var(--nav-font-size);
+                -webkit-font-smoothing: antialiased;
+            }
+
+            .toc .label {
+                font-weight: 700;
             }
 
             .toc {
                 display: inline-block;
-                width: 35%;
+                width: 24%;
                 font-size: 1.1em;
                 font-family: sans-serif;
                 position: sticky;
-                top: 115px;
+                top: 111px;
+                background-color: var(--paper-color);
+                padding-top: 61px;
+                padding: 24px;
+                max-height: 600px;
+                overflow-y: scroll;
             }
 
             .chapter {
@@ -32,17 +68,35 @@
                 vertical-align: top;
                 height: 100%;
                 font-family: Arial;
-                font-size: 1.1em;
+                font-size: 15px;
                 line-height: 26px;
-                color:#666;
+                color: var(--primary-text-color);
+                
+            }
+
+            .document {
+                position: relative;
+                display: inline-block;
+                top: 134px;
+                left: 22px;
+                width: 63%;
+                vertical-align: top;
+                background-color: var(--paper-color);
+                padding: 3%;
+                padding-top: 49px;
             }
 
             .toolbar {
-                background-color: #3a4081;
-                padding:8px;
-                padding-left:3%;
-                padding-right:3%;
-                position:fixed; z-index:1; top:0px; left:0px; width:100%; height:60px;
+                padding: 8px;
+                padding-left: 3%;
+                padding-right: 3%;
+                position: fixed;
+                z-index: 1;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                height: 94px;
+                background-color: var(--paper-color);
             }
 
             #chapter-search {
@@ -66,13 +120,7 @@
 
         <div class="toolbar">
     
-            <span style="
-            color: #fff;
-            -webkit-font-smoothing: antialiased;
-            font-family: Arial;
-            font-weight: bold;
-            vertical-align: middle;
-        ">OCDLA</span>
+            <img class="logo" src="https://appdev.ocdla.org/content/images/logo.png" />
 
             <form id="chapter-search" autocomplete="off" tab-index="-1">
                 <div class="form-item">
@@ -84,70 +132,108 @@
 
         <div class="toc">
 
+             <div class="toc-content">       
+                <a href="/DUII_Notebook:Introduction" title="DUII Notebook:Introduction">Introduction</a>
+                
+                <div class="nav-item">
+                    <span class="label">Chapter 1</span>
+                    <a href="/DUII_Notebook:Chapter_1" title="DUII Notebook:Chapter 1">The Offense, with 2022 Update</a>
+                </div>
                     
-            <a href="/DUII_Notebook:Introduction" title="DUII Notebook:Introduction">Introduction</a>
-            
+                <div class="nav-item">
+                    <span class="label">Chapter 2</span>
+                    <a href="/DUII_Notebook:Chapter_2" title="DUII Notebook:Chapter 2">You and Your Client</a>
+                </div>
+                    
+                <div class="nav-item">
+                    <span class="label">Chapter 3</span>
+                    <a href="/DUII_Notebook:Chapter_3" title="DUII Notebook:Chapter 3">The File, with 2022 Update</a>
+                </div>
                 
-            <a href="/DUII_Notebook:Chapter_1" title="DUII Notebook:Chapter 1">1 – The Offense, with 2022 Update</a>
-            
-                
-            <a href="/DUII_Notebook:Chapter_2" title="DUII Notebook:Chapter 2">2 – You and Your Client</a>
-            
-                
-            <a href="/DUII_Notebook:Chapter_3" title="DUII Notebook:Chapter 3">3 – The File, with 2022 Update</a>
-            
-                
-            <a href="/DUII_Notebook:Chapter_4" title="DUII Notebook:Chapter 4">4 – Implied Consent Hearings, with 2022 Update</a>
-            
-                
-            <a href="/DUII_Notebook:Chapter_5" title="DUII Notebook:Chapter 5">5 – Discovery</a>
-            
-                
-            <a href="/DUII_Notebook:Chapter_6" title="DUII Notebook:Chapter 6">6 – Diversion, with 2022 Update</a>
-            
-                
-            <a href="/DUII_Notebook:Chapter_7" title="DUII Notebook:Chapter 7">7 – Pretrial Motions</a>
-            <a href="/DUII_Notebook:Chapter_8" title="DUII Notebook:Chapter 8">8 – Investigators and Experts</a>
-            
-                
-            <a href="/DUII_Notebook:Chapter_9" title="DUII Notebook:Chapter 9">9 – Field Sobriety Tests, with 2022 Update</a>
-            
-                
-            <a href="/DUII_Notebook:Chapter_10" title="DUII Notebook:Chapter 10">10 – DREs and Cannabis, with 2022 Update</a>
-            
-                
-            <a href="/DUII_Notebook:Chapter_11" title="DUII Notebook:Chapter 11">11 – Breath, Blood &amp; Urine, with 2022 Update</a>
-            
-                
-            <a href="/DUII_Notebook:Chapter_12" title="DUII Notebook:Chapter 12">12 – Violations and Related Charges, with 2022 Update</a>
-            
-                
-            <a href="/DUII_Notebook:Chapter_13" title="DUII Notebook:Chapter 13">13 – MJOA/Mistrials and Objections</a>
-            
-                
-            <a href="/DUII_Notebook:Chapter_14" title="DUII Notebook:Chapter 14">14 – The Defense Case/The State’s Case</a>
-            
-                
-            <a href="/DUII_Notebook:Chapter_15" title="DUII Notebook:Chapter 15">15 – Voir Dire, Opening &amp; Closing</a>
-            
-                
-            <a href="/DUII_Notebook:Chapter_16" title="DUII Notebook:Chapter 16">16 – Jury Instructions</a>
-            
-                
-            <a href="/DUII_Notebook:Chapter_17" title="DUII Notebook:Chapter 17">17 – Sentencing, with 2022 Update</a>
-            
-                
-            <a href="/DUII_Notebook:Chapter_18" title="DUII Notebook:Chapter 18">18 – Appeals</a>
+                <div class="nav-item">
+                    <span class="label">Chapter 4</span>
+                    <a href="/DUII_Notebook:Chapter_4" title="DUII Notebook:Chapter 4">Implied Consent Hearings, with 2022 Update</a>
+                </div>
+                    
+                <div class="nav-item">
+                    <span class="label">Chapter 5</span>
+                    <a href="/DUII_Notebook:Chapter_5" title="DUII Notebook:Chapter 5">Discovery</a>
+                </div>
+                    
+                <div class="nav-item">
+                    <span class="label">Chapter 6</span>
+                <a href="/DUII_Notebook:Chapter_6" title="DUII Notebook:Chapter 6">Diversion, with 2022 Update</a>
+            </div>
+                    
+                <div class="nav-item">
+                    <span class="label">Chapter 7</span>
+                <a href="/DUII_Notebook:Chapter_7" title="DUII Notebook:Chapter 7">Pretrial Motions</a>
+            </div>
 
-
+                <div class="nav-item">
+                    <span class="label">Chapter 8</span>
+                <a href="/DUII_Notebook:Chapter_8" title="DUII Notebook:Chapter 8">Investigators and Experts</a>
+            </div>
+                    
+                <div class="nav-item">
+                    <span class="label">Chapter 9</span>
+                <a href="/DUII_Notebook:Chapter_9" title="DUII Notebook:Chapter 9">Field Sobriety Tests, with 2022 Update</a>
+            </div>
+                    
+                <div class="nav-item">
+                    <span class="label">Chapter 10</span>
+                <a href="/DUII_Notebook:Chapter_10" title="DUII Notebook:Chapter 10">DREs and Cannabis, with 2022 Update</a>
+            </div>
+                    
+                <div class="nav-item">
+                    <span class="label">Chapter 11</span>
+                <a href="/DUII_Notebook:Chapter_11" title="DUII Notebook:Chapter 11">Breath, Blood &amp; Urine, with 2022 Update</a>
+            </div>
+                    
+                <div class="nav-item">
+                    <span class="label">Chapter 12</span>
+                <a href="/DUII_Notebook:Chapter_12" title="DUII Notebook:Chapter 12">Violations and Related Charges, with 2022 Update</a>
+            </div>
+                    
+                <div class="nav-item">
+                    <span class="label">Chapter 13</span>
+                <a href="/DUII_Notebook:Chapter_13" title="DUII Notebook:Chapter 13">MJOA/Mistrials and Objections</a>
+            </div>
+                    
+                <div class="nav-item">
+                    <span class="label">Chapter 14</span>
+                <a href="/DUII_Notebook:Chapter_14" title="DUII Notebook:Chapter 14">The Defense Case/The State’s Case</a>
+            </div>
                 
-            <a href="/images/4/40/2022_Resource_Guide.pdf" class="internal" title="2022 Resource Guide.pdf"> 2022 Resource Guide - part of the DUII Notebook</a> 
+                <div class="nav-item">
+                    <span class="label">Chapter 15</span>
+                <a href="/DUII_Notebook:Chapter_15" title="DUII Notebook:Chapter 15">Voir Dire, Opening &amp; Closing</a>
+            </div>
+                    
+                <div class="nav-item">
+                    <span class="label">Chapter 16</span>
+                <a href="/DUII_Notebook:Chapter_16" title="DUII Notebook:Chapter 16">Jury Instructions</a>
+            </div>
+                
+                <div class="nav-item">
+                    <span class="label">Chapter 17</span>
+                <a href="/DUII_Notebook:Chapter_17" title="DUII Notebook:Chapter 17">Sentencing, with 2022 Update</a>
+            </div>
+                
+                <div class="nav-item">
+                    <span class="label">Chapter 18</span>
+                <a href="/DUII_Notebook:Chapter_18" title="DUII Notebook:Chapter 18">Appeals</a>
+            </div>
 
-
+                <div class="nav-item">
+                    <span class="label">Documents</span> 
+                    <a href="/images/4/40/2022_Resource_Guide.pdf" class="internal" title="2022 Resource Guide.pdf"> 2022 Resource Guide - part of the DUII Notebook</a> 
+                </div>
+            </div>
         </div>
 
 
-        <div style="position:relative; display:inline-block; top: 115px; left: 0px; width:60%; vertical-align:top;">
+        <div class="document">
         
             <div class="chapter">
 
@@ -240,12 +326,14 @@
         window.init = init;
         domReady(init);
 
-        function init() {
+        async function init() {
             const terms = ['apple', 'cheese', "cantaloupe", 'apple watch', 'apple macbook', 'apple macbook pro', 'iphone', 'iphone 12'];
 
-            const client = new SearchClient(terms);
-
             
+            let foo = await fetch("https://appdev.ocdla.org/search/query?r=ocdla_products&q=duii").then(resp => resp.json());
+            foo = foo.map(result => result.title);
+            console.log(foo);
+            const client = new SearchClient(foo);
             // this.shadowRoot.addEventListener("click",this);
             // this.input.addEventListener("mousedown",this);
 
