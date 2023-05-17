@@ -18,6 +18,7 @@
                 --nav-font-size: 13px;
                 --nav-item-border-grey: rgba(73, 72, 72, 0.081);
                 --primary-text-color: rgb(32,33,36,0.8);
+                --border-outline-color: rgba(111,111,111,0.8);
             }
             /* https://htmlcolorcodes.com/colors/ */
             body {
@@ -49,6 +50,8 @@
                 font-weight: 700;
                 padding:4px;
                 padding-left:8px;
+                margin-bottom: -1px;
+                padding-bottom: 0px;
             }
 
             .toc {
@@ -57,7 +60,7 @@
                 font-size: 1.1em;
                 font-family: sans-serif;
                 position: sticky;
-                top: 111px;
+                top: 133px;
                 background-color: var(--paper-color);
                 padding-top: 61px;
                 padding: 16px;
@@ -65,16 +68,6 @@
                 overflow-y: scroll;
             }
 
-            .chapter {
-                display: inline-block;
-                vertical-align: top;
-                height: 100%;
-                font-family: Arial;
-                font-size: 15px;
-                line-height: 26px;
-                color: var(--primary-text-color);
-                
-            }
 
             .document {
                 position: relative;
@@ -88,6 +81,17 @@
                 padding-top: 49px;
             }
 
+            .chapter {
+                vertical-align: top;
+                font-family: Arial;
+                font-size: 15px;
+                line-height: 26px;
+                color: var(--primary-text-color);
+                
+            }
+
+
+
             .toolbar {
                 padding: 8px;
                 padding-left: 3%;
@@ -97,8 +101,9 @@
                 top: 0px;
                 left: 0px;
                 width: 100%;
-                height: 94px;
+                height: 115px;
                 background-color: var(--paper-color);
+                border-bottom: 1px solid var(--border-outline-color);
             }
 
             #chapter-search {
@@ -276,7 +281,21 @@
 
                 <div class="nav-item">
                     <span class="label">Documents</span> 
-                    <a href="/images/4/40/2022_Resource_Guide.pdf" class="internal" title="2022 Resource Guide.pdf"> 2022 Resource Guide - part of the DUII Notebook</a> 
+                    <a href="/images/4/40/2022_Resource_Guide.pdf" class="internal" title="2022 Resource Guide.pdf"> 2022 Resource Guide - part of the DUII Notebook</a>
+                    <ul>
+                        <li>
+                            <a href="/images/e/e6/Notice_of_Intent_to_Challenge_Validity.pdf" class="internal" title="Notice of Intent to Challenge Validity.pdf">Notice of Intent to Challenge Validity</a>
+                        </li>
+                        <li>
+                            <a href="/images/2/25/Motion_to_Suppress_Prior_Conviction.pdf" class="internal" title="Motion to Suppress Prior Conviction.pdf">Motion to Suppress Prior Conviction</a>
+                        </li>
+                        <li>
+                            <a href="/images/3/3f/Statutory_Counterparts.pdf" class="internal" title="Statutory Counterparts.pdf">Statutory Counterparts</a>
+                        </li>
+                        <li>
+                            <a href="/images/6/61/Sobriety_Tests_for_Marine_Environment.pdf" class="internal" title="Sobriety Tests for Marine Environment.pdf">Validation of Sobriety Tests for the Marine Environment</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -287,9 +306,35 @@
             <div class="chapter">
 
 
-            <div class="ors-example">
+            
+
+
 
                 <div class="synopsis">The following is an except from <a target="_new" href="https://libraryofdefense.ocdla.org/Search_and_Seizure:Chapter_1B_Search">Search and Seizure: Chapter 1B - Search</a>.</div>
+
+
+                <table class="toc-2">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div id="toctitle">
+                                    <h2>Contents</h2>
+                                    <span class="toctoggle">&nbsp;[<a href="#" class="internal" id="togglelink">hide</a>]&nbsp;
+                                    </span>
+                                </div>
+                                <ul>
+                                <li class="toclevel-1 tocsection-1"><a href="#The_Offense:"><span class="tocnumber">1</span> <span class="toctext"><b>The Offense:</b></span></a></li>
+                                <li class="toclevel-1 tocsection-3"><a href="#Part_1_Misdemeanor_DUII"><span class="tocnumber">2</span> <span class="toctext">Part 1 Misdemeanor DUII</span></a></li>
+                                <li class="toclevel-1 tocsection-11"><a href="#Part_2_Felony_DUII"><span class="tocnumber">3</span> <span class="toctext"><b>Part 2 Felony DUII</b></span></a></li>
+                                <li class="toclevel-1 tocsection-24"><a href="#Part_3_Boats.2C_Bikes_and_Other_Vehicles"><span class="tocnumber">4</span> <span class="toctext">Part 3 Boats, Bikes and Other Vehicles</span></a></li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <?php include "chapters/duii-chapter-1.html"; ?>
+
 
 
                 <h3>Section F - Invasions of Privacy Interests by Listening</h3>
@@ -304,6 +349,8 @@
                 </p>
             </div>
 
+
+            <div class="ors-example">
 
             <div class="ors-example">
 
