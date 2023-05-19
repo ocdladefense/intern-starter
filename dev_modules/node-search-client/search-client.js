@@ -5,13 +5,13 @@
 const SearchClient = (function() {
     function autocompleteMatch(input) {
 
+        let reg = new RegExp(input,"mis");
+
         let theFilter = function(term) {
             if (term.match(reg)) {
                 return term;
             }
         };
-
-        let reg = new RegExp(input);
 
         return '' == input ? [] : this.list.filter(theFilter);
     }
