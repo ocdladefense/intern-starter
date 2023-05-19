@@ -35,7 +35,6 @@ class Autocomplete extends HTMLElement {
         // Create some CSS to apply to the shadow DOM
         const style = document.createElement("style");
         style.textContent = `
-        /* CSS truncated for brevity */
         @import "css/form.css";
         label {
             text-transform:uppercase;
@@ -54,8 +53,6 @@ class Autocomplete extends HTMLElement {
             font-size: 19px;
             color: rgba(50,50,50,0.8);
             position:absolute;
-            min-width:600px;
-            width:25%;
             z-index:1;  
         }
           #results ul {
