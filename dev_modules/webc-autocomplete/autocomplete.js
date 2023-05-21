@@ -36,6 +36,9 @@ class Autocomplete extends HTMLElement {
         const style = document.createElement("style");
         style.textContent = `
         @import "css/form.css";
+        * {
+            box-sizing: border-box;
+        }
         label {
             text-transform:uppercase;
         }
@@ -44,6 +47,8 @@ class Autocomplete extends HTMLElement {
         }
         input {
             width: 100%;
+            background-color: #e8eaed;
+            height: 41px;
         }
         #results {
             border: 1px dotted #ccc;
@@ -54,6 +59,7 @@ class Autocomplete extends HTMLElement {
             color: rgba(50,50,50,0.8);
             position:absolute;
             z-index:1;  
+            width: 275px;
         }
           #results ul {
             list-style-type: none;
