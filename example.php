@@ -5,10 +5,11 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
         </script>
 
-        <link rel="stylesheet" href="css/example.css" />
+        
         <link rel="stylesheet" href="node_modules/@ocdladefense/ors/dist/css/loading.css" />
         <link rel="stylesheet" href="node_modules/@ocdladefense/ors/dist/css/modal.css" />
         <link rel="stylesheet" href="node_modules/@ocdladefense/modal/dist/modal.css" />
+        <link rel="stylesheet" href="css/example.css" />
         <script src="https://kit.fontawesome.com/c2278a45b9.js" crossorigin="anonymous">
         </script>
         <!--
@@ -111,25 +112,26 @@
         </div>
 
 
-        <div id="modal-backdrop">&nbsp;</div>
-        <div id="modal">
-            <div id="modal-container" style="overflow-y:visible;">
-                <div id="modal-title-bar">
-                    ORS - Oregon Revised Statutes <button style="float:right;" id="close-modal" type="button">X</button>
-                    <div id="modal-title-bar-content"></div>
-                </div>  
-                <div id="modal-content" style="vertical-align:top;">
-                    <div id="ors-toc" style="display:inline-block;width:25%; vertical-align:top;overflow-y:scroll;">
+        <div id="modal-backdrop">
+            <div id="modal">
+                <div id="modal-container" style="overflow-y:visible;">
+                    <div id="modal-title-bar">
+                        <button style="float:right;" id="close-modal" type="button">X</button>
+                        <div id="modal-title-bar-content"></div>
+                    </div>  
+                    <div id="modal-content" style="vertical-align:top;">
+                        <div class="modal-toc" style="display:inline-block;width:25%; vertical-align:top;overflow-y:auto;">
 
-                    </div>
-                    <div id="ors-statutes" style="display:inline-block; width:70%; vertical-align:top; overflow-y: scroll;">
+                        </div>
+                        <div id="ors-statutes" style="display:inline-block; width:70%; vertical-align:top; overflow-y: auto;">
 
+                        </div>
                     </div>
-                <div>
-            </div>
-            <div id="loading">
-                <div id="loading-wheel"></div>
-            </div>
+                </div>
+                <div id="loading">
+                    <div id="loading-wheel"></div>
+                </div>
+            </div>  
         </div>
  
 
@@ -183,12 +185,7 @@
     </script>
 
     
-    <script type="module" src="js/init.js">
-
-
-
-
-    </script> 
+    <script type="module" src="js/init.js"></script> 
         
     <script type="module">
 
