@@ -6,9 +6,8 @@
         </script>
 
         
-        <link rel="stylesheet" href="node_modules/@ocdladefense/ors/dist/css/loading.css" />
-        <link rel="stylesheet" href="node_modules/@ocdladefense/ors/dist/css/modal.css" />
-        <link rel="stylesheet" href="node_modules/@ocdladefense/modal/dist/modal.css" />
+        <link rel="stylesheet" href="node_modules/@ocdladefense/modal/dist/css/loading.css" />
+        <link rel="stylesheet" href="node_modules/@ocdladefense/modal/dist/css/modal.css" />
         <link rel="stylesheet" href="css/example.css" />
         <script src="https://kit.fontawesome.com/c2278a45b9.js" crossorigin="anonymous">
         </script>
@@ -114,16 +113,16 @@
 
         <div id="modal-backdrop">
             <div id="modal">
-                <div id="modal-container" style="overflow-y:visible;">
-                    <div id="modal-title-bar">
-                        <button style="float:right;" id="close-modal" type="button">X</button>
-                        <div id="modal-title-bar-content"></div>
-                    </div>  
-                    <div id="modal-content" style="vertical-align:top;">
-                        <div class="modal-toc" style="display:inline-block;width:25%; vertical-align:top;overflow-y:auto;">
+                <div id="modal-container" style="overflow-y:visible;"> 
+                    <div id="modal-body" style="vertical-align:top;">
+                        <div id="modal-title-bar">
+                            <button style="float:right;" id="close-modal" type="button">X</button>
+                            <div id="modal-title-bar-title"></div>
+                        </div>
+                        <div id="modal-left-nav" class="modal-toc" style="display:inline-block;width:25%; vertical-align:top;overflow-y:auto;overflow-y: auto;position: sticky;max-height: 600px;padding-right:25px;">
 
                         </div>
-                        <div id="ors-statutes" style="display:inline-block; width:70%; vertical-align:top; overflow-y: auto;">
+                        <div id="modal-content" style="display:inline-block; width:74%; vertical-align:top; overflow-y: auto; overflow-y: auto; max-height: 600px; padding: 35px;">
 
                         </div>
                     </div>
@@ -189,26 +188,26 @@
         
     <script type="module">
 
-                import domReady from "./node_modules/@ocdladefense/web/src/web.js";
+        import domReady from "./node_modules/@ocdladefense/web/src/web.js";
 
-                    domReady(doOutline);
+        domReady(doOutline);
 
-                    function doOutline() {
-                        let elems = document.querySelectorAll(".mw-headline");
-                        let headings = [...elems].map((node) => node.innerText);
-                        let nodes = headings.map((heading) => {
-                            let l = heading.match(/Part/) == null ? 2 : 1;
-                            let h = document.createTextNode(heading);
-                            let n = document.createElement("div");
-                            n.setAttribute("class", "outline-item");
-                            if(1 == l) {
-                                n.setAttribute("class", "outline-item outline-item-level-1");
-                            }
-                            n.appendChild(h);
-                            return n;
-                        });
-                        nodes.forEach((node) => document.querySelector(".outline-content").appendChild(node));
-                    }
+        function doOutline() {
+            let elems = document.querySelectorAll(".mw-headline");
+            let headings = [...elems].map((node) => node.textContent);
+            let nodes = headings.map((heading) => {
+                let l = heading.match(/Part/) == null ? 2 : 1;
+                let h = document.createTextNode(heading);
+                let n = document.createElement("div");
+                n.setAttribute("class", "outline-item");
+                if(1 == l) {
+                    n.setAttribute("class", "outline-item outline-item-level-1");
+                }
+                n.appendChild(h);
+                return n;
+            });
+            nodes.forEach((node) => document.querySelector(".outline-content").appendChild(node));
+        }
     </script>
 
 

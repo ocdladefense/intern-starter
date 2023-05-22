@@ -1,5 +1,6 @@
-import { OrsParser } from "../node_modules/@ocdladefense/ors/dist/ors-parser.js";
-import { OrsChapter } from "../node_modules/@ocdladefense/ors/src/chapter.js";
+import { Ors } from "../node_modules/@ocdladefense/ors/dist/ors.js";
+import { OrsParser } from "../node_modules/@ocdladefense/ors/dist/parser.js";
+import { OrsChapter } from "../node_modules/@ocdladefense/ors/dist/chapter.js";
 import { Modal } from "../node_modules/@ocdladefense/modal/dist/modal.js";
 import { InlineModal } from "../node_modules/@ocdladefense/modal/dist/inline-modal.js";
 import domReady from "../node_modules/@ocdladefense/web/src/web.js";
@@ -15,7 +16,13 @@ let inlineModalFired = false;
 
 
 // Convert the document to be ORS-ready.
+domReady(() => convert(".chapter"));
 domReady(init);
+
+
+
+
+
 function convert(selector) {
     var body = document.querySelector(selector);
 
@@ -27,11 +34,9 @@ function convert(selector) {
 
 
 function init() {
-
-        convert(".chapter");
     
         // Inline modal initialization.
-        window.modalJr = new InlineModal("modal-jr");
+        window.inlineModal = new InlineModal("inlinem-ors");
     
         // Full-screen modal.
         let modal = new Modal();
@@ -45,8 +50,6 @@ function init() {
             if (id != "modal-backdrop") {
                 return;
             }
-    
-    
             modal.hide();
         });
     
@@ -54,16 +57,16 @@ function init() {
         
         const serializer = new XMLSerializer();
     
-        let modalTarget = window.modalJr.getRoot();
+        let modalTarget = window.inlineModal.getRoot();
     
     
     
-        let mouseOutCb = getMouseLeaveCallback(modalTarget, function () { window.modalJr.hide(); });
-        let mouseOverCb = getMouseOverCallback(function (x, y, chapter, section) {
+        let mouseOutCb = getMouseLeaveCallback(modalTarget, function () { window.inlineModal.hide(); });
+        let mouseOverCb = getMouseOverCallback(async function (x, y, chapterNum, startSection) {
             console.log("X coord is ", x);
             console.log("Y coord is ", y);
-            console.log("Chapter is: ", chapter);
-            console.log("Section is: ", section);
+            console.log("Chapter is: ", chapterNum);
+            console.log("Section is: ", startSection);
     
             // If the modal is already being setup then
             // don't re-initialize.
@@ -73,23 +76,17 @@ function init() {
             inlineModalFired = true;
     
     
-            window.modalJr.show(x, y);
+            window.inlineModal.show(x, y);
     
     
-            let chapterDoc = OrsChapter.getCached(chapter) || new OrsChapter(chapter);
+            let chapter = await Network.fetchOrs(chapterNum);
     
-    
-    
-    
-            chapterDoc.load().then(function () {
-                let endSection = chapterDoc.getNextSection(section);
-                let cloned = chapterDoc.clone(section, endSection.id);
-                let clonedHtml = serializer.serializeToString(cloned);
-                window.modalJr.renderHtml(clonedHtml);
-                inlineModalFired = false;
-            });
-    
-    
+            let endSection = chapter.getNextSection(startSection);
+            let cloned = chapter.clone(startSection, endSection);
+            let html = serializer.serializeToString(cloned);
+            console.log(html);
+            window.inlineModal.renderHtml(html);
+            inlineModalFired = false;
         });
     
     
@@ -101,15 +98,13 @@ function init() {
             links[i].addEventListener("mouseenter", mouseOverCb);
             links[i].addEventListener("mouseleave", mouseOutCb);
         }
-        
-    
 }
 
 
 
 
 
-function displayOrs(e) {
+async function displayOrs(e) {
     let target = e.target;
 
     let action = target.dataset && target.dataset.action;
@@ -117,35 +112,70 @@ function displayOrs(e) {
     // If we aren't showing an ORS then bail.
     if (["show-ors"].indexOf(action) === -1) return false;
 
-    // e.preventDefault();
+    e.preventDefault();
     // e.stopPropagation();
 
-    let chapter = target.dataset.chapter;
-    let section = target.dataset.section;
+    let c = target.dataset.chapter;
+    let s = target.dataset.section;
 
-    let chapterNum = parseInt(chapter);
-    let sectionNum = parseInt(section);
+    let chapterNum = parseInt(c);
+    let sectionNum = parseInt(s);
 
-    ors(chapterNum, sectionNum);
+    let chapter = await Network.fetchOrs(chapterNum);
+  
+    // let vols = Ors.buildVolumes();
+    let toc = chapter.buildToc();
+    let html = chapter.toString();
+    html = OrsParser.replaceAll(html);
+
+    modal.show();
+    modal.leftNav(toc);
+    modal.html(html);
+    modal.title("ORS Chapter " + chapterNum);
+    // modal.titleBar(vols);
 
 
     return false;
 }
 
 
-function ors(chapter, section) {
+/**
+ * Load a chapter of the Oregon Revised Statutes (ORS).
+ * Example:
+ *   let chapter = Network.loadOrs(810);
+ */
+const Network = (function() {
+    const cache = {};
 
-    let chapterDoc = OrsChapter.getCached(chapter) || new OrsChapter(chapter);
-    chapterDoc.load().then(function () {
-        let toc = chapterDoc.buildToc();
-        let vols = chapterDoc.buildVolumes();
-        chapterDoc.loadXml();
-        modal.show();
-        modal.toc(toc);
-        modal.titleBar(vols);
-        modal.renderHtml(chapterDoc.toString(), "ors-statutes");
-    });
-}
+
+    // Gets the chapter from the cache
+    function getCache(chapter) {
+        return cache[chapter];
+    }
+
+
+    async function fetchOrs(chapterNum) {
+        let chapter = getCache(chapterNum) || new OrsChapter(chapterNum);
+        cache[chapterNum] = chapter;
+
+        let doc = await chapter.load();
+
+        if (!chapter.formatted) {
+            chapter.parse();
+            chapter.injectAnchors();
+        }
+
+        return chapter;
+    }
+
+    return {
+        fetchOrs: fetchOrs,
+        getCache: getCache
+    };
+})();
+window.Network = Network;
+
+
 
 function getMouseOverCallback(fn) {
 

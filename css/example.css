@@ -323,4 +323,33 @@ svg#user-widget {
     width: 800px;
     /* margin-left: -150px; */
     transform: translate(-50%, -50%);
+    overflow-y: hidden;
+    width: 80vw;
+    height: 80vh;
+}
+
+
+
+#modal-left-nav li {
+    list-style-type: none;
+}
+
+#modal-left-nav li a {
+    text-decoration: none;
+    text-decoration: none;
+        color: var(--text-darker);
+        -webkit-font-smoothing: antialiased;
+}
+
+#modal-left-nav li {
+    list-style-type: none;
+    padding: 15px;
+    line-height: 21px;
+    font-family: var(--heading-font-family);
+}
+
+.section-number {
+    color: #0774b6;
+    font-weight: bold;
+    display: block;
 }

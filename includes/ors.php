@@ -72,7 +72,7 @@ function parseResponse($resp){
 function getParams() {
     $isCli = PHP_SAPI === "cli";
 
-    $params = $isCli ? array_slice($_SERVER['argv'],1) : array($_GET["chapter"],$_GET["section"]);
+    $params = $isCli ? array_slice($_SERVER['argv'],1) : array($_GET["chapter"],$_GET["section"] ?? null);
 
     return $params;
 }
