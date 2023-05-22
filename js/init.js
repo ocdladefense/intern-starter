@@ -28,7 +28,7 @@ domReady(init);
 function init() {
 
     // Inline modal initialization.
-    let inline = new InlineModal("inlinem-ors");
+    let inline = new InlineModal("inline-ors");
     window.inline = inline;
 
     const serializer = new XMLSerializer();
@@ -56,13 +56,19 @@ function init() {
 
 
         let chapter = await Network.fetchOrs(chapterNum);
-
-        let endSection = chapter.getNextSection("section-"+startSection);
-        let cloned = chapter.cloneFromIds(startSection, endSection);
+        let startId = "section-" + parseInt(startSection);
+        let endId = chapter.getNextSectionId(startId);
+        console.log(endId);
+        let cloned = chapter.cloneFromIds(startId, endId);
         let html = serializer.serializeToString(cloned);
         console.log(html);
         inline.renderHtml(html);
         inlineModalFired = false;
+
+        let id = inline.getRoot();
+        let marker = document.querySelector(".inline-modal #"+startId);
+        console.log(marker);
+        // marker.scrollIntoView({ behavior: "smooth", block: "start"});//, inline: "nearest" });
     });
 
 

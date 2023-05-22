@@ -5,10 +5,14 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
         </script>
 
-        
-        <link rel="stylesheet" href="node_modules/@ocdladefense/modal/dist/css/loading.css" />
-        <link rel="stylesheet" href="node_modules/@ocdladefense/modal/dist/css/modal.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="node_modules/@ocdladefense/modal/src/css/loading.css" />
+        <link rel="stylesheet" href="node_modules/@ocdladefense/modal/src/css/modal.css" />
+        <link rel="stylesheet" href="node_modules/@ocdladefense/modal/src/css/inline-modal.css" />
         <link rel="stylesheet" href="css/example.css" />
+
         <script src="https://kit.fontawesome.com/c2278a45b9.js" crossorigin="anonymous">
         </script>
         <!--
@@ -57,59 +61,68 @@
                 </div><!-- end user-area -->
 
             </div>
-        </div>
 
-        <div class="toc">
-
-            <?php
-                $book = $_GET["book"];
-                $chapter = $_GET["chapter"];
-                include "books/{$book}/toc.html";
-            ?>
-        </div>
-
-
-        <div class="document">
-                    
-            <!-- Template://breadcrumb -->
-            <div class="breadcrumb">
-                <ul>
-                    <li>Books Online</li>
-                    <li>DUII Notebook</li>
-                </ul>
+            <div class="toolbar-bottom">
+                <span class="nav-heading-item">Books Online</span> <i class="fa-solid fa-chevron-right"></i> <span class="nav-heading-item">DUII Notebook</span>
             </div>
+        </div>
 
-            <div class="chapter">
 
-                <!-- Template://title -->
-                <h1 class="chapter-title">Chapter 1: The Offense<i class="fa-sharp fa-regular fa-bookmark"></i></h1>
-
+        <div class="workspace">
+            <div class="toc">
                 <?php
-                    include "books/{$book}/chapters/chapter-{$chapter}/authors.html";
+                    $book = $_GET["book"];
+                    $chapter = $_GET["chapter"];
+                    include "books/{$book}/toc.html";
                 ?>
-
-                
-
-                <?php 
-                    $success = @include "books/{$book}/chapters/chapter-{$chapter}/content.html";
-                    if(!$success) {
-                        include "books/chapter-not-found.html";
-                    }
-                ?>
-
             </div>
 
+                <div class="document">
+                            
+                    <!-- Template://breadcrumb -->
+                    <div class="breadcrumb">
+                        <ul>
+                            <li>Books Online</li>
+                            <li>DUII Notebook</li>
+                        </ul>
+                    </div>
+
+                    <div class="chapter">
+
+                        <!-- Template://title -->
+
+                        <?php
+                            include "books/{$book}/chapters/chapter-{$chapter}/title.html";
+                        ?>
+                        
+
+                        <?php
+                            include "books/{$book}/chapters/chapter-{$chapter}/authors.html";
+                        ?>
+
+                        
+
+                        <?php 
+                            $success = @include "books/{$book}/chapters/chapter-{$chapter}/content.html";
+                            if(!$success) {
+                                include "books/chapter-not-found.html";
+                            }
+                        ?>
+
+                    </div>
+
+                    
+
+                </div>
+
+
+                <div class="outline">
+                    <div class="outline-content">
+
+                    </div>
+                </div>
             
-
         </div>
-
-
-        <div class="outline">
-            <div class="outline-content">
-
-            </div>
-        </div>
-
 
         <div id="modal-backdrop">
             <div id="modal">
