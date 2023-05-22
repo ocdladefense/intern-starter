@@ -1,9 +1,19 @@
 import { Network } from "../node_modules/@ocdladefense/ors/dist/Network.js";
 import { OrsParser } from "../node_modules/@ocdladefense/ors/dist/parser.js";
+import { Modal } from "../node_modules/@ocdladefense/modal/dist/modal.js";
 
 export {BooksOnlineController};
 
 class BooksOnlineController {
+
+    modal = null;
+
+
+    constructor() {
+        // Full-screen modal.
+        this.modal = new Modal();
+        window.modal = this.modal;
+    }
 
     handleEvent(e) {
 
@@ -13,6 +23,9 @@ class BooksOnlineController {
         let c = target.dataset.chapter;
         let s = target.dataset.section;
 
+        if ("modal-backdrop" == target.id) {
+            this.modal.hide();
+        }
 
         if (!["view-section", "show-ors"].includes(action)) {
             return false;
@@ -37,7 +50,6 @@ class BooksOnlineController {
 
     async displayOrs(c, s) {
 
-
         let chapterNum = parseInt(c);
         let sectionNum = parseInt(s);
 
@@ -48,16 +60,25 @@ class BooksOnlineController {
         let html = chapter.toString();
         html = OrsParser.replaceAll(html);
 
-        modal.show();
-        modal.leftNav(toc);
-        modal.html(html);
-        modal.title("ORS Chapter " + chapterNum);
+        this.modal.show();
+        this.modal.leftNav(toc);
+        this.modal.html(html);
+        this.modal.title("ORS Chapter " + chapterNum);
         let marker = document.querySelector("#modal #section-" + sectionNum);
         marker.scrollIntoView();
         // modal.titleBar(vols);
 
 
         return false;
+    }
+
+    convert(selector) {
+        var body = document.querySelector(selector);
+
+        var text = body.innerHTML;
+        var parsed = OrsParser.replaceAll(text);
+
+        body.innerHTML = parsed;
     }
 
 }
