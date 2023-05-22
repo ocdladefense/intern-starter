@@ -16,7 +16,8 @@
     "url": "https://github.com/ocdladefense/intern-starter/issues"
   },
   "homepage": "https://github.com/ocdladefense/intern-starter#readme",
-  "dependencies": {
+  "dependencies": { 
+    "@ocdladefense/dom": "file:dev_modules/node-dom",
     "@ocdladefense/html": "file:dev_modules/node-html",
     "@ocdladefense/modal": "file:dev_modules/node-modal",
     "@ocdladefense/ors": "file:dev_modules/node-ors",

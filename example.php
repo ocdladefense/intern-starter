@@ -158,11 +158,7 @@
             foo = foo.map(result => result.title);
             console.log(foo);
             const client = new SearchClient(foo);
-            // this.shadowRoot.addEventListener("click",this);
-            // this.input.addEventListener("mousedown",this);
 
-            // let searchField = document.createElement("webc-autocomplete");
-            // searchField.source(client);
             let autocomplete = document.getElementById("query");
             console.log(autocomplete);
             // autocomplete.addEventListener("keyup",autocomplete);
@@ -189,25 +185,17 @@
     <script type="module">
 
         import domReady from "./node_modules/@ocdladefense/web/src/web.js";
+        import {DomDocument} from "./node_modules/@ocdladefense/dom/src/DomDocument.js";
 
         domReady(doOutline);
 
+        // Use these headings to create an on-the-fly outline of the document.
         function doOutline() {
-            let elems = document.querySelectorAll(".mw-headline");
-            let headings = [...elems].map((node) => node.textContent);
-            let nodes = headings.map((heading) => {
-                let l = heading.match(/Part/) == null ? 2 : 1;
-                let h = document.createTextNode(heading);
-                let n = document.createElement("div");
-                n.setAttribute("class", "outline-item");
-                if(1 == l) {
-                    n.setAttribute("class", "outline-item outline-item-level-1");
-                }
-                n.appendChild(h);
-                return n;
-            });
+            let doc = new DomDocument();
+            let nodes = doc.outline(".mw-headline");
             nodes.forEach((node) => document.querySelector(".outline-content").appendChild(node));
         }
+
     </script>
 
 

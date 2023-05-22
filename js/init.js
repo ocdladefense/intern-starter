@@ -1,16 +1,15 @@
-import { Ors } from "../node_modules/@ocdladefense/ors/dist/ors.js";
 import { OrsParser } from "../node_modules/@ocdladefense/ors/dist/parser.js";
-import { OrsChapter } from "../node_modules/@ocdladefense/ors/dist/chapter.js";
+import { Network } from "../node_modules/@ocdladefense/ors/dist/Network.js";
 import { Modal } from "../node_modules/@ocdladefense/modal/dist/modal.js";
 import { InlineModal } from "../node_modules/@ocdladefense/modal/dist/inline-modal.js";
 import domReady from "../node_modules/@ocdladefense/web/src/web.js";
+import {BooksOnlineController} from "./BooksOnlineController.js";
 
 
 // List for ORS-related requests.
-document.addEventListener("click", displayOrs);
+document.addEventListener("click", new BooksOnlineController());
 
-// For testing in the console.
-window.OrsChapter = OrsChapter;
+
 
 let inlineModalFired = false;
 
@@ -81,8 +80,8 @@ function init() {
     
             let chapter = await Network.fetchOrs(chapterNum);
     
-            let endSection = chapter.getNextSection(startSection);
-            let cloned = chapter.clone(startSection, endSection);
+            let endSection = chapter.getNextSection("section-"+startSection);
+            let cloned = chapter.cloneFromIds(startSection, endSection);
             let html = serializer.serializeToString(cloned);
             console.log(html);
             window.inlineModal.renderHtml(html);
@@ -103,77 +102,6 @@ function init() {
 
 
 
-
-async function displayOrs(e) {
-    let target = e.target;
-
-    let action = target.dataset && target.dataset.action;
-
-    // If we aren't showing an ORS then bail.
-    if (["show-ors"].indexOf(action) === -1) return false;
-
-    e.preventDefault();
-    // e.stopPropagation();
-
-    let c = target.dataset.chapter;
-    let s = target.dataset.section;
-
-    let chapterNum = parseInt(c);
-    let sectionNum = parseInt(s);
-
-    let chapter = await Network.fetchOrs(chapterNum);
-  
-    // let vols = Ors.buildVolumes();
-    let toc = chapter.buildToc();
-    let html = chapter.toString();
-    html = OrsParser.replaceAll(html);
-
-    modal.show();
-    modal.leftNav(toc);
-    modal.html(html);
-    modal.title("ORS Chapter " + chapterNum);
-    // modal.titleBar(vols);
-
-
-    return false;
-}
-
-
-/**
- * Load a chapter of the Oregon Revised Statutes (ORS).
- * Example:
- *   let chapter = Network.loadOrs(810);
- */
-const Network = (function() {
-    const cache = {};
-
-
-    // Gets the chapter from the cache
-    function getCache(chapter) {
-        return cache[chapter];
-    }
-
-
-    async function fetchOrs(chapterNum) {
-        let chapter = getCache(chapterNum) || new OrsChapter(chapterNum);
-        cache[chapterNum] = chapter;
-
-        let doc = await chapter.load();
-
-        if (!chapter.formatted) {
-            chapter.parse();
-            chapter.injectAnchors();
-        }
-
-        return chapter;
-    }
-
-    return {
-        fetchOrs: fetchOrs,
-        getCache: getCache
-    };
-})();
-window.Network = Network;
 
 
 
