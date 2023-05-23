@@ -26,6 +26,7 @@
     "@ocdladefense/view": "^2.1.1",
     "@ocdladefense/web": "file:dev_modules/node-web",
     "@ocdladefense/webc-autocomplete": "file:dev_modules/webc-autocomplete",
+    "@ocdladefense/books-online":"file:dev_modules/node-books-online",
     "babel-plugin-inline-dotenv": "^1.7.0",
     "npm-watch": "^0.11.0"
   },

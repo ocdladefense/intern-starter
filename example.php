@@ -1,13 +1,22 @@
-<!doctype html>
+<?php
+// $book = $_GET["book"];
+// $chapter = $_GET["chapter"];
+$request = $_SERVER["REQUEST_URI"];
+$basePath = $_SERVER["SCRIPT_NAME"];
+$length = strlen($basePath);
+$request = substr($request,$length);
+list($root,$book,$chapter) = explode("/",$request);
+// var_dump($root,$book,$chapter);exit;
+?><!doctype html>
 <html>
     <head>
         <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
         </script>
-
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+        <base href="https://appdev.ocdla.org/books-online/example.php" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="node_modules/@ocdladefense/modal/src/css/loading.css" />
         <link rel="stylesheet" href="node_modules/@ocdladefense/modal/src/css/modal.css" />
         <link rel="stylesheet" href="node_modules/@ocdladefense/modal/src/css/inline-modal.css" />
@@ -21,11 +30,7 @@
         
         <script type="module">
 
-            // https://medium.com/streak-developer-blog/the-complexities-of-implementing-inline-autocomplete-for-content-editables-e358c0ed504b
-            import Autocomplete from "./node_modules/@ocdladefense/webc-autocomplete/autocomplete.js";
-    
-            // customElements.define("word-count", WordCount, { extends: "p" });
-            customElements.define("webc-autocomplete", Autocomplete);
+
         </script>
     </head>
     <body tab-index="-1">
@@ -64,63 +69,63 @@
 
             <div class="toolbar-bottom">
                 <span class="nav-heading-item">Books Online</span> <i class="fa-solid fa-chevron-right"></i> <span class="nav-heading-item">DUII Notebook</span>
+                <button>Feedback</button>
             </div>
         </div>
 
-
+        <div class="toc">
+            <?php
+                @include "books/{$book}/toc.html";
+            ?>
+        </div>
+        
         <div class="workspace">
-            <div class="toc">
-                <?php
-                    $book = $_GET["book"];
-                    $chapter = $_GET["chapter"];
-                    include "books/{$book}/toc.html";
-                ?>
-            </div>
 
-                <div class="document">
-                            
-                    <!-- Template://breadcrumb -->
-                    <div class="breadcrumb">
-                        <ul>
-                            <li>Books Online</li>
-                            <li>DUII Notebook</li>
-                        </ul>
-                    </div>
 
-                    <div class="chapter">
-
-                        <!-- Template://title -->
-
-                        <?php
-                            include "books/{$book}/chapters/chapter-{$chapter}/title.html";
-                        ?>
+            <div class="document">
                         
+                <!-- Template://breadcrumb -->
+                <div class="breadcrumb">
+                    <ul>
+                        <li>Books Online</li>
+                        <li>DUII Notebook</li>
+                    </ul>
+                </div>
 
-                        <?php
-                            include "books/{$book}/chapters/chapter-{$chapter}/authors.html";
-                        ?>
+                <div class="chapter">
 
-                        
+                    <!-- Template://title -->
 
-                        <?php 
-                            $success = @include "books/{$book}/chapters/chapter-{$chapter}/content.html";
-                            if(!$success) {
-                                include "books/chapter-not-found.html";
-                            }
-                        ?>
+                    <?php
+                        @include "books/{$book}/chapters/chapter-{$chapter}/title.html";
+                    ?>
+                    
 
-                    </div>
+                    <?php
+                        @include "books/{$book}/chapters/chapter-{$chapter}/authors.html";
+                    ?>
 
                     
 
+                    <?php 
+                        $success = @include "books/{$book}/chapters/chapter-{$chapter}/content.html";
+                        if(!$success) {
+                            include "books/chapter-not-found.html";
+                        }
+                    ?>
+
                 </div>
 
+                
 
-                <div class="outline">
-                    <div class="outline-content">
+            </div>
 
-                    </div>
+
+            <div class="outline">
+                <div class="outline-content">
+
                 </div>
+            </div>
             
         </div>
 
@@ -147,6 +152,8 @@
         </div>
  
 
+        <?php require "footer.tpl.php"; ?>
+
     </body>
 
 
@@ -159,6 +166,10 @@
         import Autocomplete from "./node_modules/@ocdladefense/webc-autocomplete/autocomplete.js";
         import "./node_modules/@ocdladefense/html/html.js";
         import domReady from "../node_modules/@ocdladefense/web/src/web.js";
+        // https://medium.com/streak-developer-blog/the-complexities-of-implementing-inline-autocomplete-for-content-editables-e358c0ed504b
+
+        // customElements.define("word-count", WordCount, { extends: "p" });
+        customElements.define("webc-autocomplete", Autocomplete);
 
         window.init = init;
         domReady(init);

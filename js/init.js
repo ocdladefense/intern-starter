@@ -52,7 +52,7 @@ function init() {
         inlineModalFired = true;
 
 
-        inline.show(x, y);
+        inline.show(x, y-141);
 
 
         let chapter = await Network.fetchOrs(chapterNum);
