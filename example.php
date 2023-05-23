@@ -13,7 +13,7 @@ list($root,$book,$chapter) = explode("/",$request);
         <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
         </script>
-        <base href="https://appdev.ocdla.org/books-online/example.php" />
+        <base href="/books-online/example.php" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
