@@ -178,7 +178,7 @@ list($root,$book,$chapter) = explode("/",$request);
             const terms = ['apple', 'cheese', "cantaloupe", 'apple watch', 'apple macbook', 'apple macbook pro', 'iphone', 'iphone 12'];
 
             
-            let foo = await fetch("https://appdev.ocdla.org/search/query?r=ocdla_products&q=duii").then(resp => resp.json());
+            let foo = await fetch("/search/query?r=ocdla_products&q=duii").then(resp => resp.json());
             foo = foo.map(result => result.title);
             console.log(foo);
             const client = new SearchClient(foo);
