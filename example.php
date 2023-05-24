@@ -140,7 +140,7 @@ list($root,$book,$chapter) = explode("/",$request);
                         <div id="modal-left-nav" class="modal-toc" style="display:inline-block;width:25%; vertical-align:top;overflow-y:auto;overflow-y: auto;position: sticky;max-height: 600px;padding-right:25px;">
 
                         </div>
-                        <div id="modal-content" style="display:inline-block; width:74%; vertical-align:top; overflow-y: auto; overflow-y: auto; max-height: 600px; padding: 35px;">
+                        <div id="modal-content" style="display:inline-block; width:67%; vertical-align:top; overflow-y: auto; overflow-y: auto; max-height: 600px; padding: 35px;">
 
                         </div>
                     </div>

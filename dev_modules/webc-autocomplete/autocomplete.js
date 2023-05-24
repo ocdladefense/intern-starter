@@ -114,7 +114,7 @@ class Autocomplete extends HTMLElement {
 
     keyup(e) {
         let target = e.target;
-        let recent = ["<span class='recent'>Recent searches</span>","foobar","baz","pow"];
+        let recent = ["<span class='recent'>Recent searches</span>","diversion","resources","felony"];
         let suggestions = this.src.suggest(target.value);
         
         this.renderHtml(suggestions.length > 3 ? suggestions : recent.concat(suggestions));
