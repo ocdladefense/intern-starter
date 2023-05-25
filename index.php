@@ -1,24 +1,18 @@
-
-
 <?php
-error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING & ~E_DEPRECATED);
-header("Content-Type: text/html; charset=windows-1252");
-include "vendor/autoload.php";
-include "includes/api.php";
-include "includes/ors.php";
+require "bootstrap.php";
+
+
+$host = $_GET["host"] ?? $_SERVER["HTTP_HOST"];
+
+
+$requestUri = $_SERVER["REQUEST_URI"];
+$requestPath = explode("?",$requestUri)[0];
+$basePath = $_SERVER["SCRIPT_NAME"];
+$length = strlen($basePath);
+$request = substr($requestPath,$length);
+// var_dump($requestPath,$basePath,$request);exit;
 
 
 
 
-
-
-list($chapter, $section) = getParams();
-
-
-$url = getOrsUrl($chapter);
-
-$resp = send($url);
-$statute = parseResponse($resp);
-
-
-echo $statute;
+print render();

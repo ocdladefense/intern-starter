@@ -12,3 +12,6 @@
 
 /sites/*
 !/sites/.gitkeep
+
+/themes/*
+!/themes/.gitkeep

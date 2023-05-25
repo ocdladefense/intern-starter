@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e594ceb99329ef1c2a1da7be49c0bb82",
+    "content-hash": "dea699dc0f6d0ba350b979a52a8b036e",
     "packages": [
         {
             "name": "ocdladefense/lib-http",
@@ -46,12 +46,47 @@
                 "source": "https://github.com/ocdladefense/lib-http/tree/v3.6.8"
             },
             "time": "2022-10-03T22:06:01+00:00"
+        },
+        {
+            "name": "ocdladefense/lib-php-template",
+            "version": "dev-development",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ocdladefense/lib-php-template.git",
+                "reference": "b989634a5bcdac3c7e4994c1ed743ac21c4c87a3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ocdladefense/lib-php-template/zipball/b989634a5bcdac3c7e4994c1ed743ac21c4c87a3",
+                "reference": "b989634a5bcdac3c7e4994c1ed743ac21c4c87a3",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Jose Bernal",
+                    "email": "jbernal.web.dev@gmail.com"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/ocdladefense/lib-php-template/issues",
+                "source": "https://github.com/ocdladefense/lib-php-template/tree/development"
+            },
+            "time": "2023-05-25T01:45:55+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "ocdladefense/lib-php-template": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
