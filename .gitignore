@@ -9,3 +9,6 @@
 /scratch_pad.js
 
 .env
+
+/sites/*
+!/sites/.gitkeep
