@@ -1,0 +1,7 @@
+
+
+RewriteCond %{REQUEST_URI} !\.(css|js|php|html|png|jpg|jpeg|gif|ico|pdf|svg|webp)$ [NC]
+RewriteCond %{REQUEST_URI} !manifest$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . index.php [L]

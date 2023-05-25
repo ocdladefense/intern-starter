@@ -7,35 +7,55 @@ define("THEME_PATH", BASE_PATH . "/themes");
 define("UPLOAD_PATH", BASE_PATH . "/content");
 
 
+function getSite() {
+    global $hostdata;
+    $host = $_GET["host"] ?? $_SERVER["HTTP_HOST"];
+    return $hostdata[$host];
+}
+
+
 function getThemePath() {
-    return THEME_PATH . "/biere-library";
+    $site = getSite();
+    return THEME_PATH . "/" . $site["theme"];
 }
 
 function getContentPath() {
-    return BASE_PATH . "/sites/biere-library";
+    $site = getSite();
+    return BASE_PATH . "/sites/" . $site["theme"];
 }
 
 function getThemeUrl() {
-    return "themes/biere-library/";
+    $site = getSite();
+    return "themes/" . $site["theme"];
 }
 
 function getContentUrl() {
-    return "sites/biere-library/content";
+    $site = getSite();
+    return "sites/" . $site["theme"];
 }
 
 function render() {
 
-$themeUrl = getThemeUrl();
+$requestUri = $_SERVER["REQUEST_URI"];
+$requestPath = explode("?",$requestUri)[0];
+$basePath = substr($_SERVER["SCRIPT_NAME"],0,strlen($_SERVER["SCRIPT_NAME"])-9);
+$length = strlen($basePath);
+$request = substr($requestPath,$length);
+// var_dump($requestPath,$basePath,$request);exit;
+
+
+    $themeUrl = getThemeUrl();
+    $contentPath = getContentPath();
 
     ob_start();
     require getThemePath() . "/body.tpl.php";
     $body = ob_get_contents();
-    ob_end_flush();
+    ob_end_clean();
 
     ob_start();
     require getThemePath() . "/html.tpl.php";
     $content = ob_get_contents();
-    ob_end_flush();
+    ob_end_clean();
 
     return $content;
 }
