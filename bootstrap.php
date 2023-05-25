@@ -36,12 +36,12 @@ function getContentUrl() {
 
 function render() {
 
-$requestUri = $_SERVER["REQUEST_URI"];
-$requestPath = explode("?",$requestUri)[0];
-$basePath = substr($_SERVER["SCRIPT_NAME"],0,strlen($_SERVER["SCRIPT_NAME"])-9);
-$length = strlen($basePath);
-$request = substr($requestPath,$length);
-// var_dump($requestPath,$basePath,$request);exit;
+    $requestUri = $_SERVER["REQUEST_URI"];
+    $requestPath = explode("?",$requestUri)[0];
+    $basePath = substr($_SERVER["SCRIPT_NAME"],0,strlen($_SERVER["SCRIPT_NAME"])-9);
+    $length = strlen($basePath);
+    $request = substr($requestPath,$length);
+    // var_dump($requestPath,$basePath,$request);exit;
 
 
     $themeUrl = getThemeUrl();
