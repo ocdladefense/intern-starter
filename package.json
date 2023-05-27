@@ -18,6 +18,7 @@
   "homepage": "https://github.com/ocdladefense/intern-starter#readme",
   "dependencies": {
     "@ocdladefense/books-online": "file:dev_modules/node-books-online",
+    "@ocdladefense/lib-http": "file:dev_modules/node-lib-http",
     "@ocdladefense/dom": "file:dev_modules/node-dom",
     "@ocdladefense/html": "file:dev_modules/node-html",
     "@ocdladefense/modal": "file:dev_modules/node-modal",
