@@ -15,3 +15,6 @@
 
 /themes/*
 !/themes/.gitkeep
+
+
+/dev_modules/node-books-online/
