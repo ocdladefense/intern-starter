@@ -4,8 +4,36 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dea699dc0f6d0ba350b979a52a8b036e",
+    "content-hash": "7640583e5d7f6fbf444043ea5dff8d8b",
     "packages": [
+        {
+            "name": "ocdladefense/lib-date",
+            "version": "dev-development",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ocdladefense/lib-date.git",
+                "reference": "0043bdc957aee81da8d18fa648f834419585ca25"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ocdladefense/lib-date/zipball/0043bdc957aee81da8d18fa648f834419585ca25",
+                "reference": "0043bdc957aee81da8d18fa648f834419585ca25",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Library for using Dates as types.",
+            "support": {
+                "issues": "https://github.com/ocdladefense/lib-date/issues",
+                "source": "https://github.com/ocdladefense/lib-date/tree/development"
+            },
+            "time": "2022-03-05T21:01:25+00:00"
+        },
         {
             "name": "ocdladefense/lib-http",
             "version": "v3.6.8",
@@ -85,7 +113,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "ocdladefense/lib-php-template": 20
+        "ocdladefense/lib-php-template": 20,
+        "ocdladefense/lib-date": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

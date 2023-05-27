@@ -19,7 +19,8 @@
     ],
     "require": {
         "ocdladefense/lib-http":"~3.0",
-        "ocdladefense/lib-php-template":"dev-development"
+        "ocdladefense/lib-php-template":"dev-development",
+        "ocdladefense/lib-date": "dev-development"
     },
     "config": {
         "allow-plugins": {
