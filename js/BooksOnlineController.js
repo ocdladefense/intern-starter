@@ -4,6 +4,10 @@ import { Modal } from "../node_modules/@ocdladefense/modal/dist/modal.js";
 
 export {BooksOnlineController};
 
+/**
+ * Controller for the Books Online application.
+ * Processes actions on behalf of the user.
+ */
 class BooksOnlineController {
 
     modal = null;
@@ -15,6 +19,13 @@ class BooksOnlineController {
         window.modal = this.modal;
     }
 
+    /**
+     * Handle user-actions.  These include requests to open
+     * a modal with the text of the Oregon Revised Statutes (ORS) or
+     * navigating to a specific ORS chapter/section.
+     * @param {HTMLEventInterface} e The event that is being listened for.
+     * @returns {boolean} false
+     */
     handleEvent(e) {
 
         let target = e.target;
@@ -47,7 +58,13 @@ class BooksOnlineController {
         }
     }
 
-
+    /**
+     * Load the specified chapter of Oregon Revised Statutes (ORS).
+     * Display the chapter in a modal and scroll to the specified section.
+     * @param {integer} c The ORS chapter to display.
+     * @param {integer} s The ORS section to display.
+     * @returns {boolean} false
+     */
     async displayOrs(c, s) {
 
         let chapterNum = parseInt(c);
@@ -72,6 +89,12 @@ class BooksOnlineController {
         return false;
     }
 
+
+    /**
+     * Replace references to Oregon Revised Statutes (ORS)
+     * with inline links.
+     * @param {CSSSelector} selector A valid CSS selector to pass to querySelector().
+     */
     convert(selector) {
         var body = document.querySelector(selector);
 
