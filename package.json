@@ -16,7 +16,8 @@
     "url": "https://github.com/ocdladefense/intern-starter/issues"
   },
   "homepage": "https://github.com/ocdladefense/intern-starter#readme",
-  "dependencies": { 
+  "dependencies": {
+    "@ocdladefense/books-online": "file:dev_modules/node-books-online",
     "@ocdladefense/dom": "file:dev_modules/node-dom",
     "@ocdladefense/html": "file:dev_modules/node-html",
     "@ocdladefense/modal": "file:dev_modules/node-modal",
@@ -26,7 +27,6 @@
     "@ocdladefense/view": "^2.1.1",
     "@ocdladefense/web": "file:dev_modules/node-web",
     "@ocdladefense/webc-autocomplete": "file:dev_modules/webc-autocomplete",
-    "@ocdladefense/books-online":"file:dev_modules/node-books-online",
     "babel-plugin-inline-dotenv": "^1.7.0",
     "npm-watch": "^0.11.0"
   },
@@ -39,6 +39,7 @@
     "@babel/preset-env": "^7.18.10",
     "@babel/preset-react": "^7.14.5",
     "babel-loader": "^8.2.2",
-    "babel-plugin-root-import": "^6.6.0"
+    "babel-plugin-root-import": "^6.6.0",
+    "jsdoc": "^4.0.2"
   }
 }
