@@ -1,5 +1,5 @@
 import { OrsParser } from "../node_modules/@ocdladefense/ors/dist/parser.js";
-import { Network } from "../node_modules/@ocdladefense/ors/dist/Network.js";
+import OregonLegislatureNetwork from "../node_modules/@ocdladefense/ors/dist/Network.js";
 import { InlineModal } from "../node_modules/@ocdladefense/modal/dist/inline-modal.js";
 import domReady from "../node_modules/@ocdladefense/web/src/web.js";
 import {BooksOnlineController} from "./BooksOnlineController.js";
@@ -55,7 +55,7 @@ function init() {
         inline.show(x, y-141);
 
 
-        let chapter = await Network.fetchOrs(chapterNum);
+        let chapter = await OregonLegislatureNetwork.fetchOrs({chapter:chapterNum});
         let startId = "section-" + parseInt(startSection);
         let endId = chapter.getNextSectionId(startId);
         console.log(endId);

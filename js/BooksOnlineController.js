@@ -1,4 +1,4 @@
-import { Network } from "../node_modules/@ocdladefense/ors/dist/Network.js";
+import OregonLegislatureNetwork from "../node_modules/@ocdladefense/ors/dist/Network.js";
 import { OrsParser } from "../node_modules/@ocdladefense/ors/dist/parser.js";
 import { Modal } from "../node_modules/@ocdladefense/modal/dist/modal.js";
 
@@ -17,6 +17,7 @@ class BooksOnlineController {
         // Full-screen modal.
         this.modal = new Modal();
         window.modal = this.modal;
+        OregonLegislatureNetwork.setUrl("includes/index.php");
     }
 
     /**
@@ -70,7 +71,7 @@ class BooksOnlineController {
         let chapterNum = parseInt(c);
         let sectionNum = parseInt(s);
 
-        let chapter = await Network.fetchOrs(chapterNum);
+        let chapter = await OregonLegislatureNetwork.fetchOrs({chapter: chapterNum});
 
         // let vols = Ors.buildVolumes();
         let toc = chapter.buildToc();
