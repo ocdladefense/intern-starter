@@ -3,7 +3,10 @@ require "bootstrap.php";
 
 
 
+loadEnv();
 
+$route = getRoute();
 
+$out = render($route);
 
-print render();
+print $out;
