@@ -35,9 +35,24 @@ class Autocomplete extends HTMLElement {
         // Create some CSS to apply to the shadow DOM
         const style = document.createElement("style");
         style.textContent = `
-        @import "css/form.css";
         * {
             box-sizing: border-box;
+        }
+        input {
+            max-width: 100%;
+            font-size: inherit;
+            padding: 13px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            color: rgba(0,0,0,0.5);
+            padding: 3px;
+            padding-left: 5px;
         }
         label {
             text-transform:uppercase;
