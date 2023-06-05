@@ -5,22 +5,7 @@ require(BASE_PATH . "/vendor/autoload.php");
 define("THEME_PATH", BASE_PATH . "/themes");
 define("UPLOAD_PATH", BASE_PATH . "/content");
 
-global $hostdata;
-
-$hostdata = array(
-    "default" => array(
-        "theme" => "biere-library"
-    ),
-    "thebierelibrary.com" => array(
-        "theme" => "biere-library"
-    ),
-    "appdev.ocdla.org" => array(
-        "theme" => "books-online"
-    ),
-    "ocdla.app" => array(
-        "theme" => "books-online"
-    )
-);
+require BASE_PATH . "/sites/sites.php";
 
 function getSite() {
     global $hostdata;
