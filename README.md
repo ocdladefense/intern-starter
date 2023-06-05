@@ -2,7 +2,7 @@
 Demonstrate PHP, HTTP request/response, and JavaScript competency.  Uses PHP and JavaScript package management facilities via Composer and NPM.
 
 ## What does it do?
-See the [example link](https://appdev.ocdla.org/intern-starter/example.php).  The project automatically converts inline references to Oregon Revised Statutes (ORS) to HTML links.  The links then provide inline and full-screen modal features containing the text of the referenced legal statutes.
+See the [example link](https://appdev.ocdla.org/simple-server/duii/1).  The project automatically converts inline references to Oregon Revised Statutes (ORS) to HTML links.  The links then provide inline and full-screen modal features containing the text of the referenced legal statutes.
 
 ## Dependencies
 * Apache >= 2.4
@@ -17,10 +17,9 @@ Intern-starter should be installed in a working sub-directory of an Apache2 web 
 ```bash
 git clone [this-repository-url]
 cd [this-repository-folder]
-composer update
 // Git checkout main and git pull on relevant node modules (node_modules/@ocdladefense/)
 git submodule update --init --recursive
-npm install --savedev
+composer install
 npm install
 npm update
 ```
