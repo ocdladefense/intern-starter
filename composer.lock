@@ -81,12 +81,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ocdladefense/lib-php-template.git",
-                "reference": "b989634a5bcdac3c7e4994c1ed743ac21c4c87a3"
+                "reference": "b775027797a33f02c22d6fdbd3aeb27a111ff5bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ocdladefense/lib-php-template/zipball/b989634a5bcdac3c7e4994c1ed743ac21c4c87a3",
-                "reference": "b989634a5bcdac3c7e4994c1ed743ac21c4c87a3",
+                "url": "https://api.github.com/repos/ocdladefense/lib-php-template/zipball/b775027797a33f02c22d6fdbd3aeb27a111ff5bb",
+                "reference": "b775027797a33f02c22d6fdbd3aeb27a111ff5bb",
                 "shasum": ""
             },
             "type": "library",
@@ -106,7 +106,7 @@
                 "issues": "https://github.com/ocdladefense/lib-php-template/issues",
                 "source": "https://github.com/ocdladefense/lib-php-template/tree/development"
             },
-            "time": "2023-05-25T01:45:55+00:00"
+            "time": "2023-06-01T22:09:01+00:00"
         }
     ],
     "packages-dev": [],

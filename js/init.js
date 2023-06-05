@@ -7,8 +7,6 @@ import {BooksOnlineController} from "./BooksOnlineController.js";
 
 
 
-
-
 // Convert the document to be ORS-ready.
 const controller = new BooksOnlineController();
 let inlineModalFired = false;
@@ -17,6 +15,7 @@ let inlineModalFired = false;
 domReady(() => document.addEventListener("click", controller));
 domReady(() => controller.convert(".chapter"));
 domReady(init);         
+
 
 
 
