@@ -11,7 +11,7 @@
 .env
 
 /sites/*
-!/sites/.gitkeep
+!/sites/sites-example.php
 
 /themes/*
 !/themes/.gitkeep
