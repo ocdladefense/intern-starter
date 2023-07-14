@@ -3,6 +3,7 @@
     "description": "Test repo for connecting to the Salesforce REST API.",
     "type": "wordpress-theme",
     "license": "MIT",
+    "minimum-stability":"dev",
     "authors": [
         {
             "name": "Christian Collis",
@@ -17,13 +18,24 @@
             "email": "jbernal.web.dev@gmail.com"
         }
     ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/ocdladefense/lib-php-router"
+        }
+    ],
     "require": {
         "ocdladefense/lib-http":"~3.0",
-        "ocdladefense/lib-php-template":"dev-development",
+        "ocdladefense/lib-php-template":"~2.0",
+        "ocdladefense/lib-php-router": "dev-development",
         "ocdladefense/lib-date": "dev-development"
     },
     "config": {
         "allow-plugins": {
-            "composer/installers": true        }
+            "composer/installers": true
+        },
+        "preferred-install": {
+            "ocdladefense/*": "source"
+        }
     }
 }

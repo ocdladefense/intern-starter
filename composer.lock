@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7640583e5d7f6fbf444043ea5dff8d8b",
+    "content-hash": "4862d39649f2edd8f052efa05ff370f3",
     "packages": [
         {
             "name": "ocdladefense/lib-date",
@@ -76,20 +76,52 @@
             "time": "2022-10-03T22:06:01+00:00"
         },
         {
+            "name": "ocdladefense/lib-php-router",
+            "version": "dev-development",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ocdladefense/lib-php-router.git",
+                "reference": "e7f557b4edc505989e3a86bfa8298a495c015851"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ocdladefense/lib-php-router/zipball/e7f557b4edc505989e3a86bfa8298a495c015851",
+                "reference": "e7f557b4edc505989e3a86bfa8298a495c015851",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "support": {
+                "source": "https://github.com/ocdladefense/lib-php-router/tree/development",
+                "issues": "https://github.com/ocdladefense/lib-php-router/issues"
+            },
+            "time": "2023-06-05T08:09:41+00:00"
+        },
+        {
             "name": "ocdladefense/lib-php-template",
             "version": "dev-development",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ocdladefense/lib-php-template.git",
-                "reference": "b775027797a33f02c22d6fdbd3aeb27a111ff5bb"
+                "reference": "e2ecf1690fc2357c7392107c672996e719670013"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ocdladefense/lib-php-template/zipball/b775027797a33f02c22d6fdbd3aeb27a111ff5bb",
-                "reference": "b775027797a33f02c22d6fdbd3aeb27a111ff5bb",
+                "url": "https://api.github.com/repos/ocdladefense/lib-php-template/zipball/e2ecf1690fc2357c7392107c672996e719670013",
+                "reference": "e2ecf1690fc2357c7392107c672996e719670013",
                 "shasum": ""
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.x-dev",
+                    "dev-development": "2.0.x-dev"
+                }
+            },
             "autoload": {
                 "classmap": [
                     "src/"
@@ -106,14 +138,14 @@
                 "issues": "https://github.com/ocdladefense/lib-php-template/issues",
                 "source": "https://github.com/ocdladefense/lib-php-template/tree/development"
             },
-            "time": "2023-06-01T22:09:01+00:00"
+            "time": "2023-06-05T07:02:25+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
-        "ocdladefense/lib-php-template": 20,
+        "ocdladefense/lib-php-router": 20,
         "ocdladefense/lib-date": 20
     },
     "prefer-stable": false,
