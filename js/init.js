@@ -1,4 +1,4 @@
-import { OrsParser } from "../node_modules/@ocdladefense/ors/dist/parser.js";
+
 import OregonLegislatureNetwork from "../node_modules/@ocdladefense/ors/dist/Network.js";
 import { InlineModal } from "../node_modules/@ocdladefense/modal/dist/inline-modal.js";
 import domReady from "../node_modules/@ocdladefense/web/src/web.js";

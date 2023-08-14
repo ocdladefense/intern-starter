@@ -1,5 +1,5 @@
 import OregonLegislatureNetwork from "../node_modules/@ocdladefense/ors/dist/Network.js";
-import { OrsParser } from "../node_modules/@ocdladefense/ors/dist/parser.js";
+import { OrsParser } from "../node_modules/@ocdladefense/ors/dist/OrsParser.js";
 import { Modal } from "../node_modules/@ocdladefense/modal/dist/modal.js";
 
 export {BooksOnlineController};
@@ -99,10 +99,15 @@ class BooksOnlineController {
     convert(selector) {
         var body = document.querySelector(selector);
 
-        var text = body.innerHTML;
-        var parsed = OrsParser.replaceAll(text);
+        let nodes = body.querySelectorAll("p");
+        for(var p of nodes.values()) {
+            let text = OrsParser.replaceAll(p.innerHTML);
+            p.innerHTML = text;
+        }
+        // var text = body.innerHTML;
+        // var parsed = OrsParser.replaceAll(text);
 
-        body.innerHTML = parsed;
+        // body.innerHTML = parsed;
     }
 
 }
