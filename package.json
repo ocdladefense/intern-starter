@@ -20,6 +20,7 @@
   "dependencies": {
     "@ocdladefense/books-online": "file:dev_modules/node-books-online",
     "@ocdladefense/lib-http": "file:dev_modules/node-lib-http",
+    "@ocdladefense/lib-mock": "file:dev_modules/node-lib-mock",
     "@ocdladefense/dom": "file:dev_modules/node-dom",
     "@ocdladefense/html": "file:dev_modules/node-html",
     "@ocdladefense/modal": "file:dev_modules/node-modal",
@@ -30,6 +31,8 @@
     "@ocdladefense/web": "file:dev_modules/node-web",
     "@ocdladefense/webc-autocomplete": "file:dev_modules/webc-autocomplete",
     "@ocdladefense/webc-events": "file:dev_modules/webc-events",
+    "@ocdladefense/webc-ors": "file:dev_modules/webc-ors",
+    "@ocdladefense/webc-oar": "file:dev_modules/webc-oar",
     "babel-plugin-inline-dotenv": "^1.7.0",
     "npm-watch": "^0.11.0"
   },

@@ -61,7 +61,6 @@ function getRoute() {
 
 function render($route) {
 
-
     // var_dump($requestPath,$basePath,$route);exit;
 
     $out = getThemePath() . "/{$route}.tpl.php";
@@ -70,7 +69,7 @@ function render($route) {
     $contentPath = getContentPath();
 
     
-    $vars = array();
+    $vars = array("route"=>$route);
 
     if(function_exists("preprocess")) {
         preprocess($vars);

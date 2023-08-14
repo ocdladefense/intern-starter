@@ -37,5 +37,13 @@
         "preferred-install": {
             "ocdladefense/*": "source"
         }
+    },
+    "scripts": {
+        "pre-autoload-dump": "Google\\Task\\Composer::cleanup"
+    },
+    "extra": {
+        "google/apiclient-services": [
+            "Calendar"
+        ]
     }
 }

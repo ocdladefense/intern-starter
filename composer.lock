@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4862d39649f2edd8f052efa05ff370f3",
+    "content-hash": "b6bcb3267614ffe020d295bc7326cfc2",
     "packages": [
         {
             "name": "ocdladefense/lib-date",
@@ -107,12 +107,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ocdladefense/lib-php-template.git",
-                "reference": "e2ecf1690fc2357c7392107c672996e719670013"
+                "reference": "c6da65492f551352c575627b4700b5af3b78ec1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ocdladefense/lib-php-template/zipball/e2ecf1690fc2357c7392107c672996e719670013",
-                "reference": "e2ecf1690fc2357c7392107c672996e719670013",
+                "url": "https://api.github.com/repos/ocdladefense/lib-php-template/zipball/c6da65492f551352c575627b4700b5af3b78ec1e",
+                "reference": "c6da65492f551352c575627b4700b5af3b78ec1e",
                 "shasum": ""
             },
             "type": "library",
@@ -138,7 +138,7 @@
                 "issues": "https://github.com/ocdladefense/lib-php-template/issues",
                 "source": "https://github.com/ocdladefense/lib-php-template/tree/development"
             },
-            "time": "2023-06-05T07:02:25+00:00"
+            "time": "2023-06-05T08:25:11+00:00"
         }
     ],
     "packages-dev": [],
