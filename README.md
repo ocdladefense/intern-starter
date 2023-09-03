@@ -13,7 +13,6 @@ Intern-starter should be installed in a working sub-directory of an Apache2 web 
 ```bash
 git clone https://github.com/ocdladefense/intern-starter.git
 cd $APACHE_DOCUMENTS_DIR/intern-starter
-git submodule update --init --recursive
 composer update
 npm update
 cp sites/example-sites.php sites/sites.php
