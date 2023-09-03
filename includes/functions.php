@@ -1,15 +1,20 @@
 <?php
 
+
+
 function getSite() {
     global $hostdata;
     $host = $_GET["host"] ?? $_SERVER["HTTP_HOST"];
-    return $hostdata[$host];
+
+    return $hostdata[$host] ?? $hostdata["default"];
 }
 
 
 function getSitePath() {
     $site = getSite();
     $host = $_GET["host"] ?? $_SERVER["HTTP_HOST"];
+    $host = $hostdata[$host] ?? "default";
+
     return BASE_PATH . "/sites/" . $host;
 }
 
@@ -50,4 +55,3 @@ function getRoute() {
 
     return $route;
 }
-
