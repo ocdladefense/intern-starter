@@ -15,6 +15,7 @@
 
 /themes/*
 !/themes/.gitkeep
+!/themes/default
 
 /modules/*
 !/modules/.gitkeep
