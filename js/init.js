@@ -1,5 +1,5 @@
 
-import OregonLegislatureNetwork from "../node_modules/@ocdladefense/ors/dist/Network.js";
+import OregonLegislatureNetwork from "../node_modules/@ocdladefense/ors/src/Network.js";
 import { InlineModal } from "../node_modules/@ocdladefense/modal/dist/inline-modal.js";
 import domReady from "../node_modules/@ocdladefense/web/src/web.js";
 import {BooksOnlineController} from "./BooksOnlineController.js";

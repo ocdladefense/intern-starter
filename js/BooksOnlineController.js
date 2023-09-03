@@ -1,5 +1,5 @@
-import OregonLegislatureNetwork from "../node_modules/@ocdladefense/ors/dist/Network.js";
-import { OrsParser } from "../node_modules/@ocdladefense/ors/dist/OrsParser.js";
+import OregonLegislatureNetwork from "../node_modules/@ocdladefense/ors/src/Network.js";
+import { OrsParser } from "../node_modules/@ocdladefense/ors/src/OrsParser.js";
 import { Modal } from "../node_modules/@ocdladefense/modal/dist/modal.js";
 
 export {BooksOnlineController};
