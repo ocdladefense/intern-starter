@@ -18,3 +18,6 @@ npm update
 cp sites/example-sites.php sites/sites.php
 ```
 You should then be able to open a web browser and navigate to http://localhost/intern-starter.
+
+## More information
+For more information see the [server outline](https://docs.google.com/drawings/d/1eHy1dVjZhxTji9msrA00NKTfgfw7kxzlPjal8Utf40M/edit?usp=sharing)
