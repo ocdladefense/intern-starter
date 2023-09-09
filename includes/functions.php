@@ -42,8 +42,17 @@ function getContentUrl() {
 
 function loadEnv() {
     $configPath = getSitePath() . "/config.php";
-    require($configPath);
+    $funcPath = getSitePath() . "/functions.php";
+
+    if(file_exists($configPath)) {
+        require($configPath);
+    }
+
+    if(file_exists($funcPath)) {
+        require($funcPath);
+    }
 }
+
 
 
 function getRoute() {
