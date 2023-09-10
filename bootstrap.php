@@ -1,5 +1,5 @@
 <?php
-
+date_default_timezone_set('America/Los_Angeles');
 if(!defined("BASE_PATH")) define("BASE_PATH", __DIR__);
 require(BASE_PATH . "/vendor/autoload.php");
 require(BASE_PATH . "/includes/functions.php");

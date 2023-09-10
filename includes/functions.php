@@ -11,9 +11,12 @@ function getSite() {
 
 
 function getSitePath() {
+
+    global $hostdata;
+
     $site = getSite();
     $host = $_GET["host"] ?? $_SERVER["HTTP_HOST"];
-    $host = $hostdata[$host] ?? "default";
+    $host = isset($hostdata[$host]) ? $host : "default";
 
     return BASE_PATH . "/sites/" . $host;
 }
@@ -42,8 +45,17 @@ function getContentUrl() {
 
 function loadEnv() {
     $configPath = getSitePath() . "/config.php";
-    require($configPath);
+    $funcPath = getSitePath() . "/functions.php";
+  
+    if(true || file_exists($configPath)) {
+        require($configPath);
+    }
+
+    if(true || file_exists($funcPath)) {
+        require($funcPath);
+    }
 }
+
 
 
 function getRoute() {
