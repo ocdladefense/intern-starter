@@ -12,6 +12,7 @@
 
 /sites/*
 !/sites/sites-example.php
+!/sites/default
 
 /themes/*
 !/themes/.gitkeep
