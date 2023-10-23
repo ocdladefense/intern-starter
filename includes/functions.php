@@ -10,6 +10,34 @@ function getSite() {
 }
 
 
+
+function getTitle($route = null) {
+
+    global $meta;
+    
+    $NO_TITLE = "";
+    $DEFAULT_TITLE = "The Bière Library";
+
+    if(null == $route) {
+        return $NO_TITLE;
+    }
+
+    if(null == $meta[$route]) {
+        return $NO_TITLE;
+    }
+
+    return $meta[$route]["title"] ?? $DEFAULT_TITLE;
+}
+
+
+function getGaProperyId() {
+    global $ga_property_id;
+
+    return $ga_property_id;
+}
+
+
+
 function getSitePath() {
 
     global $hostdata;

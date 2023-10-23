@@ -11,7 +11,7 @@ function render($route) {
 
     $themeUrl = getThemeUrl();
     $contentPath = getContentPath();
-
+    $title = getTitle($route);
     
     $vars = array("route"=>$route);
 
