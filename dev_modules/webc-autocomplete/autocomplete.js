@@ -31,7 +31,11 @@ class Autocomplete extends HTMLElement {
         this.input = input;
         // Append it to the shadow root
         // shadow.appendChild(text);
-
+        /*
+                <form id="chapter-search" autocomplete="off" tab-index="-1">
+                    <div class="form-item">
+                        <label for="query" style="display:none;">Search term</label>
+        */
         // Create some CSS to apply to the shadow DOM
         const style = document.createElement("style");
         style.textContent = `
