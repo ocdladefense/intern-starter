@@ -63,7 +63,7 @@ function getContentPath() {
 
 function getThemeUrl() {
     $site = getSite();
-    return "themes/" . $site["theme"];
+    return "/themes/" . $site["theme"];
 }
 
 function getContentUrl() {
@@ -71,7 +71,7 @@ function getContentUrl() {
     return "sites/" . $host;
 }
 
-
+// This function is deprecated.
 function loadEnv() {
     $configPath = getSitePath() . "/config.php";
     $funcPath = getSitePath() . "/functions.php";

@@ -3,7 +3,7 @@ require "bootstrap.php";
 
 
 
-loadEnv();
+// loadEnv();
 
 // $route = getRoute();
 // $out = render($route);
