@@ -10,6 +10,9 @@
 
 .env
 
+/robots.txt
+
+
 /sites/*
 !/sites/sites-example.php
 !/sites/default
