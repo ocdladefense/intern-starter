@@ -22,6 +22,11 @@ class GoogleCalendarQueryRequest extends HttpRequest {
         $this->calendarId = $calId;
     }
 
+    public function setDate($date) {
+        $this->addParam("timeMin", $date);
+        // $this->addParam("timeMax", $date); 
+    }
+
     public function setRange($days) {
         $range = "+".$days." day";
         $today = explode("T",date('c'))[0];

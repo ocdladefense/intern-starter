@@ -13,9 +13,10 @@ $default_callback = function($req) {
 $event_callback = function($req) {
     // var_dump($req);exit;
     $params = explode("/", $req->path);
-    $name = $params[1];
-    $name = str_replace("-", " ", $name);
-    $vars = array("event"=>$name);
+    $date = $params[1];
+    $name = $params[2];
+    $name = preg_replace("/[\s\:\(\)\-]+/mis", " ", $name);
+    $vars = array("date" => $date, "event" => $name);
     return render($req, "event-details", $vars);
 };
 
@@ -26,7 +27,7 @@ $dummy_callback = function($req) {
 
 $router = new Router();
 $router->addRoute(new WildcardRoute($default_callback));
-$router->addRoute(new Route("event/%name", $event_callback));
+$router->addRoute(new Route("event/%date/%name", $event_callback));
 $route = $router->getMatchingRoute($req->path);
 
 if($route === false) {
