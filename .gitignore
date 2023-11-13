@@ -1,6 +1,6 @@
 # Ignore files with credentials.
 /config.php
-
+.htaccess
 /vendor
 
 
