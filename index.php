@@ -15,7 +15,9 @@ $event_callback = function($req) {
     $params = explode("/", $req->path);
     $date = $params[1];
     $name = $params[2];
-    $name = preg_replace("/[\s\:\(\)\-]+/mis", " ", $name);
+    $name = preg_replace("/[\s\:\!\'\(\)\-]+/mis", " ", $name);
+    $name = preg_replace("/[\!\']+/mis", "", $name);
+    // print $name; exit;
     $vars = array("date" => $date, "event" => $name);
     return render($req, "event-details", $vars);
 };
