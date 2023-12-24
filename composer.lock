@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b6bcb3267614ffe020d295bc7326cfc2",
+    "content-hash": "d3c6960d797126eb9bf72e03a1e5da1e",
     "packages": [
         {
             "name": "ocdladefense/lib-date",
@@ -36,16 +36,16 @@
         },
         {
             "name": "ocdladefense/lib-http",
-            "version": "v3.6.8",
+            "version": "v3.6.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ocdladefense/lib-http.git",
-                "reference": "e20d8ec814a09ae4b07eb068a49300e981a7d0ac"
+                "reference": "0104c7c862e759236c98b04bee2dfedae61aed6f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ocdladefense/lib-http/zipball/e20d8ec814a09ae4b07eb068a49300e981a7d0ac",
-                "reference": "e20d8ec814a09ae4b07eb068a49300e981a7d0ac",
+                "url": "https://api.github.com/repos/ocdladefense/lib-http/zipball/0104c7c862e759236c98b04bee2dfedae61aed6f",
+                "reference": "0104c7c862e759236c98b04bee2dfedae61aed6f",
                 "shasum": ""
             },
             "type": "library",
@@ -71,35 +71,9 @@
             "description": "PHP wrapper classes for curl functions.",
             "support": {
                 "issues": "https://github.com/ocdladefense/lib-http/issues",
-                "source": "https://github.com/ocdladefense/lib-http/tree/v3.6.8"
+                "source": "https://github.com/ocdladefense/lib-http/tree/v3.6.11"
             },
-            "time": "2022-10-03T22:06:01+00:00"
-        },
-        {
-            "name": "ocdladefense/lib-php-router",
-            "version": "dev-development",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ocdladefense/lib-php-router.git",
-                "reference": "e7f557b4edc505989e3a86bfa8298a495c015851"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ocdladefense/lib-php-router/zipball/e7f557b4edc505989e3a86bfa8298a495c015851",
-                "reference": "e7f557b4edc505989e3a86bfa8298a495c015851",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "support": {
-                "source": "https://github.com/ocdladefense/lib-php-router/tree/development",
-                "issues": "https://github.com/ocdladefense/lib-php-router/issues"
-            },
-            "time": "2023-06-05T08:09:41+00:00"
+            "time": "2023-10-11T20:48:19+00:00"
         },
         {
             "name": "ocdladefense/lib-php-template",
@@ -139,13 +113,51 @@
                 "source": "https://github.com/ocdladefense/lib-php-template/tree/development"
             },
             "time": "2023-06-05T08:25:11+00:00"
+        },
+        {
+            "name": "ocdladefense/lib-routing",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ocdladefense/lib-routing.git",
+                "reference": "250e1743767511a38df3622e878471bb301eb87e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ocdladefense/lib-routing/zipball/250e1743767511a38df3622e878471bb301eb87e",
+                "reference": "250e1743767511a38df3622e878471bb301eb87e",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jose Bernal",
+                    "email": "jbernal.web.dev@gmail.com"
+                }
+            ],
+            "description": "Facilitate routing between HTTP Requests and native server functions.",
+            "support": {
+                "issues": "https://github.com/ocdladefense/lib-routing/issues",
+                "source": "https://github.com/ocdladefense/lib-routing/tree/main"
+            },
+            "time": "2023-10-31T04:20:23+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "ocdladefense/lib-php-router": 20,
+        "ocdladefense/lib-routing": 20,
         "ocdladefense/lib-date": 20
     },
     "prefer-stable": false,

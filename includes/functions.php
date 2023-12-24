@@ -68,7 +68,7 @@ function getThemeUrl() {
 
 function getContentUrl() {
     $host = $_GET["host"] ?? $_SERVER["HTTP_HOST"];
-    return "sites/" . $host;
+    return "/sites/" . $host;
 }
 
 // This function is deprecated.
@@ -117,69 +117,3 @@ function getRoute() {
 
 
 
-
-
-
-
-class Router {
-
-
-    private $routes = array();
-
-
-    public function __construct() {
-        $this->routes = array_map(function($item) {
-            return new Route($item);
-        },["/event/%"]);
-
-        array_unshift($this->routes, new WildCardRoute());
-    }
-
-
-    public function getRouteMatchingRequest($req) {
-        return $this->routes[0];
-    }
-
-    public function addRoute(Route $route) {
-        array_unshift($this->routes, $route);
-    }
-
-
-}
-
-
-
-class WildCardRoute extends Route {
-
-
-    public function __construct($callback = null) {
-        $this->pattern = "*";
-        $this->callback = $callback ??  function($req){return "The default route callback.";};
-    }
-
-
-    public function matches($req) {
-        return true;
-    }
-
-
-}
-
-
-
-class Route {
-
-    protected $pattern;
-
-    protected $callback;
-
-
-
-    public function matches($req) {
-        return false;
-    }
-
-    public function getCallback() {
-        return $this->callback;
-    }
-}

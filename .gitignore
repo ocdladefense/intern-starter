@@ -1,6 +1,6 @@
 # Ignore files with credentials.
 /config.php
-
+.htaccess
 /vendor
 
 
@@ -9,6 +9,9 @@
 /scratch_pad.js
 
 .env
+
+/robots.txt
+
 
 /sites/*
 !/sites/sites-example.php
