@@ -1,31 +1,44 @@
 <?php
+
+namespace GoogleCalendar;
+
+
 use Http\HttpMessage;
 use Http\HttpRequest;
 use Http\Url;
+use \DateTime as DateTime;
 
-class GoogleCalendarQueryRequest extends HttpRequest {
+
+
+
+/**
+ * @class GoogleCalendar\QueryRequest
+ * 
+ * This class correctly formats POST parameters
+ */
+class QueryRequest extends HttpRequest {
 
     protected $params = array();  
-    /*
-    $today = explode("T",date('c'))[0];
-    $todayDay = date('l');
-    $timeMax = (new DateTime($today))->modify('+3 day');
-    $end = explode("T",date_format($timeMax,'c'))[0];
 
-    $params = isset($params) ? $params : array(
-        "timeMin" => $today,
-        "timeMax" => $end,
-        "maxResults" => 5 // Need to accommodate multiple happy hour entries.
-    );
-    */
+
+
+    public function __construct($url) {
+        $this->url = $url;
+
+        $today = explode("T",date('c'))[0];
+        $this->addParam("timeMin", $today);
+    }
+
+
     public function setCalendarId($calId) {
         $this->calendarId = $calId;
     }
 
+
     public function setDate($date) {
         $this->addParam("timeMin", $date);
-        // $this->addParam("timeMax", $date); 
     }
+
 
     public function setRange($days) {
         $range = "+".$days." day";
@@ -37,12 +50,7 @@ class GoogleCalendarQueryRequest extends HttpRequest {
         $this->addParam("timeMax", $end);
     }
 
-    public function __construct($url) {
-        $this->url = $url;
 
-        $today = explode("T",date('c'))[0];
-        $this->addParam("timeMin", $today);
-    }
 
 
     public function getUrl() {
