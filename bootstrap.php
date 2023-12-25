@@ -13,11 +13,10 @@ require BASE_PATH . "/sites/sites.php";
 
 $configPath = getSitePath() . "/config.php";
 $funcPath = getSitePath() . "/functions.php";
+$widgetPath = getSitePath() . "/widgets.php";
 
-if(true || file_exists($configPath)) {
-    require($configPath);
-}
+foreach(["config","functions","widgets"] as $name) {
+    $path = getSitePath() . "/" . $name . ".php";
 
-if(true || file_exists($funcPath)) {
-    require($funcPath);
+    require $path;
 }
