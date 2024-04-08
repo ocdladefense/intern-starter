@@ -21,3 +21,28 @@ You should then be able to open a web browser and navigate to http://localhost/i
 
 ## More information
 For more information see the [server outline](https://docs.google.com/drawings/d/1eHy1dVjZhxTji9msrA00NKTfgfw7kxzlPjal8Utf40M/edit?usp=sharing)
+=======
+
+# The Biere Library Instagram Integration
+
+## Possible Tags
+* #bl-home
+* #bl-event
+* #bl-drink-The-Drink-Name
+* #bl-food-The-Food-Name
+* #bl-event-The-Event-Name
+
+
+## Reference Links
+
+### Retrieve recent posts by tag name
+```
+// Retrieve posts by tag name
+https://api.instagram.com/v1/tags/{tag-name}/media/recent?access_token={token}
+```
+
+### Retrieve recent posts
+```
+// Retrieve recent posts for the specified user (by user id)
+https://api.instagram.com/v1/users/45951573/media/recent/?access_token={token}
+```
