@@ -50,7 +50,8 @@ function theme($req, $out = "") {
     $title = getTitle($route);
     $meta = getMetaTags($route);
 
-    $meta = implode("\n", $meta);
+    
+    $meta = null == $meta ? "" : implode("\n", $meta);
     
     $vars = array(
         "route" => $route,
