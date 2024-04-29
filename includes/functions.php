@@ -31,6 +31,27 @@ function getTitle($route = null) {
 }
 
 
+function getMetaTags($route = null) {
+
+    global $meta;
+    
+    $NO_META = null;
+
+    if(null == $route) {
+        return $NO_META;
+    }
+
+
+    if(!isset($meta[$route]) || !isset($meta[$route]["meta"])) {
+        return $NO_META;
+    }
+
+    return array_map(function($tag) { return Html\HtmlMeta($tag); }, $meta[$route]["meta"]);
+}
+
+
+
+
 function getGaProperyId() {
     global $ga_property_id;
 
