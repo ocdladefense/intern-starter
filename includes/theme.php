@@ -48,6 +48,9 @@ function theme($req, $out = "") {
     $themeUrl = getThemeUrl();
     $contentPath = getContentPath();
     $title = getTitle($route);
+    $meta = getMetaTags($route);
+
+    $meta = implode("\n", $meta);
     
     $vars = array(
         "route" => $route,

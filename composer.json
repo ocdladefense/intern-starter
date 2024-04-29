@@ -18,15 +18,10 @@
             "email": "jbernal.web.dev@gmail.com"
         }
     ],
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/ocdladefense/lib-php-router"
-        }
-    ],
     "require": {
         "ocdladefense/lib-http":"dev-development",
-        "ocdladefense/lib-routing": "dev-development"
+        "ocdladefense/lib-routing": "dev-main",
+        "ocdladefense/lib-html": "dev-development"
     },
     "config": {
         "allow-plugins": {
